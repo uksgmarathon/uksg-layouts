@@ -17,6 +17,9 @@ on:
         required: false
         default: 'build'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
