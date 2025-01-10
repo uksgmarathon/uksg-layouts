@@ -1,14 +1,14 @@
 {
-  "name": "nodecg-vue-ts-template",
-  "version": "2.0.0",
-  "description": "Template for NodeCG bundles that use Vue.js and TypeScript.",
-  "homepage": "https://github.com/zoton2/nodecg-vue-ts-template#readme",
+  "name": "uksg-layouts",
+  "version": "1.0.0",
+  "description": "The on-screen graphics used during the UKSG (United Kingdom Speedrunner Gathering) events.",
+  "homepage": "https://github.com/zoton2/uksg-layouts#readme",
   "bugs": {
-    "url": "https://github.com/zoton2/nodecg-vue-ts-template/issues"
+    "url": "https://github.com/zoton2/uksg-layouts/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zoton2/nodecg-vue-ts-template.git"
+    "url": "git+https://github.com/zoton2/uksg-layouts.git"
   },
   "license": "MIT",
   "author": "zoton2",
@@ -48,9 +48,9 @@
     "vue": "^3.5.13",
     "vue-tsc": "~2.1.10"
   },
-  "overrides": {
-    "vite-plugin-nodecg": {
-      "vite": "$vite"
+  "pnpm": {
+    "overrides": {
+      "vite-plugin-nodecg>vite": "$vite"
     }
   },
   "nodecg": {
@@ -70,5 +70,10 @@
         "height": 1080
       }
     ]
+  },
+  "overrides": {
+    "vite-plugin-nodecg": {
+      "vite": "$vite"
+    }
   }
 }
