@@ -1,0 +1,100 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+    inputs:
+      base_branch:
+        description: 'Name of branch to base build on'
+        type: string
+        required: false
+        default: 'main'
+      build_branch:
+        description: 'Name of branch to commit build to'
+        type: string
+        required: false
+        default: 'build'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the base branch of this repository with full depth
+    - name: Checkout this repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets['GITHUB_TOKEN'] }}
+        ref: ${{ inputs.base_branch || 'main' }}
+        fetch-depth: 0
+
+    # Set the local git user config to use the GitHub Actions bot account
+    - name: Set local git config user details
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+
+    # Recheckout both the base and build branches and merge the base into build
+    # This can "fail" if the build branch doesn't exist, but we should continue anyway
+    - name: (Re)checkout both branches and merge main into build
+      continue-on-error: true
+      run: |
+        git checkout ${{ inputs.base_branch || 'main' }}
+        git checkout ${{ inputs.build_branch || 'build' }}
+        git merge ${{ inputs.base_branch || 'main' }}
+
+    # Setup some Node stuff
+    - name: Node.js setup
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    # Install pnpm
+    - uses: pnpm/action-setup@v4
+      name: Install pnpm
+      with:
+        version: 9
+
+    # Gets pnpm's store directory (for next step)
+    - name: Get pnpm store directory
+      id: pnpm-cache
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+    # Set pnpm cache options
+    - uses: actions/cache@v4
+      name: Setup pnpm cache
+      with:
+        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+    # Install pnpm dependencies
+    - name: Install pnpm dependencies
+      run: |
+        pnpm i --frozen-lockfile
+
+    # Actually build everything
+    - name: Build
+      run: |
+        pnpm run build
+
+    # Commit newly built files
+    # This can "fail" if there are no newly changed/built files, but we should continue anyway
+    - name: Commit built files
+      id: commit
+      continue-on-error: true
+      run: |
+        git add -f dashboard graphics extension shared/dist
+        git commit -m "Built files" -a
+
+    # Pushes the built files to a specific branch
+    - name: Push built files to build branch
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets['GITHUB_TOKEN'] }}
+        branch: ${{ inputs.build_branch || 'build' }}
