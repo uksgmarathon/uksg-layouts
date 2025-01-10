@@ -1,0 +1,74 @@
+{
+  "name": "nodecg-vue-ts-template",
+  "version": "2.0.0",
+  "description": "Template for NodeCG bundles that use Vue.js and TypeScript.",
+  "homepage": "https://github.com/zoton2/nodecg-vue-ts-template#readme",
+  "bugs": {
+    "url": "https://github.com/zoton2/nodecg-vue-ts-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoton2/nodecg-vue-ts-template.git"
+  },
+  "license": "MIT",
+  "author": "zoton2",
+  "type": "module",
+  "scripts": {
+    "autofix": "eslint --fix",
+    "prebuild": "trash ./extension && trash ./node_modules/.vite && trash ./shared/dist && trash ./dashboard && trash ./graphics",
+    "build": "vite build && tsc -b tsconfig.extension.json",
+    "lint": "eslint",
+    "schema-types": "nodecg schema-types",
+    "start": "node ../..",
+    "watch": "conc -n B,E -c red,blue -k vite \"tsc -b -w --preserveWatchOutput tsconfig.extension.json\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@nodecg/types": "^2.3.2",
+    "@quasar/extras": "^1.16.15",
+    "@quasar/vite-plugin": "^1.8.1",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.10.2",
+    "@unhead/vue": "^1.11.14",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-typescript": "^14.2.0",
+    "@vue/tsconfig": "^0.7.0",
+    "concurrently": "^9.1.1",
+    "eslint": "^9.17.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "nodecg-vue-composable": "^1.1.0",
+    "quasar": "^2.17.5",
+    "sass-embedded": "^1.83.0",
+    "trash-cli": "^6.0.0",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2",
+    "vite": "^6.0.6",
+    "vite-plugin-checker": "^0.8.0",
+    "vite-plugin-nodecg": "^2.1.0",
+    "vue": "^3.5.13",
+    "vue-tsc": "~2.1.10"
+  },
+  "overrides": {
+    "vite-plugin-nodecg": {
+      "vite": "$vite"
+    }
+  },
+  "nodecg": {
+    "compatibleRange": "^2.3.0",
+    "dashboardPanels": [
+      {
+        "name": "example",
+        "title": "Example",
+        "file": "example/main.html",
+        "width": 3
+      }
+    ],
+    "graphics": [
+      {
+        "file": "example/main.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  }
+}
