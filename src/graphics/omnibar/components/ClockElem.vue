@@ -43,6 +43,7 @@
 }
 
 .Date {
+  padding-top: 5px;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
