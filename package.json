@@ -27,6 +27,7 @@
     "@nodecg/types": "^2.3.2",
     "@quasar/extras": "^1.16.15",
     "@quasar/vite-plugin": "^1.8.1",
+    "@stylistic/eslint-plugin": "^2.12.1",
     "@tsconfig/node22": "^22.0.0",
     "@types/node": "^22.10.2",
     "@unhead/vue": "^1.11.14",
