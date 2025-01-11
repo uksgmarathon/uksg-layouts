@@ -1,0 +1,50 @@
+/* TODO: thin this out! */
+@import url('@fontsource/metropolis/100.css');
+@import url('@fontsource/metropolis/200.css');
+@import url('@fontsource/metropolis/300.css');
+@import url('@fontsource/metropolis/400.css');
+@import url('@fontsource/metropolis/500.css');
+@import url('@fontsource/metropolis/600.css');
+@import url('@fontsource/metropolis/700.css');
+@import url('@fontsource/metropolis/800.css');
+@import url('@fontsource/metropolis/900.css');
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Metropolis', sans-serif;
+  color: white;
+}
+
+/*
+  .Layout is used for the main layout "wrapper" element.
+  .Background isn't inside of the wrapper, so needs the same settings.
+*/
+.Layout, .Background {
+  width: 1920px;
+  height: 1080px;
+  position: fixed;
+}
+
+.Background {
+  background: no-repeat url('./background.png');
+}
+
+/* Flex helpers (.Flex or .FlexColumn). */
+*[class*="Flex"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.FlexColumn {
+  flex-direction: column;
+}
+
+.Fixed {
+  position: fixed;
+}
+
+.Capture {
+  background-color: black;
+}

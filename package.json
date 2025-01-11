@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@fontsource/metropolis": "^5.1.0",
     "@nodecg/types": "^2.3.2",
     "@quasar/extras": "^1.16.15",
     "@quasar/vite-plugin": "^1.8.1",
