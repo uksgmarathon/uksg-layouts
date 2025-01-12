@@ -1,4 +1,4 @@
-/* TODO: thin this out! */
+/* TODO: Thin this out! */
 @import url('@fontsource/metropolis/100.css');
 @import url('@fontsource/metropolis/200.css');
 @import url('@fontsource/metropolis/300.css');
@@ -8,6 +8,11 @@
 @import url('@fontsource/metropolis/700.css');
 @import url('@fontsource/metropolis/800.css');
 @import url('@fontsource/metropolis/900.css');
+
+/* TODO: Use SCSS/SASS variables if I can work out how to make it work in other files! */
+:root {
+  --border-colour: #44a0e3;
+}
 
 body {
   overflow: hidden;
@@ -48,3 +53,15 @@ body {
 .Capture {
   background-color: black;
 }
+
+/* Border helpers. */
+*[class*='Border'] {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  border-color: var(--border-colour);
+}
+.BorderTop { border-top-width: 3px ; }
+.BorderRight { border-right-width: 3px ; }
+.BorderBottom { border-bottom-width: 3px ; }
+.BorderLeft { border-left-width: 3px ; }
