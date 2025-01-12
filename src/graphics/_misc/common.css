@@ -12,6 +12,9 @@
 /* TODO: Use SCSS/SASS variables if I can work out how to make it work in other files! */
 :root {
   --border-colour: #44a0e3;
+  --dark-text-colour: #011f39;
+  --red-border-colour: #d00c5f;
+  --red-gradient: linear-gradient(155deg, rgba(178,15,57,1) 0%, rgba(170,15,57,1) 10%, rgba(170,15,57,0.7) 40%, rgba(208,12,95,0.3) 80%);
 }
 
 body {
