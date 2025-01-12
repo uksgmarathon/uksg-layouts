@@ -9,7 +9,7 @@ useHead({ title: 'omnibar' });
 
 <template>
   <div class="Layout">
-    <div class="Flex" :class="$style.Wrapper">
+    <div class="Flex BorderTop" :class="$style.Wrapper">
       <LeftBox />
       <TickerElem />
       <ClockElem />
@@ -26,8 +26,6 @@ useHead({ title: 'omnibar' });
   width: 100%;
   height: 80px;
   background: linear-gradient(52deg, #083758 30%, #214e6f 100%);
-  border-top: #44a0e3 3px solid;
-  box-sizing: border-box;
 }
 
 /* The logo "hovers" over the top of everything else so it cax extend outside of the bar. */

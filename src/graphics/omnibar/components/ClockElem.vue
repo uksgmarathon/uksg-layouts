@@ -20,7 +20,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #2f6f9d;
+  background-color: #2f6f9d; /* Different colour than other borders! */
   clip-path: polygon(
     0% 100%,
     0% 13px,
