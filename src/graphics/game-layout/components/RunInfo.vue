@@ -16,7 +16,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #d00c5f;
+  background: var(--red-border-colour);
   clip-path: polygon(
     0% 0%,                             /* outside top left */
     0 calc(100% - 25px),               /* outside bottom left upper */
@@ -36,7 +36,7 @@
 .Inner {
   width: 100%;
   height: 100%;
-  background: linear-gradient(155deg, rgba(178,15,57,1) 0%, rgba(170,15,57,1) 10%, rgba(170,15,57,0.7) 40%, rgba(208,12,95,0.3) 80%);
+  background: var(--red-gradient);
   padding: 25px;
   box-sizing: border-box;
   clip-path: polygon(
