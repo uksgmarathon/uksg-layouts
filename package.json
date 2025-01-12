@@ -24,9 +24,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@fontsource/metropolis": "^5.1.0",
     "@nodecg/types": "^2.3.2",
     "@quasar/extras": "^1.16.15",
     "@quasar/vite-plugin": "^1.8.1",
+    "@stylistic/eslint-plugin": "^2.12.1",
     "@tsconfig/node22": "^22.0.0",
     "@types/node": "^22.10.2",
     "@unhead/vue": "^1.11.14",
@@ -55,6 +57,9 @@
   },
   "nodecg": {
     "compatibleRange": "^2.3.0",
+    "bundleDependencies": {
+      "nodecg-speedcontrol": "^2.0.0"
+    },
     "dashboardPanels": [
       {
         "name": "example",
@@ -65,7 +70,12 @@
     ],
     "graphics": [
       {
-        "file": "example/main.html",
+        "file": "omnibar/main.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "game-layout/main.html",
         "width": 1920,
         "height": 1080
       }

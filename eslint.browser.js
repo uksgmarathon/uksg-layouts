@@ -1,4 +1,5 @@
 // @ts-check
+import stylistic from '@stylistic/eslint-plugin';
 import vueTsEslintConfig from '@vue/eslint-config-typescript';
 import pluginVue from 'eslint-plugin-vue';
 import tseslint from 'typescript-eslint';
@@ -9,9 +10,13 @@ export default tseslint.config({
     pluginVue.configs['flat/essential'],
     vueTsEslintConfig(),
   ],
+  plugins: {
+    '@stylistic': stylistic,
+  },
   rules: {
     // Allows "main.vue" files to be named as such.
     'vue/multi-word-component-names': ['error', { ignores: ['main'] }],
+    '@stylistic/quotes': ['error', 'single'],
   },
   files: [
     'src/browser_shared/**/*.ts',
