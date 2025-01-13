@@ -1,10 +1,25 @@
 {
+  "_CutOffBorderedElem-B2qoD7LL.js": {
+    "file": "assets/CutOffBorderedElem-B2qoD7LL.js",
+    "name": "CutOffBorderedElem",
+    "imports": [
+      "_vue.-sixQ7xP-BtbXu1Vr.js",
+      "__plugin-vue_export-helper-DlAUqK2U.js"
+    ],
+    "css": [
+      "assets/CutOffBorderedElem-DJfuRMf6.css"
+    ]
+  },
+  "_CutOffBorderedElem-DJfuRMf6.css": {
+    "file": "assets/CutOffBorderedElem-DJfuRMf6.css",
+    "src": "_CutOffBorderedElem-DJfuRMf6.css"
+  },
   "__plugin-vue_export-helper-DlAUqK2U.js": {
     "file": "assets/_plugin-vue_export-helper-DlAUqK2U.js",
     "name": "_plugin-vue_export-helper"
   },
-  "_vue.-sixQ7xP-BAYRRm1S.js": {
-    "file": "assets/vue.-sixQ7xP-BAYRRm1S.js",
+  "_vue.-sixQ7xP-BtbXu1Vr.js": {
+    "file": "assets/vue.-sixQ7xP-BtbXu1Vr.js",
     "name": "vue.-sixQ7xP"
   },
   "node_modules/.pnpm/@fontsource+metropolis@5.1.0/node_modules/@fontsource/metropolis/files/metropolis-latin-100-normal.woff": {
@@ -112,12 +127,12 @@
     "src": "node_modules/.pnpm/@quasar+extras@1.16.15/node_modules/@quasar/extras/roboto-font/web-font/KFOmCnqEu92Fr1Mu4mxM.woff"
   },
   "src/dashboard/example/main.ts": {
-    "file": "assets/main-CYnVGu2t.js",
+    "file": "assets/main-DgBL9xfF.js",
     "name": "main",
     "src": "src/dashboard/example/main.ts",
     "isEntry": true,
     "imports": [
-      "_vue.-sixQ7xP-BAYRRm1S.js"
+      "_vue.-sixQ7xP-BtbXu1Vr.js"
     ],
     "css": [
       "assets/main-BARFnp-z.css"
@@ -138,18 +153,59 @@
     "src": "src/graphics/_misc/background.png"
   },
   "src/graphics/game-layout/main.ts": {
-    "file": "assets/main-B9j17M1I.js",
+    "file": "assets/main-CkFguDdl.js",
     "name": "main",
     "src": "src/graphics/game-layout/main.ts",
     "isEntry": true,
     "imports": [
-      "_vue.-sixQ7xP-BAYRRm1S.js",
+      "_vue.-sixQ7xP-BtbXu1Vr.js",
+      "_CutOffBorderedElem-B2qoD7LL.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
-      "assets/main-THcds3rE.css"
+      "assets/main-rDPwpkAk.css"
     ],
     "assets": [
+      "assets/metropolis-latin-100-normal-CksYLfmg.woff2",
+      "assets/metropolis-latin-100-normal-BCCqxSfF.woff",
+      "assets/metropolis-latin-200-normal-D076pOME.woff2",
+      "assets/metropolis-latin-200-normal-DLIwyyOT.woff",
+      "assets/metropolis-latin-300-normal-zcEanPsD.woff2",
+      "assets/metropolis-latin-300-normal-DjbTI9h2.woff",
+      "assets/metropolis-latin-400-normal-DKepXnDq.woff2",
+      "assets/metropolis-latin-400-normal-CQL1l97W.woff",
+      "assets/metropolis-latin-500-normal-C_TK2_yL.woff2",
+      "assets/metropolis-latin-500-normal-DxBi40p1.woff",
+      "assets/metropolis-latin-600-normal-D_dLm6Ff.woff2",
+      "assets/metropolis-latin-600-normal-CCsJ_uBM.woff",
+      "assets/metropolis-latin-700-normal-BZLKi5Gb.woff2",
+      "assets/metropolis-latin-700-normal-DkmpsX1S.woff",
+      "assets/metropolis-latin-800-normal-CRkYf3qf.woff2",
+      "assets/metropolis-latin-800-normal-DMucbtmj.woff",
+      "assets/metropolis-latin-900-normal-Cp8JEck3.woff2",
+      "assets/metropolis-latin-900-normal-GjlKygmi.woff",
+      "assets/background-DI1F5fgb.png"
+    ]
+  },
+  "src/graphics/intermission/components/Logo.png": {
+    "file": "assets/Logo-AGL4Vaf5.png",
+    "src": "src/graphics/intermission/components/Logo.png"
+  },
+  "src/graphics/intermission/main.ts": {
+    "file": "assets/main-PNsd3gSZ.js",
+    "name": "main",
+    "src": "src/graphics/intermission/main.ts",
+    "isEntry": true,
+    "imports": [
+      "_vue.-sixQ7xP-BtbXu1Vr.js",
+      "_CutOffBorderedElem-B2qoD7LL.js",
+      "__plugin-vue_export-helper-DlAUqK2U.js"
+    ],
+    "css": [
+      "assets/main-C-CiYasB.css"
+    ],
+    "assets": [
+      "assets/Logo-AGL4Vaf5.png",
       "assets/metropolis-latin-100-normal-CksYLfmg.woff2",
       "assets/metropolis-latin-100-normal-BCCqxSfF.woff",
       "assets/metropolis-latin-200-normal-D076pOME.woff2",
@@ -176,16 +232,16 @@
     "src": "src/graphics/omnibar/RedLogo.png"
   },
   "src/graphics/omnibar/main.ts": {
-    "file": "assets/main-BHokiQW6.js",
+    "file": "assets/main-CSCi3AXE.js",
     "name": "main",
     "src": "src/graphics/omnibar/main.ts",
     "isEntry": true,
     "imports": [
-      "_vue.-sixQ7xP-BAYRRm1S.js",
+      "_vue.-sixQ7xP-BtbXu1Vr.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
-      "assets/main-ClYQyxRh.css"
+      "assets/main-SArCQeUW.css"
     ],
     "assets": [
       "assets/RedLogo-CG5Sqoz-.png",
