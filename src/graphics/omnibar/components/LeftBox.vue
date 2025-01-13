@@ -43,7 +43,7 @@
 .Total {
   font-size: 36px;
   font-weight: 700;
-  color: #011f39;
+  color: var(--dark-text-colour);
   padding: 0 20px;
 }
 </style>
