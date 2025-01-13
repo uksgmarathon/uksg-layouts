@@ -55,7 +55,7 @@
 }
 
 .Subtitle {
-  font-size: 18px;
+  font-size: 24px;
   padding-top: 15px;
   font-weight: 500;
 }
