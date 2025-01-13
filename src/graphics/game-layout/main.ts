@@ -1,6 +1,8 @@
 import { createHead } from '@unhead/vue';
 import { createApp } from 'vue';
 import { createMemoryHistory, createRouter } from 'vue-router';
+import L_16x9_1p from './layouts/16x9-1p.vue';
+import L_16x9_2p from './layouts/16x9-2p.vue';
 import L_4x3_1p from './layouts/4x3-1p.vue';
 import L_4x3_2p from './layouts/4x3-2p.vue';
 import App from './main.vue';
