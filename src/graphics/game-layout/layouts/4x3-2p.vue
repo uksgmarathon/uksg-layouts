@@ -7,10 +7,10 @@ import TimerElem from '../components/TimerElem.vue';
 <template>
   <div>
     <RunInfo :class="$style.RunInfo" />
-    <TimerElem :class="$style.Timer" />
+    <TimerElem class="BorderBottom" :class="$style.Timer" />
     <!-- Game Feeds -->
-    <div class="Fixed Capture BorderTop BorderRight BorderBottom" :class="$style.GameFeed1" />
-    <div class="Fixed Capture BorderTop BorderLeft BorderBottom" :class="$style.GameFeed2" />
+    <div class="Fixed Capture BorderAll" :class="$style.GameFeed1" />
+    <div class="Fixed Capture BorderAll" :class="$style.GameFeed2" />
     <!-- Camera Feed -->
     <div class="Fixed Capture BorderTop BorderLeft BorderRight" :class="$style.CameraFeed" />
     <!-- Runners/Players -->
@@ -54,70 +54,70 @@ import TimerElem from '../components/TimerElem.vue';
   z-index: 1;
   left: 0px;
   top: 0px;
-  width: 1124px;
-  height: 144px;
+  width: 1270px;
+  height: 97px;
 }
 
 .Timer {
-  left: 1124px;
+  left: 1270px;
   top: 0px;
-  width: 796px;
-  height: 141px;
+  width: 650px;
+  height: 97px;
 }
 
 .GameFeed1 {
-  left: 0px;
-  top: 141px;
-  width: 960px;
-  height: 544px;
+  left: 72px;
+  top: 94px;
+  width: 891px;
+  height: 666px;
 }
 
 .GameFeed2 {
-  left: 957px;
-  top: 141px;
-  width: 963px;
-  height: 544px;
+  left: 960px;
+  top: 94px;
+  width: 889px;
+  height: 666px;
 }
 
 .Player1 {
   left: 0px;
-  top: 682px;
-  width: 617px;
+  top: 757px;
+  width: 662px;
   height: 81px;
 }
 
 .Player2 {
-  left: 1303px;
-  top: 682px;
-  width: 617px;
+  left: 1258px;
+  top: 757px;
+  width: 662px;
   height: 81px;
 }
 
 .Host {
   left: 0px;
-  top: 760px;
+  top: 835px;
   width: 480px;
-  height: 54px;
+  height: 48px;
 }
 
 .Comm1 {
   left: 0px;
-  top: 811px;
+  top: 880px;
   width: 480px;
-  height: 55px;
+  height: 49px;
 }
 
 .Comm2 {
   left: 0px;
-  top: 862px;
+  top: 924px;
   width: 480px;
-  height: 55px;
+  height: 49px;
 }
 
 .CameraFeed {
-  left: 614px;
-  top: 682px;
-  width: 692px;
-  height: 318px;
+  left: 659px;
+  top: 757px;
+  width: 602px;
+  height: 243px;
 }
 </style>
