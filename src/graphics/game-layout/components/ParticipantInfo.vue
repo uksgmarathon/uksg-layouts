@@ -26,7 +26,7 @@ withDefaults(defineProps<{
   >
     <template v-slot:header>{{ headerText }}</template>
     <template v-slot:content>
-      <span :class="$style.Name">RunnerName</span>
+      <span :class="$style.Content">RunnerName</span>
     </template>
     <template v-slot:subtitle>they/them</template>
   </CutOffBorderedElem>
