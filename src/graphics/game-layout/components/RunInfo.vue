@@ -13,6 +13,7 @@
 
 <style lang="scss" module>
 .Border {
+  z-index: 1;
   position: absolute;
   width: 100%;
   height: 100%;

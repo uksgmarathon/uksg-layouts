@@ -39,6 +39,7 @@ useHead({ title: 'omnibar' });
 /* The logo "hovers" over the top of everything else so it cax extend outside of the bar. */
 .Logo {
   position: absolute;
+  z-index: 1;
   bottom: 0;
   left: 0;
 }
