@@ -68,3 +68,4 @@ body {
 .BorderRight { border-right-width: 3px ; }
 .BorderBottom { border-bottom-width: 3px ; }
 .BorderLeft { border-left-width: 3px ; }
+.BorderAll { border-width: 3px; }
