@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="Fixed Flex BorderRight BorderBottom" :class="$style.Wrapper">
+  <div class="Fixed Flex" :class="$style.Wrapper">
     <div :class="$style.Estimate">EST: 00:00:00</div>
     <div :class="$style.Timer">00:00:00</div>
   </div>
