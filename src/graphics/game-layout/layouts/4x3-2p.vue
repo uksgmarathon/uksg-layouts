@@ -6,16 +6,16 @@ import TimerElem from '../components/TimerElem.vue';
 
 <template>
   <div>
-    <RunInfo :class="$style.RunInfo" />
-    <TimerElem class="BorderBottom" :class="$style.Timer" />
+    <RunInfo :class="$style.RunInfo" name-font-size="36px" subtitle-font-size="22px" flipped horizontal />
+    <TimerElem class="BorderBottom" :class="$style.Timer" estimate-size="22px" />
     <!-- Game Feeds -->
     <div class="Fixed Capture BorderAll" :class="$style.GameFeed1" />
     <div class="Fixed Capture BorderAll" :class="$style.GameFeed2" />
     <!-- Camera Feed -->
     <div class="Fixed Capture BorderTop BorderLeft BorderRight" :class="$style.CameraFeed" />
     <!-- Runners/Players -->
-    <ParticipantInfo :class="$style.Player1" />
-    <ParticipantInfo :class="$style.Player2" />
+    <ParticipantInfo :class="$style.Player1" name-font-size="30px" />
+    <ParticipantInfo :class="$style.Player2" name-font-size="30px" />
     <!-- Host -->
     <ParticipantInfo
       :class="$style.Host"

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
   vertical?: boolean,
+  estimateSize?: string,
 }>(), {
   vertical: false,
+  estimateSize: '16px',
 });
 </script>
 
@@ -45,7 +47,7 @@ withDefaults(defineProps<{
 }
 
 .Estimate {
-  font-size: 16px;
+  font-size: v-bind(estimateSize);
   padding: 10px 30px;
   background: linear-gradient(270deg, #0d3354 10%, #13436f 99%);
   font-weight: 600;
@@ -55,7 +57,6 @@ withDefaults(defineProps<{
 .EstimateVertical {
   width: 100%;
   box-sizing: border-box;
-  font-size: 22px;
   background: linear-gradient(44deg, #0f375a 0%, #062743 100%);
 }
 
