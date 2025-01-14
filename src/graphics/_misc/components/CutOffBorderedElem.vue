@@ -25,7 +25,7 @@ withDefaults(defineProps<{
 @mixin clipPathBorder($size) {
   clip-path: polygon(
     0% 0%,                              /* outside top left */
-    0 calc(100% - $size),               /* outside bottom left upper */
+    0% calc(100% - $size),              /* outside bottom left upper */
     $size 100%,                         /* outside bottom left lower */
     calc($size + 3px) calc(100% - 3px), /* inside bottom left lower */
     3px calc(100% - calc($size + 3px)), /* inside bottom left upper */
@@ -41,11 +41,11 @@ withDefaults(defineProps<{
 
 @mixin clipPathHeader($size) {
   clip-path: polygon(
-    0% 0%,                            /* outside top left */
-    0 calc(100% - calc($size - 2px)), /* outside bottom left upper */
-    calc($size - 2px) 100%,           /* outside bottom left lower */
-    100% 100%,                        /* outside bottom right */
-    100% 0%                           /* outside top right */
+    0% 0%,                             /* outside top left */
+    0% calc(100% - calc($size - 2px)), /* outside bottom left upper */
+    calc($size - 2px) 100%,            /* outside bottom left lower */
+    100% 100%,                         /* outside bottom right */
+    100% 0%                            /* outside top right */
   );
 }
 
