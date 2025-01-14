@@ -9,10 +9,7 @@ import TimerElem from '../components/TimerElem.vue';
     <!-- Camera Feed -->
     <div class="Fixed Capture BorderRight BorderBottom" :class="$style.CameraFeed" />
     <!-- Runner/Player -->
-    <ParticipantInfo
-      :class="$style.Player"
-      header-font-size="18px"
-    />
+    <ParticipantInfo :class="$style.Player" header-font-size="18px" />
     <!-- Host -->
     <ParticipantInfo
       :class="$style.Host"

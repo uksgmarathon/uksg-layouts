@@ -63,6 +63,13 @@ import TimerElem from '../components/TimerElem.vue';
   height: 97px;
 }
 
+.CameraFeed {
+  left: 0px;
+  top: 256px;
+  width: 590px;
+  height: 308px;
+}
+
 .Player {
   left: 0px;
   top: 561px;
@@ -89,13 +96,6 @@ import TimerElem from '../components/TimerElem.vue';
   top: 717px;
   width: 590px;
   height: 46px;
-}
-
-.CameraFeed {
-  left: 0px;
-  top: 256px;
-  width: 590px;
-  height: 308px;
 }
 
 .GameFeed {
