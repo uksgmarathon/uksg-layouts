@@ -2,9 +2,11 @@
 withDefaults(defineProps<{
   vertical?: boolean,
   estimateSize?: string,
+  timerSize?: string,
 }>(), {
   vertical: false,
   estimateSize: '16px',
+  timerSize: '60px',
 });
 </script>
 
@@ -61,7 +63,7 @@ withDefaults(defineProps<{
 }
 
 .Timer {
-  font-size: 60px;
+  font-size: v-bind(timerSize);
   font-weight: 700;
   margin-top: 0.1em;
 }
@@ -70,6 +72,5 @@ withDefaults(defineProps<{
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 80px;
 }
 </style>

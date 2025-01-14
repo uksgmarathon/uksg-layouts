@@ -45,7 +45,7 @@ import TimerElem from '../components/TimerElem.vue';
     />
     <!-- Game Feed -->
     <div class="Fixed Capture BorderLeft BorderBottom" :class="$style.GameFeed" />
-    <TimerElem class="BorderLeft BorderTop" :class="$style.Timer" vertical estimate-size="22px" />
+    <TimerElem class="BorderLeft BorderTop" :class="$style.Timer" vertical estimate-size="22px" timer-size="80px" />
     <RunInfo :class="$style.RunInfo" />
   </div>
 </template>
