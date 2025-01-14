@@ -16,6 +16,7 @@ withDefaults(defineProps<{
   <div class="Fixed">
     <div :class="{ [$style.Border]: true, [$style.BorderFlipped]: flipped }" />
     <div
+      class="FlexColumn"
       :class="{
         [$style.Inner]: true,
         [$style.InnerFlipped]: flipped,
@@ -92,6 +93,8 @@ withDefaults(defineProps<{
   background: var(--red-gradient);
   padding: 25px;
   box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .InnerFlipped {
@@ -100,9 +103,8 @@ withDefaults(defineProps<{
 }
 
 .InnerHorizontal {
-  display: flex;
+  flex-direction: unset;
   align-items: center;
-  justify-content: space-between;
   padding: 0 40px 0 25px;
 }
 

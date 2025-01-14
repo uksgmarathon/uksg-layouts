@@ -6,16 +6,16 @@ import TimerElem from '../components/TimerElem.vue';
 
 <template>
   <div>
-    <RunInfo :class="$style.RunInfo" />
-    <TimerElem class="BorderBottom" :class="$style.Timer" />
+    <RunInfo :class="$style.RunInfo" flipped subtitle-font-size="22px" />
+    <TimerElem class="BorderBottom" :class="$style.Timer" estimate-size="24px" timer-size="80px" />
     <!-- Game Feeds -->
     <div class="Fixed Capture BorderTop BorderRight BorderBottom" :class="$style.GameFeed1" />
     <div class="Fixed Capture BorderTop BorderLeft BorderBottom" :class="$style.GameFeed2" />
     <!-- Camera Feed -->
     <div class="Fixed Capture BorderTop BorderLeft BorderRight" :class="$style.CameraFeed" />
     <!-- Runners/Players -->
-    <ParticipantInfo :class="$style.Player1" />
-    <ParticipantInfo :class="$style.Player2" />
+    <ParticipantInfo :class="$style.Player1" name-font-size="30px" />
+    <ParticipantInfo :class="$style.Player2" name-font-size="30px" />
     <!-- Host -->
     <ParticipantInfo
       :class="$style.Host"
@@ -23,7 +23,7 @@ import TimerElem from '../components/TimerElem.vue';
       header-text="Host"
       header-font-size="14px"
       header-width="66px"
-      name-font-size="20px"
+      name-font-size="22px"
       cut-edge-size="8px"
     />
     <!-- Comm1 -->
@@ -33,7 +33,7 @@ import TimerElem from '../components/TimerElem.vue';
       header-text="Comm"
       header-font-size="14px"
       header-width="66px"
-      name-font-size="20px"
+      name-font-size="22px"
       cut-edge-size="8px"
     />
     <!-- Comm2 -->
@@ -43,7 +43,7 @@ import TimerElem from '../components/TimerElem.vue';
       header-text="Comm"
       header-font-size="14px"
       header-width="66px"
-      name-font-size="20px"
+      name-font-size="22px"
       cut-edge-size="8px"
     />
   </div>
