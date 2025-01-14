@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { runDataActiveRun, timer } from '../../../browser_shared/replicants';
+
 withDefaults(defineProps<{
   vertical?: boolean,
   estimateSize?: string,
@@ -25,7 +27,7 @@ withDefaults(defineProps<{
         [$style.EstimateVertical]: vertical,
       }"
     >
-      EST: 00:00:00
+      EST: {{ runDataActiveRun?.data?.estimate ?? '??:??:??' }}
     </div>
     <div
       :class="{
@@ -33,7 +35,7 @@ withDefaults(defineProps<{
         [$style.TimerVertical]: vertical,
       }"
     >
-      00:00:00
+      {{ timer?.data?.time ?? '??:??:??' }}
     </div>
   </div>
 </template>

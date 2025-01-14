@@ -14,11 +14,12 @@ import TimerElem from '../components/TimerElem.vue';
     <!-- Camera Feed -->
     <div class="Fixed Capture BorderTop BorderLeft BorderRight" :class="$style.CameraFeed" />
     <!-- Runners/Players -->
-    <ParticipantInfo :class="$style.Player1" name-font-size="30px" />
-    <ParticipantInfo :class="$style.Player2" name-font-size="30px" />
+    <ParticipantInfo :class="$style.Player1" name-font-size="30px" type="player" :index="0" />
+    <ParticipantInfo :class="$style.Player2" name-font-size="30px" type="player" :index="1" />
     <!-- Host -->
     <ParticipantInfo
       :class="$style.Host"
+      type="other"
       header-colour="#0c3f6b"
       header-text="Host"
       header-font-size="14px"
@@ -29,6 +30,7 @@ import TimerElem from '../components/TimerElem.vue';
     <!-- Comm1 -->
     <ParticipantInfo
       :class="$style.Comm1"
+      type="other"
       header-colour="#055255"
       header-text="Comm"
       header-font-size="14px"
@@ -39,6 +41,7 @@ import TimerElem from '../components/TimerElem.vue';
     <!-- Comm2 -->
     <ParticipantInfo
       :class="$style.Comm2"
+      type="other"
       header-colour="#055255"
       header-text="Comm"
       header-font-size="14px"

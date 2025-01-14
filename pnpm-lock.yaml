@@ -10,6 +10,10 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      speedcontrol-util:
+        specifier: github:speedcontrol/speedcontrol-util#build
+        version: https://codeload.github.com/speedcontrol/speedcontrol-util/tar.gz/3d7ed2c90aeb838fa42f843527dbc9b587995391(@types/express@5.0.0)(typescript@5.7.3)
     devDependencies:
       '@eslint/js':
         specifier: ^9.18.0
@@ -590,6 +594,9 @@ packages:
 
   '@types/multer@1.4.12':
     resolution: {integrity: sha512-pQ2hoqvXiJt2FP9WQVLPRO+AmiIm/ZYkavPlIQnx282u4ZrVdztx0pkh3jjpQt0Kz+YI0YhSG264y08UJKoUQg==}
+
+  '@types/needle@3.3.0':
+    resolution: {integrity: sha512-UFIuc1gdyzAqeVUYpSL+cliw2MmU/ZUhVZKE7Zo4wPbgc8hbljeKSnn6ls6iG8r5jpegPXLUIhJ+Wb2kLVs8cg==}
 
   '@types/node@18.19.70':
     resolution: {integrity: sha512-RE+K0+KZoEpDUbGGctnGdkrLFwi1eYKTlIHNl2Um98mUkGsm1u2Ff6Ltd0e8DktTtC98uy7rSj+hO8t/QuLoVQ==}
@@ -1804,6 +1811,10 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
+  speedcontrol-util@https://codeload.github.com/speedcontrol/speedcontrol-util/tar.gz/3d7ed2c90aeb838fa42f843527dbc9b587995391:
+    resolution: {tarball: https://codeload.github.com/speedcontrol/speedcontrol-util/tar.gz/3d7ed2c90aeb838fa42f843527dbc9b587995391}
+    version: 0.6.1
+
   stack-trace@0.0.10:
     resolution: {integrity: sha512-KGzahc7puUKkzyMt+IqAep+TVNbKP+k2Lmwhub39m1AsTSkaDutx56aDCo+HLDzf/D26BIHTJWNiTG1KAJiQCg==}
 
@@ -2693,6 +2704,10 @@ snapshots:
   '@types/multer@1.4.12':
     dependencies:
       '@types/express': 5.0.0
+
+  '@types/needle@3.3.0':
+    dependencies:
+      '@types/node': 22.10.5
 
   '@types/node@18.19.70':
     dependencies:
@@ -3988,6 +4003,35 @@ snapshots:
       - utf-8-validate
 
   source-map-js@1.2.1: {}
+
+  speedcontrol-util@https://codeload.github.com/speedcontrol/speedcontrol-util/tar.gz/3d7ed2c90aeb838fa42f843527dbc9b587995391(@types/express@5.0.0)(typescript@5.7.3):
+    dependencies:
+      '@nodecg/types': 2.4.3(@types/express@5.0.0)(typescript@5.7.3)
+      '@types/needle': 3.3.0
+      clone: 2.1.2
+    transitivePeerDependencies:
+      - '@google-cloud/spanner'
+      - '@sap/hana-client'
+      - '@types/express'
+      - better-sqlite3
+      - bufferutil
+      - hdb-pool
+      - ioredis
+      - mongodb
+      - mssql
+      - mysql2
+      - oracledb
+      - pg
+      - pg-native
+      - pg-query-stream
+      - redis
+      - sql.js
+      - sqlite3
+      - supports-color
+      - ts-node
+      - typeorm-aurora-data-api-driver
+      - typescript
+      - utf-8-validate
 
   stack-trace@0.0.10: {}
 

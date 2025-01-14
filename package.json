@@ -91,5 +91,8 @@
     "vite-plugin-nodecg": {
       "vite": "$vite"
     }
+  },
+  "dependencies": {
+    "speedcontrol-util": "github:speedcontrol/speedcontrol-util#build"
   }
 }

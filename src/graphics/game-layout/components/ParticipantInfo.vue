@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { runDataActiveRun } from '../../../browser_shared/replicants';
 import CutOffBorderedElem from '../../_misc/components/CutOffBorderedElem.vue';
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
+  type: 'player' | 'other',
+  index?: number,
   headerColour?: string,
   headerText?: string,
   headerFontSize?: string,
@@ -9,11 +13,16 @@ withDefaults(defineProps<{
   nameFontSize?: string,
   cutEdgeSize?: string,
 }>(), {
+  index: 0,
   headerText: 'Runner',
   headerFontSize: '20px',
   nameFontSize: '26px',
   cutEdgeSize: '15px',
 });
+
+const player = computed(() => runDataActiveRun?.data?.teams[props.index].players[0]);
+const name = computed(() => props.type === 'player' ? player.value?.name : 'TBD');
+const pronouns = computed(() => props.type === 'player' ? player.value?.pronouns : 'TBD');
 </script>
 
 <template>
@@ -26,9 +35,9 @@ withDefaults(defineProps<{
   >
     <template v-slot:header>{{ headerText }}</template>
     <template v-slot:content>
-      <span :class="$style.Content">RunnerName</span>
+      <span :class="$style.Content">{{ name ?? '???' }}</span>
     </template>
-    <template v-slot:subtitle>they/them</template>
+    <template v-slot:subtitle v-if="pronouns">{{ pronouns }}</template>
   </CutOffBorderedElem>
 </template>
 
