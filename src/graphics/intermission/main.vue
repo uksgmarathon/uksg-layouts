@@ -3,7 +3,7 @@ import { useHead } from '@unhead/vue';
 import CutOffBorderedElem from '../_misc/components/CutOffBorderedElem.vue';
 import UpcomingRun from './components/UpcomingRun.vue';
 
-useHead({ title: 'intermission' });
+useHead({ title: 'Intermission' });
 </script>
 
 <template>
