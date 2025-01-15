@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { runDataActiveRun, timer } from '../../../browser_shared/replicants';
+import { msToTimeStr } from '../../../browser_shared/util';
 
 withDefaults(defineProps<{
   vertical?: boolean,
@@ -12,11 +13,31 @@ withDefaults(defineProps<{
   timerSize: '60px',
 });
 
-const timeStr = ref('00:00:00');
+/**
+ * Backup timer that takes over if the connection to the server is lost.
+ * Based on the last timestamp that was received.
+ * When the conneciton is restored, the server timer will recover and take over again.
+ */
+ function backupTimer() {
+  backupTimerTO = window.setTimeout(() => backupTimer(), 200);
+  if (timer?.data?.state === 'running') {
+    const missedTime = Date.now() - timer.data.timestamp;
+    const timeOffset = timer.data.milliseconds + missedTime;
+    timeStr.value = msToTimeStr(timeOffset);
+  }
+}
 
+let backupTimerTO: number | undefined;
+const timeStr = ref('00:00:00');
+const state = computed(() => timer?.data?.state || 'stopped');
+
+// Use original timer to keep track of if we need to run the backup.
 watch(() => timer?.data, (data) => {
   if (data) timeStr.value = data.time;
-});
+  // Backup timer (see above).
+  window.clearTimeout(backupTimerTO);
+  backupTimerTO = window.setTimeout(() => backupTimer(), 1000);
+}, { immediate: true });
 </script>
 
 <template>
@@ -41,6 +62,7 @@ watch(() => timer?.data, (data) => {
       :class="{
         [$style.Timer]: true,
         [$style.TimerVertical]: vertical,
+        [$style[state]]: true,
       }"
     >
       <!-- We split up each character into a span, so we can fake "monospace" them. -->
@@ -100,5 +122,13 @@ watch(() => timer?.data, (data) => {
 .Timer > .Colon {
   width: 0.25em;
   margin-top: -0.07em;
+}
+
+.Timer.stopped, .Timer.paused {
+  opacity: 0.7;
+}
+
+.Timer.finished {
+  color: var(--border-colour);
 }
 </style>
