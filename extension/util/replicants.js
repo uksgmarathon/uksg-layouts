@@ -13,3 +13,4 @@ function hasNoDefault(name) {
  * and to make sure they have any correct settings on startup.
  */
 export const donationTotal = hasDefault('donationTotal');
+export const gameLayouts = hasDefault('gameLayouts');
