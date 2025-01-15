@@ -1,12 +1,26 @@
 <script setup lang="ts">
+import dayjs from 'dayjs';
+import { ref } from 'vue';
+
+const time = ref('00:00');
+const date = ref('Jan 1 1970');
+
+function setTimeAndDate() {
+  const current = dayjs().tz('Europe/London');
+  time.value = current.format('HH:mm');
+  date.value = current.format('MMM DD YYYY');
+}
+
+setTimeAndDate();
+window.setInterval(setTimeAndDate, 1000);
 </script>
 
 <template>
   <div :class="$style.Wrapper">
     <div :class="$style.Border" />
     <div class="FlexColumn" :class="$style.Clock">
-      <div :class="$style.Time">12:03</div>
-      <div :class="$style.Date">Jan 24 2024</div>
+      <div :class="$style.Time">{{ time }}</div>
+      <div :class="$style.Date">{{ date }}</div>
     </div>
   </div>
 </template>
@@ -14,6 +28,8 @@
 <style lang="scss" module>
 .Wrapper {
   height: 100%;
+  width: 118px;
+  white-space: nowrap;
 }
 
 .Border {

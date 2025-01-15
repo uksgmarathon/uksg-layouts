@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { runDataActiveRun } from '../../../browser_shared/replicants';
+
 withDefaults(defineProps<{
   nameFontSize?: string,
   subtitleFontSize?: string,
@@ -22,13 +24,16 @@ withDefaults(defineProps<{
         [$style.InnerFlipped]: flipped,
         [$style.InnerHorizontal]: horizontal
       }">
-      <div :class="$style.GameName">VideoGameNameHere</div>
+      <div :class="$style.GameName">{{ runDataActiveRun?.data?.game ?? '???' }}</div>
       <div
         :class="{
           [$style.Subtitle]: true,
           [$style.SubtitleHorizontal]: horizontal
         }">
-          Category | Console, 1999
+          {{ runDataActiveRun?.data?.category ?? '???' }}
+          | {{ runDataActiveRun?.data?.system ?? '???' }}<template v-if="runDataActiveRun?.data?.release">
+            {{ `, ${runDataActiveRun?.data?.release}` }}
+          </template>
         </div>
     </div>
   </div>

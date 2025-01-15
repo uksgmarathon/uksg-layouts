@@ -3,11 +3,41 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "exampleProperty": {
-      "type": "string"
+    "tracker": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "useTestData": {
+          "type": "boolean",
+          "default": false
+        },
+        "address": {
+          "type": "string",
+          "default": "https://tracker.example.com"
+        },
+        "eventShort": {
+          "type": "string",
+          "default": "event_short"
+        },
+        "currencySymbol": {
+          "type": "string",
+          "default": "£"
+        }
+      },
+      "required": [
+        "enabled",
+        "useTestData",
+        "address",
+        "eventShort",
+        "currencySymbol"
+      ]
     }
   },
   "required": [
-    "exampleProperty"
+    "tracker"
   ]
 }

@@ -22,6 +22,11 @@
     "start": "node ../..",
     "watch": "conc -n B,E -c red,blue -k vite \"tsc -b -w --preserveWatchOutput tsconfig.extension.json\""
   },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lodash-es": "^4.17.21",
+    "speedcontrol-util": "github:speedcontrol/speedcontrol-util#build"
+  },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
     "@fontsource/metropolis": "^5.1.0",
@@ -30,12 +35,14 @@
     "@quasar/vite-plugin": "^1.8.1",
     "@stylistic/eslint-plugin": "^2.12.1",
     "@tsconfig/node22": "^22.0.0",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.10.5",
     "@unhead/vue": "^1.11.15",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-typescript": "^14.2.0",
     "@vue/tsconfig": "^0.7.0",
     "concurrently": "^9.1.2",
+    "dayjs": "^1.11.13",
     "eslint": "^9.18.0",
     "eslint-plugin-vue": "^9.32.0",
     "nodecg-vue-composable": "^1.1.0",

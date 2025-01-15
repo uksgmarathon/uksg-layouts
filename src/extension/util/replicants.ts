@@ -16,4 +16,4 @@ function hasNoDefault<T>(name: string) {
  * This is where you can declare all of your replicants to import easily into other files,
  * and to make sure they have any correct settings on startup.
  */
-export const exampleReplicant = hasDefault<Schemas.ExampleReplicant>('exampleReplicant');
+export const donationTotal = hasDefault<Schemas.DonationTotal>('donationTotal');
