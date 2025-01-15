@@ -70,10 +70,11 @@
     },
     "dashboardPanels": [
       {
-        "name": "example",
-        "title": "Example",
-        "file": "example/main.html",
-        "width": 3
+        "name": "game-layout-control",
+        "title": "Game Layout Control",
+        "file": "game-layout-control/main.html",
+        "width": 2,
+        "workspace": "UKSG"
       }
     ],
     "graphics": [

@@ -6,3 +6,4 @@
 
 export type { Configschema } from './schemas/configschema.d.ts';
 export type { DonationTotal } from './schemas/donationTotal.d.ts';
+export type { GameLayouts } from './schemas/gameLayouts.d.ts';
