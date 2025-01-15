@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue';
 import { runDataActiveRun, timer } from '../../../browser_shared/replicants';
 
 withDefaults(defineProps<{
@@ -9,6 +10,12 @@ withDefaults(defineProps<{
   vertical: false,
   estimateSize: '16px',
   timerSize: '60px',
+});
+
+const timeStr = ref('00:00:00');
+
+watch(() => timer?.data, (data) => {
+  if (data) timeStr.value = data.time;
 });
 </script>
 
@@ -30,12 +37,20 @@ withDefaults(defineProps<{
       EST: {{ runDataActiveRun?.data?.estimate ?? '??:??:??' }}
     </div>
     <div
+      class="Flex"
       :class="{
         [$style.Timer]: true,
         [$style.TimerVertical]: vertical,
       }"
     >
-      {{ timer?.data?.time ?? '??:??:??' }}
+      <!-- We split up each character into a span, so we can fake "monospace" them. -->
+      <span
+        v-for="(char, i) of timeStr"
+        :key="i"
+        :class="{ [$style.Colon]: char === ':' }"
+      >
+        {{ char }}
+      </span>
     </div>
   </div>
 </template>
@@ -74,5 +89,16 @@ withDefaults(defineProps<{
   flex: 1;
   display: flex;
   align-items: center;
+}
+
+.Timer > span {
+  display: inline-block;
+  text-align: center;
+  width: 0.7em;
+}
+
+.Timer > .Colon {
+  width: 0.25em;
+  margin-top: -0.07em;
 }
 </style>
