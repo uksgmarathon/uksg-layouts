@@ -7,5 +7,11 @@
  */
 
 export interface Configschema {
-	exampleProperty: string;
+	tracker: {
+		enabled: boolean;
+		useTestData: boolean;
+		address: string;
+		eventShort: string;
+		currencySymbol: string;
+	};
 }

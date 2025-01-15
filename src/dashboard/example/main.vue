@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
 import { ref } from 'vue';
-import { exampleReplicant } from '../../browser_shared/replicants';
+// import { exampleReplicant } from '../../browser_shared/replicants';
 import type { ExampleType } from '../../types';
 
 useHead({ title: 'example' }); // set the title of this page
@@ -21,6 +21,6 @@ const exampleType: ExampleType = { exampleProperty: 'exampleString' };
     <QBtn color="primary" label="Example" />
     <br><br>
     <!-- Example code: accessing a replicant. -->
-    {{ exampleReplicant?.data?.exampleProperty }}
+    <!-- {{ exampleReplicant?.data?.exampleProperty }} -->
   </div>
 </template>

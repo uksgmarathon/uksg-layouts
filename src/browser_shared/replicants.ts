@@ -9,6 +9,6 @@ const thisBundle = 'uksg-layouts';
  * "useReplicant" is a helper composable to make accessing/modifying replicants easier.
  * For more information see https://github.com/Dan-Shields/nodecg-vue-composable
  */
-export const exampleReplicant = useReplicant<Schemas.ExampleReplicant>('exampleReplicant', thisBundle);
+export const donationTotal = useReplicant<Schemas.DonationTotal>('donationTotal', thisBundle);
 export const runDataActiveRun = useReplicant<RunDataActiveRun>('runDataActiveRun', 'nodecg-speedcontrol');
 export const timer = useReplicant<Timer>('timer', 'nodecg-speedcontrol');

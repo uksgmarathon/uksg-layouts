@@ -5,4 +5,4 @@
  */
 
 export type { Configschema } from './schemas/configschema.d.ts';
-export type { ExampleReplicant } from './schemas/exampleReplicant.d.ts';
+export type { DonationTotal } from './schemas/donationTotal.d.ts';

@@ -20,3 +20,18 @@ export function msToTimeStr(ms: number) {
   }:${padTimeNumber(minutes)
   }:${padTimeNumber(seconds)}`;
 }
+
+/**
+ * Simple formatter for displaying currency amounts.
+ * @param amount Amount as a integer/float.
+ * @param noCents Never display cents, even if under 100; supply "round" to round and not floor.
+ * @returns
+ */
+export function formatCurrencyAmount(amount: number, noCents: 'round' | boolean = false) {
+  if (amount >= 1000 || noCents) {
+    const roundFunc = noCents === 'round' ? Math.round : Math.floor;
+    return `${nodecg.bundleConfig.tracker.currencySymbol}${
+      roundFunc(amount).toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+  }
+  return `${nodecg.bundleConfig.tracker.currencySymbol}${amount.toFixed(2)}`;
+}
