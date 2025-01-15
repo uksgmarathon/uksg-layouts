@@ -31,8 +31,9 @@ withDefaults(defineProps<{
           [$style.SubtitleHorizontal]: horizontal
         }">
           {{ runDataActiveRun?.data?.category ?? '???' }}
-          | {{ runDataActiveRun?.data?.system ?? '???' }},
-          {{ runDataActiveRun?.data?.release ?? '???' }}
+          | {{ runDataActiveRun?.data?.system ?? '???' }}<template v-if="runDataActiveRun?.data?.release">
+            {{ `, ${runDataActiveRun?.data?.release}` }}
+          </template>
         </div>
     </div>
   </div>
