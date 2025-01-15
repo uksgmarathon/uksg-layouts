@@ -25,7 +25,7 @@ export function msToTimeStr(ms: number) {
  * Simple formatter for displaying currency amounts.
  * @param amount Amount as a integer/float.
  * @param noCents Never display cents, even if under 100; supply "round" to round and not floor.
- * @returns
+ * @returns Formatted amount.
  */
 export function formatCurrencyAmount(amount: number, noCents: 'round' | boolean = false) {
   if (amount >= 1000 || noCents) {
@@ -34,4 +34,13 @@ export function formatCurrencyAmount(amount: number, noCents: 'round' | boolean 
       roundFunc(amount).toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
   }
   return `${nodecg.bundleConfig.tracker.currencySymbol}${amount.toFixed(2)}`;
+}
+
+/**
+ * Basic wait Promise command.
+ * @param length Length in milliseconds.
+ * @return Promise that resolves after "length".
+ */
+export function wait(length: number) {
+  return new Promise((res) => { window.setTimeout(res, length); });
 }

@@ -4,7 +4,7 @@ import ClockElem from './components/ClockElem.vue';
 import LeftBox from './components/LeftBox.vue';
 import TickerElem from './components/TickerElem.vue';
 
-useHead({ title: 'omnibar' });
+useHead({ title: 'Omnibar' });
 </script>
 
 <template>
