@@ -38,7 +38,7 @@
           "type": "boolean",
           "default": false
         },
-        "address": {
+        "url": {
           "type": "string",
           "default": "https://tracker.example.com"
         },
@@ -54,7 +54,7 @@
       "required": [
         "enabled",
         "useTestData",
-        "address",
+        "url",
         "eventShort",
         "currencySymbol"
       ]

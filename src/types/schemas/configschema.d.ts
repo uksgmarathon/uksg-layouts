@@ -15,7 +15,7 @@ export interface Configschema {
 	tracker: {
 		enabled: boolean;
 		useTestData: boolean;
-		address: string;
+		url: string;
 		eventShort: string;
 		currencySymbol: string;
 	};
