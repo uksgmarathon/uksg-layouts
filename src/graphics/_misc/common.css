@@ -53,10 +53,6 @@ body {
   position: fixed;
 }
 
-.Capture {
-  background-color: black;
-}
-
 /* Border helpers. */
 *[class*='Border'] {
   box-sizing: border-box;
