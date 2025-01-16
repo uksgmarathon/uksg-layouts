@@ -3,6 +3,29 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "obs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "url": {
+          "type": "string",
+          "default": "ws://localhost:4455"
+        },
+        "password": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "required": [
+        "enabled",
+        "url",
+        "password"
+      ]
+    },
     "tracker": {
       "type": "object",
       "additionalProperties": false,
@@ -38,6 +61,7 @@
     }
   },
   "required": [
+    "obs",
     "tracker"
   ]
 }

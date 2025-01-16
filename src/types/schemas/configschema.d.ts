@@ -7,6 +7,11 @@
  */
 
 export interface Configschema {
+	obs: {
+		enabled: boolean;
+		url: string;
+		password: string;
+	};
 	tracker: {
 		enabled: boolean;
 		useTestData: boolean;
