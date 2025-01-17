@@ -20,7 +20,7 @@ export default tseslint.config({
   },
   rules: {
     '@stylistic/quotes': ['error', 'single'],
-    '@typescript-eslint/no-misused-promises': ['error', { checkVoidReturn: { arguments: false } }],
+    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: { arguments: false } }],
   },
   files: [
     'src/extension/**/*.ts',
