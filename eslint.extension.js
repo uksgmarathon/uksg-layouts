@@ -29,5 +29,6 @@ export default tseslint.config({
   ignores: [
     'src/types/schemas/**/*.d.ts',
     'src/types/env.d.ts',
+    'src/types/osc.d.ts',
   ],
 });

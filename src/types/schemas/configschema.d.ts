@@ -12,6 +12,10 @@ export interface Configschema {
 		url: string;
 		password: string;
 	};
+	xr18: {
+		enabled: boolean;
+		ip: string;
+	};
 	tracker: {
 		enabled: boolean;
 		useTestData: boolean;

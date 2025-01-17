@@ -26,6 +26,24 @@
         "password"
       ]
     },
+    "xr18": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "ip": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "required": [
+        "enabled",
+        "ip"
+      ]
+    },
     "tracker": {
       "type": "object",
       "additionalProperties": false,
@@ -62,6 +80,7 @@
   },
   "required": [
     "obs",
+    "xr18",
     "tracker"
   ]
 }
