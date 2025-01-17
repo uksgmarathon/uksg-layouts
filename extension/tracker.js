@@ -11,7 +11,7 @@ async function updateDonationTotalFromApi() {
     }
     else {
         try {
-            const resp = await fetch(`${config.address}/event/${config.eventShort}?json`);
+            const resp = await fetch(`${config.url}/event/${config.eventShort}?json`);
             if (resp.ok) {
                 const data = await resp.json();
                 const total = round(data.agg.amount, 2); // may be unneeded, but good for safety
