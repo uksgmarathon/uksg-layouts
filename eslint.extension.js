@@ -20,6 +20,7 @@ export default tseslint.config({
   },
   rules: {
     '@stylistic/quotes': ['error', 'single'],
+    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: { arguments: false } }],
   },
   files: [
     'src/extension/**/*.ts',
@@ -28,5 +29,6 @@ export default tseslint.config({
   ignores: [
     'src/types/schemas/**/*.d.ts',
     'src/types/env.d.ts',
+    'src/types/osc.d.ts',
   ],
 });

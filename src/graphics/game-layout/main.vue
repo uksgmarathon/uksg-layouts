@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
-import { onMounted, watch } from 'vue';
+import { nextTick, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { gameLayouts } from '../../browser_shared/replicants';
 import { wait } from '../../browser_shared/util';
 import type { Schemas } from '../../types';
+import { generateClipPath } from '../_misc/cut-background';
 
 useHead({ title: 'Game Layout' });
 const route = useRoute();
 const router = useRouter();
+const clipPath = ref('unset');
 
 /**
  * Returns the available layouts based on the router list.
@@ -32,6 +34,12 @@ watch(() => gameLayouts?.data?.selected, (selected) => {
   }
 }, { immediate: true });
 
+// Do stuff that should happen when layout changes.
+router.afterEach(async () => {
+  await nextTick();
+  clipPath.value = generateClipPath();
+});
+
 onMounted(async () => {
   // Wait for replicant to become ready.
   while (!gameLayouts?.data) {
@@ -43,7 +51,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="Background" />
+  <div class="Background" :class="$style.ClipPath" />
   <RouterView class="Layout" />
 </template>
 
@@ -53,4 +61,10 @@ onMounted(async () => {
   https://github.com/vitejs/vite/issues/3924#issuecomment-1185919568
 */
 @import url('../_misc/common.css') layer(layer-1);
+</style>
+
+<style lang="scss" module>
+.ClipPath {
+  clip-path: v-bind(clipPath);
+}
 </style>

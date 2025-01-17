@@ -3,6 +3,47 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "obs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "url": {
+          "type": "string",
+          "default": "ws://localhost:4455"
+        },
+        "password": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "required": [
+        "enabled",
+        "url",
+        "password"
+      ]
+    },
+    "xr18": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "ip": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "required": [
+        "enabled",
+        "ip"
+      ]
+    },
     "tracker": {
       "type": "object",
       "additionalProperties": false,
@@ -15,7 +56,7 @@
           "type": "boolean",
           "default": false
         },
-        "address": {
+        "url": {
           "type": "string",
           "default": "https://tracker.example.com"
         },
@@ -31,13 +72,15 @@
       "required": [
         "enabled",
         "useTestData",
-        "address",
+        "url",
         "eventShort",
         "currencySymbol"
       ]
     }
   },
   "required": [
+    "obs",
+    "xr18",
     "tracker"
   ]
 }

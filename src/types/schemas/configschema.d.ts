@@ -7,10 +7,19 @@
  */
 
 export interface Configschema {
+	obs: {
+		enabled: boolean;
+		url: string;
+		password: string;
+	};
+	xr18: {
+		enabled: boolean;
+		ip: string;
+	};
 	tracker: {
 		enabled: boolean;
 		useTestData: boolean;
-		address: string;
+		url: string;
 		eventShort: string;
 		currencySymbol: string;
 	};
