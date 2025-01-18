@@ -17,4 +17,5 @@ function hasNoDefault<T>(name: string) {
  * and to make sure they have any correct settings on startup.
  */
 export const donationTotal = hasDefault<Schemas.DonationTotal>('donationTotal');
+export const foobar2000Data = hasDefault<Schemas.Foobar2000Data>('foobar2000Data');
 export const gameLayouts = hasDefault<Schemas.GameLayouts>('gameLayouts');

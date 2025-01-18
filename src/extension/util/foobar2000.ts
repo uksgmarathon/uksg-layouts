@@ -1,6 +1,7 @@
 import { ErrorEvent, EventSource } from 'eventsource';
 import { setTimeout as wait } from 'timers/promises';
 import { nodecg } from './nodecg.js';
+import { foobar2000Data } from './replicants.js';
 
 interface UpdateMsg {
   player?: {
@@ -32,6 +33,7 @@ function connect() {
   });
   const onOpen = () => {
     nodecg.log.debug('[Util/foobar2000] Connected');
+    foobar2000Data.value.connected = true;
   };
   const onMessage = (ev: MessageEvent) => {
     let msg: UpdateMsg | undefined;
@@ -41,10 +43,21 @@ function connect() {
       nodecg.log.warn('[Util/foobar2000] Message parse error:', err);
     }
     if (!msg) return;
-    // TODO: things with message
+    if (msg.player) {
+      foobar2000Data.value.playing = msg.player.playbackState === 'playing';
+      if (msg.player.playbackState !== 'stopped') {
+        foobar2000Data.value.track = {
+          title: msg.player.activeItem.columns[0],
+          artist: msg.player.activeItem.columns[1],
+        };
+      } else {
+        foobar2000Data.value.track = null;
+      }
+    }
   };
   const onError = async (ev: ErrorEvent) => {
     nodecg.log.warn('[Util/foobar2000] Connection error');
+    foobar2000Data.value.connected = false;
     // If we receive a 401 for authentication error, we need to manually reconnect.
     if (ev.code === 401 || ev.code === 403) {
       nodecg.log.warn('[Util/foobar2000] Authentication error');

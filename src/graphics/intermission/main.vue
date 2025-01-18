@@ -2,6 +2,7 @@
 import { useHead } from '@unhead/vue';
 import CutOffBorderedElem from '../_misc/components/CutOffBorderedElem.vue';
 import UpcomingRun from './components/UpcomingRun.vue';
+import MusicTrack from './components/MusicTrack.vue';
 
 useHead({ title: 'Intermission' });
 </script>
@@ -28,18 +29,7 @@ useHead({ title: 'Intermission' });
       <template v-slot:subtitle>they/them</template>
     </CutOffBorderedElem>
     <!-- Music -->
-    <CutOffBorderedElem
-      class="Fixed"
-      :class="$style.Music"
-      header-colour="#8e0c34"
-      cut-edge-size="8px"
-      header-width="50px"
-    >
-      <template v-slot:header><img src="./components/Music.png" /></template>
-      <template v-slot:content>
-        <span :class="$style.MusicContent">Audiotrack Name Scrolling.mp3 - By Some Artist</span>
-      </template>
-    </CutOffBorderedElem>
+    <MusicTrack :class="$style.Music" />
     <UpcomingRun :class="$style.Next" next />
     <UpcomingRun :class="$style.After1" />
     <UpcomingRun :class="$style.After2" />
@@ -80,11 +70,6 @@ useHead({ title: 'Intermission' });
   top: 905px;
   width: 610px;
   height: 55px;
-}
-
-.MusicContent {
-  font-size: 22px;
-  font-weight: 300;
 }
 
 .Next {
