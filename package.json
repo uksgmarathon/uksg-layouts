@@ -23,6 +23,7 @@
     "watch": "conc -n B,E -c red,blue -k vite \"tsc -b -w --preserveWatchOutput tsconfig.extension.json\""
   },
   "dependencies": {
+    "eventsource": "^3.0.2",
     "gsap": "^3.12.5",
     "lodash-es": "^4.17.21",
     "obs-websocket-js": "^5.0.6",

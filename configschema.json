@@ -26,6 +26,34 @@
         "password"
       ]
     },
+    "foobar2000": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "url": {
+          "type": "string",
+          "default": "http://localhost:8880/api"
+        },
+        "username": {
+          "type": "string",
+          "default": ""
+        },
+        "password": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "required": [
+        "enabled",
+        "url",
+        "username",
+        "password"
+      ]
+    },
     "xr18": {
       "type": "object",
       "additionalProperties": false,
@@ -80,6 +108,7 @@
   },
   "required": [
     "obs",
+    "foobar2000",
     "xr18",
     "tracker"
   ]

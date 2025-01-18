@@ -12,6 +12,12 @@ export interface Configschema {
 		url: string;
 		password: string;
 	};
+	foobar2000: {
+		enabled: boolean;
+		url: string;
+		username: string;
+		password: string;
+	};
 	xr18: {
 		enabled: boolean;
 		ip: string;
