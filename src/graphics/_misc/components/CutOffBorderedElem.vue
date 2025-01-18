@@ -64,6 +64,7 @@ withDefaults(defineProps<{
   padding: calc(3px + 4px); /* Border + padding */
   box-sizing: border-box;
   justify-content: flex-start;
+  overflow: hidden;
 }
 
 .Header {
@@ -80,6 +81,7 @@ withDefaults(defineProps<{
 
 .Content {
   padding: 0 15px;
+  flex: 1;
 }
 
 .Subtitle {

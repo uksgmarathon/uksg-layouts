@@ -2,7 +2,7 @@
 import { useHead } from '@unhead/vue';
 import { nextTick, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { gameLayouts } from '../../browser_shared/replicants';
+import { capturePositions, gameLayouts } from '../../browser_shared/replicants';
 import { wait } from '../../browser_shared/util';
 import type { Schemas } from '../../types';
 import { generateClipPath } from '../_misc/cut-background';
@@ -22,6 +22,36 @@ function getAvailable() {
   }, []);
 }
 
+/**
+ * Updates the stored information about where captures should be located
+ * based on "Capture" class elements.
+ */
+async function updateCapturePositionsData() {
+  // Wait for replicant to become ready.
+  while (!capturePositions?.data) {
+    await wait(100);
+  }
+  const captureElems = document.getElementsByClassName('Capture');
+  const pos = Array.from(captureElems).reduce<Schemas.CapturePositions[0]>((prev, el) => {
+    if (!el.id) return prev; // If there's no ID on the element, no reason to store it.
+    const sizes = el.getBoundingClientRect();
+    // Get the widths of all the borders to figure out the position/size without them.
+    const topBorder = getComputedStyle(el).getPropertyValue('border-top-width');
+    const rightBorder = getComputedStyle(el).getPropertyValue('border-right-width');
+    const bottomBorder = getComputedStyle(el).getPropertyValue('border-bottom-width');
+    const leftBorder = getComputedStyle(el).getPropertyValue('border-left-width');
+    const calcSizes = {
+      x: sizes.x + parseInt(leftBorder),
+      y: sizes.y + parseInt(topBorder),
+      width: sizes.width - parseInt(rightBorder) - parseInt(leftBorder),
+      height: sizes.height - parseInt(bottomBorder) - parseInt(topBorder),
+    };
+    return Object.assign(prev, { [el.id]: calcSizes });
+  }, {});
+  capturePositions.data.GameLayout = pos;
+  capturePositions.save();
+}
+
 // Watches if the select layout changes and points the route to the correct one.
 watch(() => gameLayouts?.data?.selected, (selected) => {
   // If the selected value is NULL then fill it in with the default route.
@@ -38,6 +68,7 @@ watch(() => gameLayouts?.data?.selected, (selected) => {
 router.afterEach(async () => {
   await nextTick();
   clipPath.value = generateClipPath();
+  await updateCapturePositionsData();
 });
 
 onMounted(async () => {

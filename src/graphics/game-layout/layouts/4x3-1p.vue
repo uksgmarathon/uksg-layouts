@@ -9,7 +9,7 @@ import TimerElem from '../components/TimerElem.vue';
     <RunInfo :class="$style.RunInfo" />
     <TimerElem class="BorderRight BorderBottom" :class="$style.Timer" />
     <!-- Camera Feed -->
-    <div class="Fixed Capture BorderRight BorderTop BorderBottom" :class="$style.CameraFeed" />
+    <div id="Camera" class="Fixed Capture BorderRight BorderTop BorderBottom" :class="$style.CameraFeed" />
     <!-- Runner/Player -->
     <ParticipantInfo :class="$style.Player" type="player" />
     <!-- Host -->
@@ -46,7 +46,7 @@ import TimerElem from '../components/TimerElem.vue';
       cut-edge-size="8px"
     />
     <!-- Game Feed -->
-    <div class="Fixed Capture BorderLeft" :class="$style.GameFeed" />
+    <div id="Game1" class="Fixed Capture BorderLeft" :class="$style.GameFeed" />
   </div>
 </template>
 
