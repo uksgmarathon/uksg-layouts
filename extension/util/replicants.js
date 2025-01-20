@@ -16,3 +16,4 @@ export const capturePositions = hasDefault('capturePositions');
 export const donationTotal = hasDefault('donationTotal');
 export const foobar2000Data = hasDefault('foobar2000Data');
 export const gameLayouts = hasDefault('gameLayouts');
+export const upcomingRunId = hasDefault('upcomingRunId');

@@ -11,4 +11,5 @@ export default async (nodecg) => {
     await import('./util/foobar2000.js'); // TEMP
     await import('./timer.js');
     await import('./tracker.js');
+    await import('./intermission.js');
 };
