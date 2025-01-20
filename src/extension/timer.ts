@@ -1,7 +1,6 @@
-import { SpeedcontrolUtil } from 'speedcontrol-util';
 import { nodecg } from './util/nodecg.js';
+import { sc } from './util/speedcontrol.js';
 
-const sc = new SpeedcontrolUtil(nodecg);
 const router = nodecg.Router();
 
 router.post('/timer/toggle', async (req, res) => {

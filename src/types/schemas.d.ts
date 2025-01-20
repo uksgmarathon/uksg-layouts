@@ -9,3 +9,4 @@ export type { Configschema } from './schemas/configschema.d.ts';
 export type { DonationTotal } from './schemas/donationTotal.d.ts';
 export type { Foobar2000Data } from './schemas/foobar2000Data.d.ts';
 export type { GameLayouts } from './schemas/gameLayouts.d.ts';
+export type { UpcomingRunId } from './schemas/upcomingRunId.d.ts';

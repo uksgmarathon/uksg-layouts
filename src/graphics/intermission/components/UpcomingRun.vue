@@ -1,13 +1,21 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+import type { RunData } from 'speedcontrol-util/types/schemas';
+import { computed } from 'vue';
+
+const props = withDefaults(defineProps<{
+  runData?: RunData,
   next?: boolean,
 }>(), {
   next: false,
 });
+
+const players = computed(() => props.runData?.teams
+  .map((t) => t.name ?? t.players
+    .map((p) => p.name).join(', ')).join(' vs. ') ?? 'N/A');
 </script>
 
 <template>
-  <div class="Fixed">
+  <div v-if="runData" class="Fixed">
     <div
       :class="{
         [$style.Border]: true,
@@ -31,8 +39,8 @@ withDefaults(defineProps<{
         {{ next ? 'coming up next' : 'later' }}
       </div>
       <div class="FlexColumn" :class="$style.Content">
-        <div :class="$style.Title">Sonic 1 Forever</div>
-        <div :class="$style.Subtitle">cowboyknuckles | Estimate: 00:20.00</div>
+        <div :class="$style.Title">{{ runData.game }}</div>
+        <div :class="$style.Subtitle">{{ players }} | {{ runData.category }} | {{ runData.system }} | {{ runData.estimate }}</div>
       </div>
     </div>
   </div>
@@ -109,10 +117,14 @@ withDefaults(defineProps<{
 .Title {
   font-size: 40px;
   font-weight: 700;
+  text-align: center;
+  padding: 0 30px;
 }
 
 .Subtitle {
   font-size: 24px;
   font-weight: 500;
+  text-align: center;
+  padding: 0 30px;
 }
 </style>
