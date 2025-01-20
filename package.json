@@ -78,6 +78,13 @@
         "file": "game-layout-control/main.html",
         "width": 2,
         "workspace": "UKSG"
+      },
+      {
+        "name": "upcoming-run-control",
+        "title": "Upcoming Run Control",
+        "file": "upcoming-run-control/main.html",
+        "width": 3,
+        "workspace": "UKSG"
       }
     ],
     "graphics": [

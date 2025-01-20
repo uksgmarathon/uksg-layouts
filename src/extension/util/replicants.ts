@@ -20,3 +20,4 @@ export const capturePositions = hasDefault<Schemas.CapturePositions>('capturePos
 export const donationTotal = hasDefault<Schemas.DonationTotal>('donationTotal');
 export const foobar2000Data = hasDefault<Schemas.Foobar2000Data>('foobar2000Data');
 export const gameLayouts = hasDefault<Schemas.GameLayouts>('gameLayouts');
+export const upcomingRunId = hasDefault<Schemas.UpcomingRunId>('upcomingRunId');
