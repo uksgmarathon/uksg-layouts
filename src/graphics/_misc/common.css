@@ -9,6 +9,13 @@
 @import url('@fontsource/metropolis/800.css');
 @import url('@fontsource/metropolis/900.css');
 
+/* The underscore in Metropolis seems to not have the correct width, so this "overrides" it. */
+@font-face {
+  font-family: 'Underscore';
+  src: local('Arial');
+  unicode-range: U+005F;
+}
+
 /* TODO: Use SCSS/SASS variables if I can work out how to make it work in other files! */
 :root {
   --border-colour: #44a0e3;
@@ -21,7 +28,7 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'Metropolis', sans-serif;
+  font-family: 'Underscore', 'Metropolis', sans-serif;
   color: white;
 }
 
