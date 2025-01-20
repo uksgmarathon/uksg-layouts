@@ -65,11 +65,40 @@
         "ip": {
           "type": "string",
           "default": ""
+        },
+        "fadeLength": {
+          "type": "number",
+          "default": 1000
+        },
+        "faders": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "player": {
+              "type": "string",
+              "default": "/dca/1/fader"
+            },
+            "reader": {
+              "type": "string",
+              "default": "/dca/2/fader"
+            },
+            "game": {
+              "type": "string",
+              "default": "/dca/3/fader"
+            }
+          },
+          "required": [
+            "player",
+            "reader",
+            "game"
+          ]
         }
       },
       "required": [
         "enabled",
-        "ip"
+        "ip",
+        "fadeLength",
+        "faders"
       ]
     },
     "tracker": {
