@@ -1,10 +1,20 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
+import { computed } from 'vue';
+import { runDataArray, upcomingRunId } from '../../browser_shared/replicants';
 import CutOffBorderedElem from '../_misc/components/CutOffBorderedElem.vue';
-import UpcomingRun from './components/UpcomingRun.vue';
 import MusicTrack from './components/MusicTrack.vue';
+import UpcomingRun from './components/UpcomingRun.vue';
 
 useHead({ title: 'Intermission' });
+
+const nextRuns = computed(() => {
+  const runIndex = runDataArray?.data?.findIndex((r) => r.id === upcomingRunId?.data);
+  if (typeof runIndex === 'number' && runIndex >= 0) {
+    return runDataArray?.data?.slice(runIndex, runIndex + 4) ?? [];
+  }
+  return [];
+});
 </script>
 
 <template>
@@ -30,10 +40,11 @@ useHead({ title: 'Intermission' });
     </CutOffBorderedElem>
     <!-- Music -->
     <MusicTrack :class="$style.Music" />
-    <UpcomingRun :class="$style.Next" next />
-    <UpcomingRun :class="$style.After1" />
-    <UpcomingRun :class="$style.After2" />
-    <UpcomingRun :class="$style.After3" />
+    <!-- Upcoming Runs -->
+    <UpcomingRun :run-data="nextRuns[0]" :class="$style.Next" next />
+    <UpcomingRun :run-data="nextRuns[1]" :class="$style.After1" />
+    <UpcomingRun :run-data="nextRuns[2]" :class="$style.After2" />
+    <UpcomingRun :run-data="nextRuns[3]" :class="$style.After3" />
   </div>
 </template>
 
