@@ -1,7 +1,7 @@
 // TODO: "Opening" a connection doesn't mean we're connected, we should check that too.
 //       This also extends to other things done on "ready".
 
-import { clamp, round } from 'lodash';
+import { clamp, round } from 'lodash-es';
 import osc from 'osc';
 import { nodecg } from './nodecg.js';
 

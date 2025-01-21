@@ -1,4 +1,4 @@
-import { difference } from 'lodash';
+import { difference } from 'lodash-es';
 import foobar2000 from './util/foobar2000.js';
 import { nodecg } from './util/nodecg.js';
 import obs, { type SceneTransitionStarted } from './util/obs.js';
