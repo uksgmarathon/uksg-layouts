@@ -12,4 +12,5 @@ export default async (nodecg) => {
     await import('./timer.js');
     await import('./tracker.js');
     await import('./intermission.js');
+    await import('./audio.js');
 };

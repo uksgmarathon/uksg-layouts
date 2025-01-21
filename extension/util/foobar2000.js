@@ -3,6 +3,23 @@ import { setTimeout as wait } from 'timers/promises';
 import { nodecg } from './nodecg.js';
 import { foobar2000Data } from './replicants.js';
 const config = nodecg.bundleConfig.foobar2000;
+const headers = config.username && config.password
+    ? { Authorization: `Basic ${Buffer.from(`${config.username}:${config.password}`).toString('base64')}` }
+    : undefined;
+/**
+ * Used to make a request to the Beefweb foobar2000 plugin.
+ * @param method HTTP method
+ * @param endpoint Endpoint to request
+ * @returns fetch response
+ */
+async function request(method, endpoint) {
+    nodecg.log.debug('[Util/foobar2000] API %s %s', method.toUpperCase(), endpoint);
+    const resp = await fetch(`${config.url}${endpoint}`, { method, headers });
+    if (!resp.ok) {
+        throw new Error(await resp.text());
+    }
+    return resp;
+}
 /**
  * Used to "connect" to the Beefweb foobar2000 plugin.
  */
@@ -12,9 +29,7 @@ function connect() {
             ...init,
             headers: {
                 ...init?.headers,
-                ...(config.username && config.password ? {
-                    Authorization: `Basic ${Buffer.from(`${config.username}:${config.password}`).toString('base64')}`,
-                } : undefined),
+                ...headers,
             },
         }),
     });
@@ -63,7 +78,39 @@ function connect() {
     es.addEventListener('message', onMessage);
     es.addEventListener('error', onError);
 }
+/**
+ * Used to start playback on foobar2000.
+ */
+async function play() {
+    if (!config.enabled)
+        return;
+    try {
+        await request('post', '/player/play');
+        nodecg.log.debug('[Util/foobar2000] Playing');
+    }
+    catch (err) {
+        nodecg.log.warn('[Util/foobar2000] Play error:', err);
+    }
+}
+/**
+ * Used to pause playback on foobar2000.
+ */
+async function pause() {
+    if (!config.enabled)
+        return;
+    try {
+        await request('post', '/player/pause');
+        nodecg.log.debug('[Util/foobar2000] Paused');
+    }
+    catch (err) {
+        nodecg.log.warn('[Util/foobar2000] Pause error:', err);
+    }
+}
 if (config.enabled) {
     connect();
     nodecg.log.debug('[Util/foobar2000] Setup complete');
 }
+export default {
+    play,
+    pause,
+};

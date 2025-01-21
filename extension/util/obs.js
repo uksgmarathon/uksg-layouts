@@ -34,3 +34,6 @@ if (config.enabled) {
     });
     nodecg.log.debug('[Util/OBS] Setup complete');
 }
+export default {
+    conn: obs,
+};
