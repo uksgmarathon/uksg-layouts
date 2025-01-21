@@ -14,4 +14,5 @@ export default async (nodecg: NodeCGServerAPI) => {
   await import('./timer.js');
   await import('./tracker.js');
   await import('./intermission.js');
+  await import('./audio.js');
 };

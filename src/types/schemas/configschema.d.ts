@@ -21,6 +21,12 @@ export interface Configschema {
 	xr18: {
 		enabled: boolean;
 		ip: string;
+		fadeLength: number;
+		faders: {
+			player: string;
+			reader: string;
+			game: string;
+		};
 	};
 	tracker: {
 		enabled: boolean;

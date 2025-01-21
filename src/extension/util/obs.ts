@@ -1,9 +1,16 @@
-import OBSWebSocket, { OBSWebSocketError } from 'obs-websocket-js';
+import OBSWebSocket, { OBSWebSocketError, type OBSEventTypes } from 'obs-websocket-js';
 import { setTimeout as wait } from 'timers/promises';
 import { nodecg } from './nodecg.js';
 
 const config = nodecg.bundleConfig.obs;
 const obs = new OBSWebSocket();
+
+// Types available in our build of obs-websocket.
+export type SceneTransitionStarted = {
+  transitionDuration: number,
+  toScene: string,
+  fromScene: string
+} & OBSEventTypes['SceneTransitionStarted'];
 
 /**
  * Used to (re)connect to the OBS WebSocket.
@@ -41,3 +48,7 @@ if (config.enabled) {
   });
   nodecg.log.debug('[Util/OBS] Setup complete');
 }
+
+export default {
+  conn: obs,
+};
