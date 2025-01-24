@@ -13,6 +13,7 @@ function hasNoDefault(name) {
  * and to make sure they have any correct settings on startup.
  */
 export const capturePositions = hasDefault('capturePositions');
+export const countdown = hasDefault('countdown');
 export const donationTotal = hasDefault('donationTotal');
 export const foobar2000Data = hasDefault('foobar2000Data');
 export const gameLayouts = hasDefault('gameLayouts');
