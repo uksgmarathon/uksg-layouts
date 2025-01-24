@@ -18,12 +18,62 @@
         "password": {
           "type": "string",
           "default": ""
+        },
+        "names": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "scenes": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "gameLayout": {
+                  "type": "string",
+                  "default": "Game Layout"
+                }
+              },
+              "required": [
+                "gameLayout"
+              ]
+            },
+            "captures": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "games": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "default": [
+                    "Game Capture 1",
+                    "Game Capture 2"
+                  ]
+                },
+                "camera": {
+                  "type": "string",
+                  "default": "Camera Capture"
+                }
+              },
+              "required": [
+                "games",
+                "camera"
+              ]
+            }
+          },
+          "required": [
+            "scenes",
+            "captures"
+          ]
         }
       },
       "required": [
         "enabled",
         "url",
-        "password"
+        "password",
+        "names"
       ]
     },
     "foobar2000": {
