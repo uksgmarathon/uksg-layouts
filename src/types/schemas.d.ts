@@ -6,6 +6,7 @@
 
 export type { CapturePositions } from './schemas/capturePositions.d.ts';
 export type { Configschema } from './schemas/configschema.d.ts';
+export type { Countdown } from './schemas/countdown.d.ts';
 export type { DonationTotal } from './schemas/donationTotal.d.ts';
 export type { Foobar2000Data } from './schemas/foobar2000Data.d.ts';
 export type { GameLayouts } from './schemas/gameLayouts.d.ts';
