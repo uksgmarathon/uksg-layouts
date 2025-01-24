@@ -85,11 +85,23 @@
         "file": "upcoming-run-control/main.html",
         "width": 3,
         "workspace": "UKSG"
+      },
+      {
+        "name": "countdown-control",
+        "title": "Countdown Control",
+        "file": "countdown-control/main.html",
+        "width": 3,
+        "workspace": "UKSG"
       }
     ],
     "graphics": [
       {
         "file": "omnibar/main.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "countdown/main.html",
         "width": 1920,
         "height": 1080
       },

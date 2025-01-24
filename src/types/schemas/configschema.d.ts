@@ -11,6 +11,18 @@ export interface Configschema {
 		enabled: boolean;
 		url: string;
 		password: string;
+		names: {
+			scenes: {
+				gameLayout: string;
+			};
+			captures: {
+				/**
+				 * @minItems 1
+				 */
+				games: [string, ...string[]];
+				camera: string;
+			};
+		};
 	};
 	foobar2000: {
 		enabled: boolean;
