@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { runDataActiveRun } from '../../../browser_shared/replicants';
+import { participants, runDataActiveRun } from '../../../browser_shared/replicants';
 import CutOffBorderedElem from '../../_misc/components/CutOffBorderedElem.vue';
 
 const props = withDefaults(defineProps<{
-  type: 'player' | 'other',
+  type: 'player' | 'host' | 'comm1' | 'comm2',
   index?: number,
   headerColour?: string,
   headerText?: string,
@@ -20,14 +20,21 @@ const props = withDefaults(defineProps<{
   cutEdgeSize: '15px',
 });
 
-const player = computed(() => runDataActiveRun?.data?.teams[props.index].players[0]);
-const name = computed(() => props.type === 'player' ? player.value?.name : 'TBD');
-const pronouns = computed(() => props.type === 'player' ? player.value?.pronouns : 'TBD');
+const user = computed(() => {
+  if (props.type === 'player') return runDataActiveRun?.data?.teams[props.index].players[0];
+  if (props.type === 'host') return participants?.data?.readers[0];
+  if (props.type === 'comm1') return participants?.data?.commentators[0];
+  if (props.type === 'comm2') return participants?.data?.commentators[1];
+  return null;
+});
+const name = computed(() => user.value?.name);
+const pronouns = computed(() => user.value?.pronouns);
 </script>
 
 <template>
   <CutOffBorderedElem
     class="Fixed"
+    :class="{ [$style.WrapperRemove]: !name }"
     :header-colour="headerColour ?? 'linear-gradient(33deg, #1b6ebb 0%, #348bd2 100%)'"
     :header-font-size="headerFontSize"
     :header-width="headerWidth"
@@ -42,6 +49,10 @@ const pronouns = computed(() => props.type === 'player' ? player.value?.pronouns
 </template>
 
 <style module lang="scss">
+.WrapperRemove {
+  opacity: 0;
+}
+
 .Content {
   font-size: v-bind(nameFontSize);
   font-weight: 700;

@@ -15,6 +15,7 @@ export const countdown = useReplicant<Schemas.Countdown>('countdown', thisBundle
 export const donationTotal = useReplicant<Schemas.DonationTotal>('donationTotal', thisBundle);
 export const foobar2000Data = useReplicant<Schemas.Foobar2000Data>('foobar2000Data', thisBundle);
 export const gameLayouts = useReplicant<Schemas.GameLayouts>('gameLayouts', thisBundle);
+export const participants = useReplicant<Schemas.Participants>('participants', thisBundle);
 export const runDataActiveRun = useReplicant<RunDataActiveRun>('runDataActiveRun', sc);
 export const runDataActiveRunSurrounding = useReplicant<RunDataActiveRunSurrounding>('runDataActiveRunSurrounding', sc);
 export const runDataArray = useReplicant<RunDataArray>('runDataArray', sc);
