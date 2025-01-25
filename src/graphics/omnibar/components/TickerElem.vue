@@ -3,7 +3,11 @@
 
 <template>
   <div class="Flex" :class="$style.Wrapper">
-    Welcome to UKSG Red 2024!
+    You are watching UKSG Red 2025!
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Donate @ tracker.uksgmarathon.uk
   </div>
 </template>
 
