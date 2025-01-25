@@ -21,4 +21,5 @@ export const countdown = hasDefault<Schemas.Countdown>('countdown');
 export const donationTotal = hasDefault<Schemas.DonationTotal>('donationTotal');
 export const foobar2000Data = hasDefault<Schemas.Foobar2000Data>('foobar2000Data');
 export const gameLayouts = hasDefault<Schemas.GameLayouts>('gameLayouts');
+export const participants = hasDefault<Schemas.Participants>('participants');
 export const upcomingRunId = hasDefault<Schemas.UpcomingRunId>('upcomingRunId');

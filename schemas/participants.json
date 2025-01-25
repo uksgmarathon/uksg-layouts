@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "pronouns": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "default": []
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "commentators": {
+      "$ref": "#/definitions/users"
+    },
+    "readers": {
+      "$ref": "#/definitions/users"
+    }
+  },
+  "required": [
+    "commentators",
+    "readers"
+  ]
+}

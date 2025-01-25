@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
 import { computed } from 'vue';
-import { runDataArray, upcomingRunId } from '../../browser_shared/replicants';
+import { participants, runDataArray, upcomingRunId } from '../../browser_shared/replicants';
 import CutOffBorderedElem from '../_misc/components/CutOffBorderedElem.vue';
 import MusicTrack from './components/MusicTrack.vue';
 import UpcomingRun from './components/UpcomingRun.vue';
@@ -15,6 +15,8 @@ const nextRuns = computed(() => {
   }
   return [];
 });
+
+const reader = computed(() => participants?.data?.readers[0]);
 </script>
 
 <template>
@@ -34,9 +36,9 @@ const nextRuns = computed(() => {
     >
       <template v-slot:header><img src="./components/Host.png" /></template>
       <template v-slot:content>
-        <span :class="$style.HostContent">HostName</span>
+        <span :class="$style.HostContent">{{ reader?.name || '???' }}</span>
       </template>
-      <template v-slot:subtitle>they/them</template>
+      <template v-if="reader?.pronouns" v-slot:subtitle>{{ reader?.pronouns }}</template>
     </CutOffBorderedElem>
     <!-- Music -->
     <MusicTrack :class="$style.Music" />
