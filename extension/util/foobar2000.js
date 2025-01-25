@@ -51,8 +51,8 @@ function connect() {
             foobar2000Data.value.playing = msg.player.playbackState === 'playing';
             if (msg.player.playbackState !== 'stopped') {
                 foobar2000Data.value.track = {
-                    title: msg.player.activeItem.columns[0],
-                    artist: msg.player.activeItem.columns[1],
+                    title: msg.player.activeItem.columns[0] ?? '???',
+                    artist: msg.player.activeItem.columns[1] ?? '???',
                 };
             }
             else {
