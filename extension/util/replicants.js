@@ -17,4 +17,5 @@ export const countdown = hasDefault('countdown');
 export const donationTotal = hasDefault('donationTotal');
 export const foobar2000Data = hasDefault('foobar2000Data');
 export const gameLayouts = hasDefault('gameLayouts');
+export const participants = hasDefault('participants');
 export const upcomingRunId = hasDefault('upcomingRunId');

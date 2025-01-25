@@ -1,36 +1,36 @@
 {
-  "_CutOffBorderedElem-BUkbkrmH.css": {
-    "file": "assets/CutOffBorderedElem-BUkbkrmH.css",
-    "src": "_CutOffBorderedElem-BUkbkrmH.css"
-  },
-  "_CutOffBorderedElem-Qx7rdGWZ.js": {
-    "file": "assets/CutOffBorderedElem-Qx7rdGWZ.js",
+  "_CutOffBorderedElem-B7FF95Su.js": {
+    "file": "assets/CutOffBorderedElem-B7FF95Su.js",
     "name": "CutOffBorderedElem",
     "imports": [
-      "_replicants-B02nfL1m.js",
+      "_replicants-DUqMWSlY.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
       "assets/CutOffBorderedElem-BUkbkrmH.css"
     ]
   },
-  "_QBtn-Dv2fDPGi.js": {
-    "file": "assets/QBtn-Dv2fDPGi.js",
+  "_CutOffBorderedElem-BUkbkrmH.css": {
+    "file": "assets/CutOffBorderedElem-BUkbkrmH.css",
+    "src": "_CutOffBorderedElem-BUkbkrmH.css"
+  },
+  "_QBtn-4hhQ-xsm.js": {
+    "file": "assets/QBtn-4hhQ-xsm.js",
     "name": "QBtn",
     "imports": [
-      "_replicants-B02nfL1m.js",
-      "_QIcon-DZgoACOo.js"
+      "_replicants-DUqMWSlY.js",
+      "_QIcon-iuJDupKW.js"
     ]
   },
   "_QIcon-BARFnp-z.css": {
     "file": "assets/QIcon-BARFnp-z.css",
     "src": "_QIcon-BARFnp-z.css"
   },
-  "_QIcon-DZgoACOo.js": {
-    "file": "assets/QIcon-DZgoACOo.js",
+  "_QIcon-iuJDupKW.js": {
+    "file": "assets/QIcon-iuJDupKW.js",
     "name": "QIcon",
     "imports": [
-      "_replicants-B02nfL1m.js"
+      "_replicants-DUqMWSlY.js"
     ],
     "css": [
       "assets/QIcon-BARFnp-z.css"
@@ -50,15 +50,15 @@
     "file": "assets/_plugin-vue_export-helper-DlAUqK2U.js",
     "name": "_plugin-vue_export-helper"
   },
-  "_private.use-form-BvZ7pluI.js": {
-    "file": "assets/private.use-form-BvZ7pluI.js",
+  "_private.use-form-BlblkLHl.js": {
+    "file": "assets/private.use-form-BlblkLHl.js",
     "name": "private.use-form",
     "imports": [
-      "_replicants-B02nfL1m.js"
+      "_replicants-DUqMWSlY.js"
     ]
   },
-  "_replicants-B02nfL1m.js": {
-    "file": "assets/replicants-B02nfL1m.js",
+  "_replicants-DUqMWSlY.js": {
+    "file": "assets/replicants-DUqMWSlY.js",
     "name": "replicants"
   },
   "_util-BuFe6IaP.js": {
@@ -170,38 +170,54 @@
     "src": "node_modules/.pnpm/@quasar+extras@1.16.15/node_modules/@quasar/extras/roboto-font/web-font/KFOmCnqEu92Fr1Mu4mxM.woff"
   },
   "src/dashboard/countdown-control/main.ts": {
-    "file": "assets/main-DTRQYP9o.js",
+    "file": "assets/main-Dp5_2-HE.js",
     "name": "main",
     "src": "src/dashboard/countdown-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon-DZgoACOo.js",
-      "_replicants-B02nfL1m.js",
-      "_QBtn-Dv2fDPGi.js",
-      "_private.use-form-BvZ7pluI.js",
+      "_QIcon-iuJDupKW.js",
+      "_replicants-DUqMWSlY.js",
+      "_QBtn-4hhQ-xsm.js",
+      "_private.use-form-BlblkLHl.js",
       "_util-BuFe6IaP.js"
     ]
   },
   "src/dashboard/game-layout-control/main.ts": {
-    "file": "assets/main-B743dzIn.js",
+    "file": "assets/main-CveSSRdK.js",
     "name": "main",
     "src": "src/dashboard/game-layout-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon-DZgoACOo.js",
-      "_replicants-B02nfL1m.js",
-      "_private.use-form-BvZ7pluI.js"
+      "_QIcon-iuJDupKW.js",
+      "_replicants-DUqMWSlY.js",
+      "_private.use-form-BlblkLHl.js"
+    ]
+  },
+  "src/dashboard/participant-control/main.ts": {
+    "file": "assets/main-Bvatp3CO.js",
+    "name": "main",
+    "src": "src/dashboard/participant-control/main.ts",
+    "isEntry": true,
+    "imports": [
+      "_QIcon-iuJDupKW.js",
+      "_replicants-DUqMWSlY.js",
+      "_QBtn-4hhQ-xsm.js",
+      "_private.use-form-BlblkLHl.js",
+      "__plugin-vue_export-helper-DlAUqK2U.js"
+    ],
+    "css": [
+      "assets/main-CWcF4VUu.css"
     ]
   },
   "src/dashboard/upcoming-run-control/main.ts": {
-    "file": "assets/main-DKzTyZEX.js",
+    "file": "assets/main-CXmkZPyb.js",
     "name": "main",
     "src": "src/dashboard/upcoming-run-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon-DZgoACOo.js",
-      "_replicants-B02nfL1m.js",
-      "_QBtn-Dv2fDPGi.js"
+      "_QIcon-iuJDupKW.js",
+      "_replicants-DUqMWSlY.js",
+      "_QBtn-4hhQ-xsm.js"
     ]
   },
   "src/graphics/_misc/background.png": {
@@ -213,12 +229,12 @@
     "src": "src/graphics/countdown/Logo.svg"
   },
   "src/graphics/countdown/main.ts": {
-    "file": "assets/main-DIB77bop.js",
+    "file": "assets/main-dcALVpA3.js",
     "name": "main",
     "src": "src/graphics/countdown/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-B02nfL1m.js",
+      "_replicants-DUqMWSlY.js",
       "_util-BuFe6IaP.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
@@ -249,18 +265,18 @@
     ]
   },
   "src/graphics/game-layout/main.ts": {
-    "file": "assets/main-Cs44XuTW.js",
+    "file": "assets/main-8RKGmP4k.js",
     "name": "main",
     "src": "src/graphics/game-layout/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-B02nfL1m.js",
-      "_CutOffBorderedElem-Qx7rdGWZ.js",
+      "_replicants-DUqMWSlY.js",
+      "_CutOffBorderedElem-B7FF95Su.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "_util-BuFe6IaP.js"
     ],
     "css": [
-      "assets/main-SpGFe50G.css"
+      "assets/main-DrMOROxo.css"
     ],
     "assets": [
       "assets/metropolis-latin-100-normal-CksYLfmg.woff2",
@@ -289,13 +305,13 @@
     "src": "src/graphics/intermission/components/Logo.png"
   },
   "src/graphics/intermission/main.ts": {
-    "file": "assets/main-CrwJAPRb.js",
+    "file": "assets/main-CZiY-3BJ.js",
     "name": "main",
     "src": "src/graphics/intermission/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-B02nfL1m.js",
-      "_CutOffBorderedElem-Qx7rdGWZ.js",
+      "_replicants-DUqMWSlY.js",
+      "_CutOffBorderedElem-B7FF95Su.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -329,12 +345,12 @@
     "src": "src/graphics/omnibar/RedLogo.png"
   },
   "src/graphics/omnibar/main.ts": {
-    "file": "assets/main-CYyqVReT.js",
+    "file": "assets/main-C0BtGp7q.js",
     "name": "main",
     "src": "src/graphics/omnibar/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-B02nfL1m.js",
+      "_replicants-DUqMWSlY.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "_util-BuFe6IaP.js"
     ],
