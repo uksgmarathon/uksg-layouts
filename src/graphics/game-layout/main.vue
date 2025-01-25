@@ -12,6 +12,11 @@ const route = useRoute();
 const router = useRouter();
 const clipPath = ref('unset');
 
+// Allows you to specify a certain layout type in the parameters (e.g. ?override=16x9-1p).
+// TODO: See if we can access these via vue-router (I couldn't when trying to get this in quickly).
+const params = new URLSearchParams(document.location.search);
+const override = params.get('override');
+
 /**
  * Returns the available layouts based on the router list.
  */
@@ -52,23 +57,27 @@ async function updateCapturePositionsData() {
   capturePositions.save();
 }
 
-// Watches if the select layout changes and points the route to the correct one.
-watch(() => gameLayouts?.data?.selected, (selected) => {
-  // If the selected value is NULL then fill it in with the default route.
-  // This is the only time this graphic changes this value!
-  if (selected === null && gameLayouts?.data) {
-    gameLayouts.data.selected = route.path.replace('/', '');
-    gameLayouts.save();
-  } else if (typeof selected === 'string') {
-    router.push(`/${selected}`);
-  }
-}, { immediate: true });
+if (!override) {
+  // Watches if the select layout changes and points the route to the correct one.
+  watch(() => gameLayouts?.data?.selected, (selected) => {
+    // If the selected value is NULL then fill it in with the default route.
+    // This is the only time this graphic changes this value!
+    if (selected === null && gameLayouts?.data) {
+      gameLayouts.data.selected = route.path.replace('/', '');
+      gameLayouts.save();
+    } else if (typeof selected === 'string') {
+      router.push(`/${selected}`);
+    }
+  }, { immediate: true });
+} else {
+  router.push(`/${override}`);
+}
 
 // Do stuff that should happen when layout changes.
 router.afterEach(async () => {
   await nextTick();
   clipPath.value = generateClipPath();
-  await updateCapturePositionsData();
+  if (!override) await updateCapturePositionsData();
 });
 
 onMounted(async () => {

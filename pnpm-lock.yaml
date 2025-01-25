@@ -14,9 +14,6 @@ importers:
       eventsource:
         specifier: ^3.0.2
         version: 3.0.2
-      gsap:
-        specifier: ^3.12.5
-        version: 3.12.5
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -81,6 +78,9 @@ importers:
       eslint-plugin-vue:
         specifier: ^9.32.0
         version: 9.32.0(eslint@9.18.0)
+      gsap:
+        specifier: ^3.12.5
+        version: 3.12.5
       nodecg-vue-composable:
         specifier: ^1.1.0
         version: 1.1.0(vue@3.5.13(typescript@5.7.3))
