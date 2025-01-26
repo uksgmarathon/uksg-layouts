@@ -7,7 +7,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Donate @ tracker.uksgmarathon.uk
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Donate @ donate.uksgmarathon.uk
   </div>
 </template>
 
