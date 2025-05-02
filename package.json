@@ -19,7 +19,7 @@
     "build": "vite build && tsc -b tsconfig.extension.json",
     "lint": "eslint",
     "schema-types": "nodecg schema-types",
-    "start": "node ../..",
+    "start": "cd ../.. && node index.js",
     "watch": "conc -n B,E -c red,blue -k vite \"tsc -b -w --preserveWatchOutput tsconfig.extension.json\""
   },
   "dependencies": {
