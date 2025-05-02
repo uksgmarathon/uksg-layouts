@@ -1,4 +1,4 @@
-import { createHead } from '@unhead/vue';
+import { createHead } from '@unhead/vue/client';
 import { createApp } from 'vue';
 import { createMemoryHistory, createRouter } from 'vue-router';
 import L_16x9_1p from './layouts/16x9-1p.vue';

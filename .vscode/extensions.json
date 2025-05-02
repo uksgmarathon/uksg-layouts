@@ -1,7 +1,8 @@
 {
   "recommendations": [
-    "Vue.volar",
     "dbaeumer.vscode-eslint",
-    "syler.sass-indented"
+    "github.vscode-github-actions",
+    "syler.sass-indented",
+    "Vue.volar",
   ]
 }
