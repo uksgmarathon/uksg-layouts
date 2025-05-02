@@ -1,4 +1,4 @@
-import { createHead } from '@unhead/vue';
+import { createHead } from '@unhead/vue/client';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
