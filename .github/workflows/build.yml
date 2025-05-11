@@ -58,7 +58,7 @@ jobs:
     - uses: pnpm/action-setup@v4
       name: Install pnpm
       with:
-        version: 9
+        version: 10
 
     # Gets pnpm's store directory (for next step)
     - name: Get pnpm store directory
