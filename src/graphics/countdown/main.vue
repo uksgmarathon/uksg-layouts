@@ -5,6 +5,8 @@ import { countdown } from '../../browser_shared/replicants';
 import { msToTimeStr } from '../../browser_shared/util';
 
 useHead({ title: 'Countdown' });
+const theme = nodecg.bundleConfig.theme;
+
 const remaining = computed(() => countdown?.data?.remaining ?? 0);
 const currentCountdown = computed(() => {
   const seconds = Math.round(remaining.value / 1000);
@@ -20,8 +22,25 @@ const currentCountdown = computed(() => {
 
 <template>
   <div class="Background" />
-  <div class="Layout FlexColumn" :class="$style.Wrapper">
-    <img src="./Logo.svg" :class="$style.Logo">
+  <div
+    class="Layout FlexColumn"
+    :class="$style.Wrapper"
+  >
+    <img
+      v-if="theme === 'red'"
+      :class="$style.Logo"
+      src="./RedLogo.svg"
+    >
+    <img
+      v-else-if="theme === 'green'"
+      :class="$style.Logo"
+      src="./GreenLogo.svg"
+    >
+    <img
+      v-else-if="theme === 'blue'"
+      :class="$style.Logo"
+      src="./BlueLogo.svg"
+    >
     <div class="FlexColumn">
       <div :class="$style.Header">
         Getting ready...
