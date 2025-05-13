@@ -31,17 +31,17 @@ const reader = computed(() => participants?.data?.readers[0]);
       <img
         v-if="theme === 'red'"
         :class="$style.Logo"
-        src="./components/RedLogo.svg"
+        src="./RedLogo.svg"
       >
       <img
         v-else-if="theme === 'green'"
         :class="$style.Logo"
-        src="./components/GreenLogo.svg"
+        src="./GreenLogo.svg"
       >
       <img
         v-else-if="theme === 'blue'"
         :class="$style.Logo"
-        src="./components/BlueLogo.svg"
+        src="./BlueLogo.svg"
       >
     </div>
     <!-- Host -->
@@ -52,19 +52,39 @@ const reader = computed(() => participants?.data?.readers[0]);
       cut-edge-size="8px"
       header-width="50px"
     >
-      <template v-slot:header><img src="./components/Host.png" /></template>
-      <template v-slot:content>
+      <template #header>
+        <img src="./components/Host.png">
+      </template>
+      <template #content>
         <span :class="$style.HostContent">{{ reader?.name || '???' }}</span>
       </template>
-      <template v-if="reader?.pronouns" v-slot:subtitle>{{ reader?.pronouns }}</template>
+      <template
+        v-if="reader?.pronouns"
+        #subtitle
+      >
+        {{ reader?.pronouns }}
+      </template>
     </CutOffBorderedElem>
     <!-- Music -->
     <MusicTrack :class="$style.Music" />
     <!-- Upcoming Runs -->
-    <UpcomingRun :run-data="nextRuns[0]" :class="$style.Next" next />
-    <UpcomingRun :run-data="nextRuns[1]" :class="$style.After1" />
-    <UpcomingRun :run-data="nextRuns[2]" :class="$style.After2" />
-    <UpcomingRun :run-data="nextRuns[3]" :class="$style.After3" />
+    <UpcomingRun
+      :run-data="nextRuns[0]"
+      :class="$style.Next"
+      next
+    />
+    <UpcomingRun
+      :run-data="nextRuns[1]"
+      :class="$style.After1"
+    />
+    <UpcomingRun
+      :run-data="nextRuns[2]"
+      :class="$style.After2"
+    />
+    <UpcomingRun
+      :run-data="nextRuns[3]"
+      :class="$style.After3"
+    />
   </div>
 </template>
 

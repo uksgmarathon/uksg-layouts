@@ -3,7 +3,7 @@ import type { RunData } from 'speedcontrol-util/types/schemas';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
-  runData?: RunData,
+  runData: RunData,
   next?: boolean,
 }>(), {
   next: false,
@@ -15,7 +15,10 @@ const players = computed(() => props.runData?.teams
 </script>
 
 <template>
-  <div v-if="runData" class="Fixed">
+  <div
+    v-if="runData"
+    class="Fixed"
+  >
     <div
       :class="{
         [$style.Border]: true,
@@ -38,9 +41,16 @@ const players = computed(() => props.runData?.teams
       >
         {{ next ? 'coming up next' : 'later' }}
       </div>
-      <div class="FlexColumn" :class="$style.Content">
-        <div :class="$style.Title">{{ runData.game }}</div>
-        <div :class="$style.Subtitle">{{ players }} | {{ runData.category }} | {{ runData.system }} | {{ runData.estimate }}</div>
+      <div
+        class="FlexColumn"
+        :class="$style.Content"
+      >
+        <div :class="$style.Title">
+          {{ runData.game }}
+        </div>
+        <div :class="$style.Subtitle">
+          {{ players }} | {{ runData.category }} | {{ runData.system }} | {{ runData.estimate }}
+        </div>
       </div>
     </div>
   </div>

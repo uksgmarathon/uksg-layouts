@@ -6,16 +6,46 @@ import TimerElem from '../components/TimerElem.vue';
 
 <template>
   <div>
-    <RunInfo :class="$style.RunInfo" flipped subtitle-font-size="22px" />
-    <TimerElem class="BorderBottom" :class="$style.Timer" timer-size="80px" />
+    <RunInfo
+      :class="$style.RunInfo"
+      flipped
+      subtitle-font-size="22px"
+    />
+    <TimerElem
+      class="BorderBottom"
+      :class="$style.Timer"
+      timer-size="80px"
+    />
     <!-- Game Feeds -->
-    <div id="Game1" class="Fixed Capture BorderTop BorderRight BorderBottom" :class="$style.GameFeed1" />
-    <div id="Game2" class="Fixed Capture BorderTop BorderLeft BorderBottom" :class="$style.GameFeed2" />
+    <div
+      id="Game1"
+      class="Fixed Capture BorderTop BorderRight BorderBottom"
+      :class="$style.GameFeed1"
+    />
+    <div
+      id="Game2"
+      class="Fixed Capture BorderTop BorderLeft BorderBottom"
+      :class="$style.GameFeed2"
+    />
     <!-- Camera Feed -->
-    <div id="Camera" class="Fixed Capture BorderTop BorderLeft BorderRight" :class="$style.CameraFeed" />
+    <div
+      id="Camera"
+      class="Fixed Capture BorderTop BorderLeft BorderRight"
+      :class="$style.CameraFeed"
+    />
     <!-- Runners/Players -->
-    <ParticipantInfo :class="$style.Player1" name-font-size="30px" type="player" :index="0" />
-    <ParticipantInfo :class="$style.Player2" name-font-size="30px" type="player" :index="1" />
+    <ParticipantInfo
+      :class="$style.Player1"
+      name-font-size="30px"
+      type="player"
+      :index="0"
+    />
+    <ParticipantInfo
+      :class="$style.Player2"
+      name-font-size="30px"
+      type="player"
+      :index="1"
+    />
     <!-- Host -->
     <ParticipantInfo
       :class="$style.Host"

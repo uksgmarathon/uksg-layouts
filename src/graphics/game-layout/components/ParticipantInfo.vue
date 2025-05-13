@@ -14,8 +14,10 @@ const props = withDefaults(defineProps<{
   cutEdgeSize?: string,
 }>(), {
   index: 0,
+  headerColour: 'linear-gradient(33deg, #1b6ebb 0%, #348bd2 100%)',
   headerText: 'Runner',
   headerFontSize: '20px',
+  headerWidth: undefined,
   nameFontSize: '26px',
   cutEdgeSize: '15px',
 });
@@ -35,16 +37,23 @@ const pronouns = computed(() => user.value?.pronouns);
   <CutOffBorderedElem
     class="Fixed"
     :class="{ [$style.WrapperRemove]: !name }"
-    :header-colour="headerColour ?? 'linear-gradient(33deg, #1b6ebb 0%, #348bd2 100%)'"
+    :header-colour="headerColour"
     :header-font-size="headerFontSize"
     :header-width="headerWidth"
     :cut-edge-size="cutEdgeSize"
   >
-    <template v-slot:header>{{ headerText }}</template>
-    <template v-slot:content>
+    <template #header>
+      {{ headerText }}
+    </template>
+    <template #content>
       <span :class="$style.Content">{{ name ?? '???' }}</span>
     </template>
-    <template v-slot:subtitle v-if="pronouns">{{ pronouns }}</template>
+    <template
+      v-if="pronouns"
+      #subtitle
+    >
+      {{ pronouns }}
+    </template>
   </CutOffBorderedElem>
 </template>
 

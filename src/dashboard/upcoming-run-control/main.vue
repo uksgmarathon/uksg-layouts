@@ -20,10 +20,17 @@ function getRunStr(id: string) {
 
 <template>
   <div>
-    <div class="text-italic">This should only need to be used if the automatically set one is incorrect!</div>
-    <div class="q-mt-xs">Currently set: {{ upcomingRunId?.data ? getRunStr(upcomingRunId.data) : 'none' }}</div>
+    <div class="text-italic">
+      This should only need to be used if the automatically set one is incorrect!
+    </div>
+    <div class="q-mt-xs">
+      Currently set: {{ upcomingRunId?.data ? getRunStr(upcomingRunId.data) : 'none' }}
+    </div>
     <div>
-      <template v-for="type of types" :key="type">
+      <template
+        v-for="type of types"
+        :key="type"
+      >
         <QBtn
           v-if="runDataActiveRunSurrounding?.data?.[type]"
           class="full-width q-mt-xs"
@@ -32,11 +39,20 @@ function getRunStr(id: string) {
         >
           Force to {{ type }} ({{ getRunStr(runDataActiveRunSurrounding.data?.[type]) }})
         </QBtn>
-        <QBtn v-else class="full-width q-mt-xs" color="dark" disable>
+        <QBtn
+          v-else
+          class="full-width q-mt-xs"
+          color="dark"
+          disable
+        >
           {{ type }} not available
         </QBtn>
       </template>
-      <QBtn class="full-width q-mt-xs" color="dark" @click="forceUpcomingRun()">
+      <QBtn
+        class="full-width q-mt-xs"
+        color="dark"
+        @click="forceUpcomingRun()"
+      >
         Force to nothing
       </QBtn>
     </div>

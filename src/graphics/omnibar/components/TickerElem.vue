@@ -2,7 +2,10 @@
 </script>
 
 <template>
-  <div class="Flex" :class="$style.Wrapper">
+  <div
+    class="Flex"
+    :class="$style.Wrapper"
+  >
     You are watching UKSG Red 2025!
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

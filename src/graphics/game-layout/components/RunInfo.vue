@@ -23,18 +23,22 @@ withDefaults(defineProps<{
         [$style.Inner]: true,
         [$style.InnerFlipped]: flipped,
         [$style.InnerHorizontal]: horizontal
-      }">
-      <div :class="$style.GameName">{{ runDataActiveRun?.data?.game ?? '???' }}</div>
+      }"
+    >
+      <div :class="$style.GameName">
+        {{ runDataActiveRun?.data?.game ?? '???' }}
+      </div>
       <div
         :class="{
           [$style.Subtitle]: true,
           [$style.SubtitleHorizontal]: horizontal
-        }">
-          {{ runDataActiveRun?.data?.category ?? '???' }}
-          | {{ runDataActiveRun?.data?.system ?? '???' }}<template v-if="runDataActiveRun?.data?.release">
-            {{ `, ${runDataActiveRun?.data?.release}` }}
-          </template>
-        </div>
+        }"
+      >
+        {{ runDataActiveRun?.data?.category ?? '???' }}
+        | {{ runDataActiveRun?.data?.system ?? '???' }}<template v-if="runDataActiveRun?.data?.release">
+          {{ `, ${runDataActiveRun?.data?.release}` }}
+        </template>
+      </div>
     </div>
   </div>
 </template>

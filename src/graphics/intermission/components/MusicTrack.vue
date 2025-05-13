@@ -14,8 +14,10 @@ const track = computed(() => foobar2000Data?.data?.track ?? null);
     cut-edge-size="8px"
     header-width="50px"
   >
-    <template v-slot:header><img src="./Music.png" /></template>
-    <template v-slot:content>
+    <template #header>
+      <img src="./Music.png">
+    </template>
+    <template #content>
       <span :class="$style.MusicContent">
         <template v-if="playing">
           {{ track?.title ?? '???' }} - {{ track?.artist ?? '???' }}
