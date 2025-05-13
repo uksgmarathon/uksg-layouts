@@ -7,6 +7,7 @@ import MusicTrack from './components/MusicTrack.vue';
 import UpcomingRun from './components/UpcomingRun.vue';
 
 useHead({ title: 'Intermission' });
+const theme = nodecg.bundleConfig.theme;
 
 const nextRuns = computed(() => {
   const runIndex = runDataArray?.data?.findIndex((r) => r.id === upcomingRunId?.data);
@@ -23,8 +24,25 @@ const reader = computed(() => participants?.data?.readers[0]);
   <div class="Background" />
   <div class="Layout">
     <!-- Logo -->
-    <div class="Fixed Flex" :class="$style.LogoWrapper">
-      <img src="./components/Logo.png" />
+    <div
+      class="Fixed Flex"
+      :class="$style.LogoWrapper"
+    >
+      <img
+        v-if="theme === 'red'"
+        :class="$style.Logo"
+        src="./components/RedLogo.svg"
+      >
+      <img
+        v-else-if="theme === 'green'"
+        :class="$style.Logo"
+        src="./components/GreenLogo.svg"
+      >
+      <img
+        v-else-if="theme === 'blue'"
+        :class="$style.Logo"
+        src="./components/BlueLogo.svg"
+      >
     </div>
     <!-- Host -->
     <CutOffBorderedElem
@@ -64,6 +82,12 @@ const reader = computed(() => participants?.data?.readers[0]);
   top: 64px;
   width: 610px;
   height: 366px;
+}
+
+.Logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .Host {

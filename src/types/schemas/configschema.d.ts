@@ -7,6 +7,10 @@
  */
 
 export interface Configschema {
+	/**
+	 * Theme to be used in the graphical overlays; will use "red" if none supplied.
+	 */
+	theme: 'red' | 'green' | 'blue';
 	obs: {
 		enabled: boolean;
 		url: string;

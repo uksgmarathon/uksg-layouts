@@ -12,6 +12,7 @@
     "./src/dashboard/**/*.vue",
     "./src/graphics/**/*.ts",
     "./src/graphics/**/*.vue",
-    "./src/types/**/*.d.ts"
+    "./src/types/**/*.d.ts",
+    "./node_modules/@types/css-modules/**.d.ts"
   ]
 }
