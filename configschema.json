@@ -3,6 +3,16 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "theme": {
+      "description": "Theme to be used in the graphical overlays; will use \"red\" if none supplied.",
+      "type": "string",
+      "enum": [
+        "red",
+        "green",
+        "blue"
+      ],
+      "default": "red"
+    },
     "obs": {
       "type": "object",
       "additionalProperties": false,
@@ -186,6 +196,7 @@
     }
   },
   "required": [
+    "theme",
     "obs",
     "foobar2000",
     "xr18",
