@@ -52,11 +52,11 @@ import TimerElem from '../components/TimerElem.vue';
 
 <style lang="scss" module>
 .RunInfo {
-  /* Putting some of the border outside visible space. */
-  left: -3px;
-  top: -3px;
-  width: 593px; /* 3px added because of above */
-  height: 165px; /* 3px added because of above */
+  left: 0px;
+  top: 0px;
+  width: 590px;
+  height: 162px;
+  z-index: 1;
 }
 
 .Timer {
