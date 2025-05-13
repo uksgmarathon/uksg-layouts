@@ -18,15 +18,23 @@ window.setInterval(setTimeAndDate, 1000);
 <template>
   <div :class="$style.Wrapper">
     <div :class="$style.Border" />
-    <div class="FlexColumn" :class="$style.Clock">
-      <div :class="$style.Time">{{ time }}</div>
-      <div :class="$style.Date">{{ date }}</div>
+    <div
+      class="FlexColumn"
+      :class="$style.Clock"
+    >
+      <div :class="$style.Time">
+        {{ time }}
+      </div>
+      <div :class="$style.Date">
+        {{ date }}
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" module>
 .Wrapper {
+  position: relative;
   height: 100%;
   width: 118px;
   white-space: nowrap;
