@@ -46,12 +46,12 @@ window.setInterval(setTimeAndDate, 1000);
   height: 100%;
   background-color: #2f6f9d; /* Different colour than other borders! */
   clip-path: polygon(
-    0% 100%,
-    0% 13px,
-    13px 0%,
-    18px 0%,
-    3px 15px,
-    3px 100%,
+    0% 100%,  /* outside bottom left */
+    0% 13px,  /* outside top left lower */
+    13px 0%,  /* outside top left upper */
+    18px 0%,  /* inside top left upper */
+    3px 15px, /* inside top left lower */
+    3px 100%, /* inside bottom left */
   );
 }
 
