@@ -5,11 +5,9 @@ import { msToTimeStr } from '../../../browser_shared/util';
 
 withDefaults(defineProps<{
   vertical?: boolean,
-  estimateSize?: string,
   timerSize?: string,
 }>(), {
   vertical: false,
-  estimateSize: '16px',
   timerSize: '60px',
 });
 
@@ -55,7 +53,7 @@ watch(() => timer?.data, (data) => {
         [$style.EstimateVertical]: vertical,
       }"
     >
-      EST: {{ runDataActiveRun?.data?.estimate ?? '??:??:??' }}
+      <span :class="$style.EstimateHeader">EST:</span>&nbsp;{{ runDataActiveRun?.data?.estimate ?? '??:??:??' }}
     </div>
     <div
       class="Flex"
@@ -88,11 +86,15 @@ watch(() => timer?.data, (data) => {
 }
 
 .Estimate {
-  font-size: v-bind(estimateSize);
+  font-size: 24px;
   padding: 10px 30px;
   background: linear-gradient(270deg, #0d3354 10%, #13436f 99%);
   font-weight: 600;
   clip-path: polygon(0 0, calc(100% - 20px) 0%, 100% 15px, 100% 100%, 15px 100%, 0% calc(100% - 15px));
+}
+
+.EstimateHeader {
+  color: var(--border-colour);
 }
 
 .EstimateVertical {

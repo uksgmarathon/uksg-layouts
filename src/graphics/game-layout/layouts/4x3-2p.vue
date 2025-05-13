@@ -7,7 +7,7 @@ import TimerElem from '../components/TimerElem.vue';
 <template>
   <div>
     <RunInfo :class="$style.RunInfo" name-font-size="36px" subtitle-font-size="22px" flipped horizontal />
-    <TimerElem class="BorderBottom" :class="$style.Timer" estimate-size="22px" />
+    <TimerElem class="BorderBottom" :class="$style.Timer" />
     <!-- Game Feeds -->
     <div id="Game1" class="Fixed Capture BorderAll" :class="$style.GameFeed1" />
     <div id="Game2" class="Fixed Capture BorderAll" :class="$style.GameFeed2" />
