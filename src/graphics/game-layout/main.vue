@@ -91,7 +91,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="Background" :class="$style.ClipPath" />
+  <div
+    class="Background"
+    :class="$style.ClipPath"
+  />
   <RouterView class="Layout" />
 </template>
 

@@ -132,7 +132,7 @@ function save() {
       label="Save"
       square
       @click="save()"
-      />
+    />
   </div>
 </template>
 

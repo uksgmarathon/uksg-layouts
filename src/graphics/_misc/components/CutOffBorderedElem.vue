@@ -1,11 +1,12 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
-  headerColour?: string,
+  headerColour: string,
   headerFontSize?: string,
   headerWidth?: string,
   cutEdgeSize?: string,
 }>(), {
   headerFontSize: '20px',
+  headerWidth: undefined,
   cutEdgeSize: '15px',
 });
 </script>
@@ -13,11 +14,26 @@ withDefaults(defineProps<{
 <template>
   <div>
     <div :class="$style.Border" />
-    <div class="Flex" :class="$style.Inner">
-      <div class="Flex" :class="$style.Header"><slot name="header" /></div>
-      <div :class="$style.Content"><slot name="content" /></div>
+    <div
+      class="Flex"
+      :class="$style.Inner"
+    >
+      <div
+        class="Flex"
+        :class="$style.Header"
+      >
+        <slot name="header" />
+      </div>
+      <div :class="$style.Content">
+        <slot name="content" />
+      </div>
     </div>
-    <div v-if="$slots.subtitle" :class="$style.Subtitle"><slot name="subtitle" /></div>
+    <div
+      v-if="$slots.subtitle"
+      :class="$style.Subtitle"
+    >
+      <slot name="subtitle" />
+    </div>
   </div>
 </template>
 

@@ -20,7 +20,21 @@ function change() {
 <template>
   <div>
     <div>Current Countdown: {{ currentCountdown }}</div>
-    <QTime class="full-width" v-model="entry" format24h flat square />
-    <QBtn class="full-width" @click="change" color="primary" unelevated square>Apply</QBtn>
+    <QTime
+      v-model="entry"
+      class="full-width"
+      format24h
+      flat
+      square
+    />
+    <QBtn
+      class="full-width"
+      color="primary"
+      unelevated
+      square
+      @click="change"
+    >
+      Apply
+    </QBtn>
   </div>
 </template>
