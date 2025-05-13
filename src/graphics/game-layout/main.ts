@@ -1,6 +1,7 @@
 import { createHead } from '@unhead/vue/client';
 import { createApp } from 'vue';
 import { createMemoryHistory, createRouter } from 'vue-router';
+import '../_misc/theme';
 import L_16x9_1p from './layouts/16x9-1p.vue';
 import L_16x9_2p from './layouts/16x9-2p.vue';
 import L_4x3_1p from './layouts/4x3-1p.vue';

@@ -72,7 +72,7 @@ const players = computed(() => props.runData?.teams
 }
 
 .BorderNext {
-  background: var(--red-border-colour);
+  background: var(--theme-border-colour);
 }
 
 .Inner {
@@ -105,7 +105,7 @@ const players = computed(() => props.runData?.teams
 }
 
 .HeaderNext {
-  background: var(--red-border-colour);
+  background: var(--theme-border-colour);
   color: unset;
 }
 

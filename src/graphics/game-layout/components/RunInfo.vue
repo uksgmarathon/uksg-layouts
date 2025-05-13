@@ -83,7 +83,7 @@ withDefaults(defineProps<{
   position: absolute;
   width: 100%;
   height: 100%;
-  background: var(--red-border-colour);
+  background: var(--theme-border-colour);
 }
 
 .BorderFlipped {

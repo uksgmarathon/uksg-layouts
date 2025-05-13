@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import { createApp } from 'vue';
+import '../_misc/theme';
 import App from './main.vue';
 
 dayjs.extend(utc);
