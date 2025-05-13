@@ -5,16 +5,34 @@ import LeftBox from './components/LeftBox.vue';
 import TickerElem from './components/TickerElem.vue';
 
 useHead({ title: 'Omnibar' });
+const theme = nodecg.bundleConfig.theme;
 </script>
 
 <template>
   <div class="Layout">
-    <div class="Flex BorderTop" :class="$style.Wrapper">
+    <div
+      class="Flex BorderTop"
+      :class="$style.Wrapper"
+    >
       <LeftBox />
       <TickerElem />
       <ClockElem />
     </div>
-    <img :class="$style.Logo" src="./RedLogo.png">
+    <img
+      v-if="theme === 'red'"
+      :class="$style.Logo"
+      src="./RedLogo.png"
+    >
+    <img
+      v-else-if="theme === 'green'"
+      :class="$style.Logo"
+      src="./GreenLogo.png"
+    >
+    <img
+      v-else-if="theme === 'blue'"
+      :class="$style.Logo"
+      src="./BlueLogo.png"
+    >
   </div>
 </template>
 
