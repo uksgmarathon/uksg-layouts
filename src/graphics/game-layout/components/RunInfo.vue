@@ -95,7 +95,7 @@ withDefaults(defineProps<{
   @include clipPathInner(25px);
   width: 100%;
   height: 100%;
-  background: var(--red-gradient);
+  background: var(--theme-gradient);
   padding: 25px;
   box-sizing: border-box;
   align-items: flex-start;

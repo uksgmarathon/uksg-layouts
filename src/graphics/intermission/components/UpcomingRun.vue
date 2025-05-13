@@ -90,7 +90,7 @@ const players = computed(() => props.runData?.teams
 }
 
 .InnerNext {
-  background: var(--red-gradient);
+  background: var(--theme-gradient);
 }
 
 .Header {
