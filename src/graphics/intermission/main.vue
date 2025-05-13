@@ -31,17 +31,17 @@ const reader = computed(() => participants?.data?.readers[0]);
       <img
         v-if="theme === 'red'"
         :class="$style.Logo"
-        src="./components/RedLogo.svg"
+        src="./RedLogo.svg"
       >
       <img
         v-else-if="theme === 'green'"
         :class="$style.Logo"
-        src="./components/GreenLogo.svg"
+        src="./GreenLogo.svg"
       >
       <img
         v-else-if="theme === 'blue'"
         :class="$style.Logo"
-        src="./components/BlueLogo.svg"
+        src="./BlueLogo.svg"
       >
     </div>
     <!-- Host -->
