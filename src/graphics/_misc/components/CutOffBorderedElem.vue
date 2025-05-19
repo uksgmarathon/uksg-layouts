@@ -27,12 +27,13 @@ withDefaults(defineProps<{
       <div :class="$style.Content">
         <slot name="content" />
       </div>
-    </div>
-    <div
-      v-if="$slots.subtitle"
-      :class="$style.Subtitle"
-    >
-      <slot name="subtitle" />
+      <div
+        v-if="$slots.subtitle"
+        :class="$style.Subtitle"
+        class="Flex"
+      >
+        <slot name="subtitle" />
+      </div>
     </div>
   </div>
 </template>
@@ -101,15 +102,14 @@ withDefaults(defineProps<{
 }
 
 .Subtitle {
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  right: 0;
+  box-sizing: border-box;
   background: #043053;
-  padding: 5px 10px 3px 10px;
+  height: 100%;
+  max-height: 34px;
+  min-width: 105px;
+  padding: 0 10px;
   font-size: 14px;
-  margin: calc(3px + 4px); /* Border + padding */
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
 }
 </style>
