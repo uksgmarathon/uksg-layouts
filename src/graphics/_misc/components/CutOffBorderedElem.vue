@@ -2,10 +2,12 @@
 withDefaults(defineProps<{
   headerColour: string,
   headerFontSize?: string,
+  headerTextColour?: string,
   headerWidth?: string,
   cutEdgeSize?: string,
 }>(), {
   headerFontSize: '20px',
+  headerTextColour: undefined,
   headerWidth: undefined,
   cutEdgeSize: '15px',
 });
@@ -94,6 +96,7 @@ withDefaults(defineProps<{
   width: v-bind(headerWidth);
   font-weight: 700;
   box-sizing: border-box;
+  color: v-bind(headerTextColour);
 }
 
 .Content {
