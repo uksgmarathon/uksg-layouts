@@ -2,10 +2,13 @@
 withDefaults(defineProps<{
   headerColour: string,
   headerFontSize?: string,
+  headerTextColour?: string,
   headerWidth?: string,
   cutEdgeSize?: string,
+  borderDark?: boolean,
 }>(), {
   headerFontSize: '20px',
+  headerTextColour: undefined,
   headerWidth: undefined,
   cutEdgeSize: '15px',
 });
@@ -13,7 +16,12 @@ withDefaults(defineProps<{
 
 <template>
   <div>
-    <div :class="$style.Border" />
+    <div
+      :class="{
+        [$style.Border]: true,
+        [$style.BorderDark]: borderDark,
+      }"
+    />
     <div
       class="Flex"
       :class="$style.Inner"
@@ -27,12 +35,13 @@ withDefaults(defineProps<{
       <div :class="$style.Content">
         <slot name="content" />
       </div>
-    </div>
-    <div
-      v-if="$slots.subtitle"
-      :class="$style.Subtitle"
-    >
-      <slot name="subtitle" />
+      <div
+        v-if="$slots.subtitle"
+        :class="$style.Subtitle"
+        class="Flex"
+      >
+        <slot name="subtitle" />
+      </div>
     </div>
   </div>
 </template>
@@ -74,6 +83,10 @@ withDefaults(defineProps<{
   background: var(--border-colour);
 }
 
+.BorderDark {
+  background: #043053;
+}
+
 .Inner {
   width: 100%;
   height: 100%;
@@ -93,6 +106,7 @@ withDefaults(defineProps<{
   width: v-bind(headerWidth);
   font-weight: 700;
   box-sizing: border-box;
+  color: v-bind(headerTextColour);
 }
 
 .Content {
@@ -101,15 +115,14 @@ withDefaults(defineProps<{
 }
 
 .Subtitle {
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  right: 0;
+  box-sizing: border-box;
   background: #043053;
-  padding: 5px 10px 3px 10px;
+  height: 100%;
+  max-height: 34px;
+  min-width: 105px;
+  padding: 0 10px;
   font-size: 14px;
-  margin: calc(3px + 4px); /* Border + padding */
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
 }
 </style>

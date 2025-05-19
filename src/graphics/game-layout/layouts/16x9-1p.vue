@@ -22,8 +22,6 @@ import TimerElem from '../components/TimerElem.vue';
     <ParticipantInfo
       :class="$style.Host"
       type="host"
-      header-colour="#0c3f6b"
-      header-text="Host"
       header-font-size="14px"
       header-width="66px"
       name-font-size="20px"
@@ -33,8 +31,6 @@ import TimerElem from '../components/TimerElem.vue';
     <ParticipantInfo
       :class="$style.Comm1"
       type="comm1"
-      header-colour="#055255"
-      header-text="Comm"
       header-font-size="14px"
       header-width="66px"
       name-font-size="20px"
@@ -44,8 +40,6 @@ import TimerElem from '../components/TimerElem.vue';
     <ParticipantInfo
       :class="$style.Comm2"
       type="comm2"
-      header-colour="#055255"
-      header-text="Comm"
       header-font-size="14px"
       header-width="66px"
       name-font-size="20px"
@@ -114,13 +108,13 @@ import TimerElem from '../components/TimerElem.vue';
   left: 477px;
   top: 811px;
   width: 706px;
-  height: 191px;
+  height: 192px;
 }
 
 .RunInfo {
   left: 1183px;
   top: 811px;
   width: 737px;
-  height: 190px;
+  height: 192px;
 }
 </style>
