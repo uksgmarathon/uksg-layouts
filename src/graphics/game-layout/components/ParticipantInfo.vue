@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<{
 });
 
 const user = computed(() => {
-  if (props.type === 'player') return runDataActiveRun?.data?.teams[props.index].players[0];
+  if (props.type === 'player') return runDataActiveRun?.data?.teams[props.index]?.players[0];
   if (props.type === 'host') return participants?.data?.readers[0];
   if (props.type === 'comm1') return participants?.data?.commentators[0];
   if (props.type === 'comm2') return participants?.data?.commentators[1];
