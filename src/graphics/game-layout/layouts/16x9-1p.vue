@@ -114,13 +114,13 @@ import TimerElem from '../components/TimerElem.vue';
   left: 477px;
   top: 811px;
   width: 706px;
-  height: 191px;
+  height: 192px;
 }
 
 .RunInfo {
   left: 1183px;
   top: 811px;
   width: 737px;
-  height: 190px;
+  height: 192px;
 }
 </style>
