@@ -48,12 +48,16 @@ const pronouns = computed(() => user.value?.pronouns);
 <template>
   <CutOffBorderedElem
     class="Fixed"
-    :class="{ [$style.WrapperRemove]: !name }"
+    :class="{
+      [$style.WrapperRemove]: !name,
+      [$style.Player]: type === 'player',
+    }"
     :header-colour="headerColour"
     :header-text-colour="headerTextColour"
     :header-font-size="headerFontSize"
     :header-width="headerWidth"
     :cut-edge-size="cutEdgeSize"
+    :border-dark="type !== 'player'"
   >
     <template #header>
       {{ headerText }}
@@ -73,6 +77,10 @@ const pronouns = computed(() => user.value?.pronouns);
 <style module lang="scss">
 .WrapperRemove {
   opacity: 0;
+}
+
+.Player {
+  z-index: 1;
 }
 
 .Content {

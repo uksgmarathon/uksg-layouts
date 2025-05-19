@@ -5,6 +5,7 @@ withDefaults(defineProps<{
   headerTextColour?: string,
   headerWidth?: string,
   cutEdgeSize?: string,
+  borderDark?: boolean,
 }>(), {
   headerFontSize: '20px',
   headerTextColour: undefined,
@@ -15,7 +16,12 @@ withDefaults(defineProps<{
 
 <template>
   <div>
-    <div :class="$style.Border" />
+    <div
+      :class="{
+        [$style.Border]: true,
+        [$style.BorderDark]: borderDark,
+      }"
+    />
     <div
       class="Flex"
       :class="$style.Inner"
@@ -75,6 +81,10 @@ withDefaults(defineProps<{
   width: 100%;
   height: 100%;
   background: var(--border-colour);
+}
+
+.BorderDark {
+  background: #043053;
 }
 
 .Inner {
