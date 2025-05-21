@@ -3,7 +3,7 @@ import type { RunData } from 'speedcontrol-util/types/schemas';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
-  runData: RunData,
+  runData: RunData | undefined,
   next?: boolean,
 }>(), {
   next: false,

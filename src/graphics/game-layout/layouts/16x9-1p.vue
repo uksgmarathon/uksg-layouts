@@ -120,7 +120,7 @@ import TimerElem from '../components/TimerElem.vue';
   left: 477px;
   top: 811px;
   width: 706px;
-  height: 192px;
+  height: 189px;
 }
 
 .RunInfo {
