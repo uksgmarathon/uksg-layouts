@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ImageRotation from '../../_misc/components/ImageRotation.vue';
 import ParticipantInfo from '../components/ParticipantInfo.vue';
 import RunInfo from '../components/RunInfo.vue';
 import TimerElem from '../components/TimerElem.vue';
@@ -74,6 +75,10 @@ import TimerElem from '../components/TimerElem.vue';
       name-font-size="20px"
       cut-edge-size="8px"
     />
+    <ImageRotation
+      class="Fixed"
+      :class="$style.ImageRotation"
+    />
   </div>
 </template>
 
@@ -147,5 +152,12 @@ import TimerElem from '../components/TimerElem.vue';
   top: 924px;
   width: 480px;
   height: 49px;
+}
+
+.ImageRotation {
+  left: 1261px;
+  top: 838px;
+  width: 659px;
+  height: 162px;
 }
 </style>

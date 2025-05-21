@@ -3,6 +3,7 @@ import { useHead } from '@unhead/vue';
 import { computed } from 'vue';
 import { participants, runDataArray, upcomingRunId } from '../../browser_shared/replicants';
 import CutOffBorderedElem from '../_misc/components/CutOffBorderedElem.vue';
+import ImageRotation from '../_misc/components/ImageRotation.vue';
 import MusicTrack from './components/MusicTrack.vue';
 import UpcomingRun from './components/UpcomingRun.vue';
 
@@ -44,6 +45,10 @@ const reader = computed(() => participants?.data?.readers[0]);
         src="./BlueLogo.svg"
       >
     </div>
+    <ImageRotation
+      class="Fixed"
+      :class="$style.ImageRotation"
+    />
     <!-- Host -->
     <CutOffBorderedElem
       class="Fixed"
@@ -108,6 +113,13 @@ const reader = computed(() => participants?.data?.readers[0]);
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.ImageRotation {
+  left: 49px;
+  top: 489px;
+  width: 610px;
+  height: 304px;
 }
 
 .Host {

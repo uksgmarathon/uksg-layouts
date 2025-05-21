@@ -17,4 +17,5 @@ export default async (nodecg: NodeCGServerAPI) => {
   await import('./audio.js');
   await import('./game-layout.js');
   await import('./countdown.js');
+  await import('./image-rotation.js');
 };

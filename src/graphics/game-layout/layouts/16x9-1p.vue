@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ImageRotation from '../../_misc/components/ImageRotation.vue';
 import ParticipantInfo from '../components/ParticipantInfo.vue';
 import RunInfo from '../components/RunInfo.vue';
 import TimerElem from '../components/TimerElem.vue';
@@ -44,6 +45,10 @@ import TimerElem from '../components/TimerElem.vue';
       header-width="66px"
       name-font-size="20px"
       cut-edge-size="8px"
+    />
+    <ImageRotation
+      class="Fixed"
+      :class="$style.ImageRotation"
     />
     <!-- Game Feed -->
     <div
@@ -95,6 +100,13 @@ import TimerElem from '../components/TimerElem.vue';
   top: 546px;
   width: 480px;
   height: 54px;
+}
+
+.ImageRotation {
+  left: 0px;
+  top: 600px;
+  width: 477px;
+  height: 400px;
 }
 
 .GameFeed {
