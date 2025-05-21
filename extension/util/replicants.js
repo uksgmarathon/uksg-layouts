@@ -12,10 +12,12 @@ function hasNoDefault(name) {
  * This is where you can declare all of your replicants to import easily into other files,
  * and to make sure they have any correct settings on startup.
  */
+export const assetsRotationImages = hasDefault('assets:rotation-images');
 export const capturePositions = hasDefault('capturePositions');
 export const countdown = hasDefault('countdown');
 export const donationTotal = hasDefault('donationTotal');
 export const foobar2000Data = hasDefault('foobar2000Data');
 export const gameLayouts = hasDefault('gameLayouts');
+export const imageRotation = hasDefault('imageRotation');
 export const participants = hasDefault('participants');
 export const upcomingRunId = hasDefault('upcomingRunId');

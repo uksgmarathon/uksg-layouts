@@ -1,36 +1,32 @@
 {
-  "_CutOffBorderedElem-CMPP3JJH.css": {
-    "file": "assets/CutOffBorderedElem-CMPP3JJH.css",
-    "src": "_CutOffBorderedElem-CMPP3JJH.css"
+  "_CutOffBorderedElem-BuIVca4p.css": {
+    "file": "assets/CutOffBorderedElem-BuIVca4p.css",
+    "src": "_CutOffBorderedElem-BuIVca4p.css"
   },
-  "_CutOffBorderedElem-t1gg6RWI.js": {
-    "file": "assets/CutOffBorderedElem-t1gg6RWI.js",
+  "_CutOffBorderedElem-JMbf4lfb.js": {
+    "file": "assets/CutOffBorderedElem-JMbf4lfb.js",
     "name": "CutOffBorderedElem",
     "imports": [
-      "_replicants-KmOLMKR6.js",
+      "_replicants-BCJoUAIy.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
-      "assets/CutOffBorderedElem-CMPP3JJH.css"
+      "assets/CutOffBorderedElem-BuIVca4p.css"
     ]
   },
-  "_QBtn-BTOEskWq.js": {
-    "file": "assets/QBtn-BTOEskWq.js",
+  "_QBtn-pklGZ9bs.js": {
+    "file": "assets/QBtn-pklGZ9bs.js",
     "name": "QBtn",
     "imports": [
-      "_replicants-KmOLMKR6.js",
-      "_QIcon-DWQVax3l.js"
+      "_replicants-BCJoUAIy.js",
+      "_QIcon--zBvBpb1.js"
     ]
   },
-  "_QIcon-DLS4v_Dm.css": {
-    "file": "assets/QIcon-DLS4v_Dm.css",
-    "src": "_QIcon-DLS4v_Dm.css"
-  },
-  "_QIcon-DWQVax3l.js": {
-    "file": "assets/QIcon-DWQVax3l.js",
+  "_QIcon--zBvBpb1.js": {
+    "file": "assets/QIcon--zBvBpb1.js",
     "name": "QIcon",
     "imports": [
-      "_replicants-KmOLMKR6.js"
+      "_replicants-BCJoUAIy.js"
     ],
     "css": [
       "assets/QIcon-DLS4v_Dm.css"
@@ -46,19 +42,23 @@
       "assets/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuZtalmUiAw-4ZhHFPot.woff"
     ]
   },
+  "_QIcon-DLS4v_Dm.css": {
+    "file": "assets/QIcon-DLS4v_Dm.css",
+    "src": "_QIcon-DLS4v_Dm.css"
+  },
   "__plugin-vue_export-helper-DlAUqK2U.js": {
     "file": "assets/_plugin-vue_export-helper-DlAUqK2U.js",
     "name": "_plugin-vue_export-helper"
   },
-  "_private.use-form-DkKvx_U2.js": {
-    "file": "assets/private.use-form-DkKvx_U2.js",
+  "_private.use-form-Ck26AeXm.js": {
+    "file": "assets/private.use-form-Ck26AeXm.js",
     "name": "private.use-form",
     "imports": [
-      "_replicants-KmOLMKR6.js"
+      "_replicants-BCJoUAIy.js"
     ]
   },
-  "_replicants-KmOLMKR6.js": {
-    "file": "assets/replicants-KmOLMKR6.js",
+  "_replicants-BCJoUAIy.js": {
+    "file": "assets/replicants-BCJoUAIy.js",
     "name": "replicants"
   },
   "_theme-B9d4k0Fz.js": {
@@ -174,39 +174,39 @@
     "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiAw.woff"
   },
   "src/dashboard/countdown-control/main.ts": {
-    "file": "assets/main-BCAouXRn.js",
+    "file": "assets/main-CGd_06Sh.js",
     "name": "main",
     "src": "src/dashboard/countdown-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon-DWQVax3l.js",
-      "_replicants-KmOLMKR6.js",
-      "_QBtn-BTOEskWq.js",
-      "_private.use-form-DkKvx_U2.js",
+      "_QIcon--zBvBpb1.js",
+      "_replicants-BCJoUAIy.js",
+      "_QBtn-pklGZ9bs.js",
+      "_private.use-form-Ck26AeXm.js",
       "_util-BuFe6IaP.js"
     ]
   },
   "src/dashboard/game-layout-control/main.ts": {
-    "file": "assets/main-DVx-jUfX.js",
+    "file": "assets/main-CsSxJQ7c.js",
     "name": "main",
     "src": "src/dashboard/game-layout-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon-DWQVax3l.js",
-      "_replicants-KmOLMKR6.js",
-      "_private.use-form-DkKvx_U2.js"
+      "_QIcon--zBvBpb1.js",
+      "_replicants-BCJoUAIy.js",
+      "_private.use-form-Ck26AeXm.js"
     ]
   },
   "src/dashboard/participant-control/main.ts": {
-    "file": "assets/main-DAbktWtI.js",
+    "file": "assets/main-BMVSBFXN.js",
     "name": "main",
     "src": "src/dashboard/participant-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon-DWQVax3l.js",
-      "_replicants-KmOLMKR6.js",
-      "_QBtn-BTOEskWq.js",
-      "_private.use-form-DkKvx_U2.js",
+      "_QIcon--zBvBpb1.js",
+      "_replicants-BCJoUAIy.js",
+      "_QBtn-pklGZ9bs.js",
+      "_private.use-form-Ck26AeXm.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -214,14 +214,14 @@
     ]
   },
   "src/dashboard/upcoming-run-control/main.ts": {
-    "file": "assets/main-kTf2PQd_.js",
+    "file": "assets/main-BqAzJdmS.js",
     "name": "main",
     "src": "src/dashboard/upcoming-run-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon-DWQVax3l.js",
-      "_replicants-KmOLMKR6.js",
-      "_QBtn-BTOEskWq.js"
+      "_QIcon--zBvBpb1.js",
+      "_replicants-BCJoUAIy.js",
+      "_QBtn-pklGZ9bs.js"
     ]
   },
   "src/graphics/_misc/background.png": {
@@ -253,12 +253,12 @@
     "src": "src/graphics/countdown/RedLogo.svg"
   },
   "src/graphics/countdown/main.ts": {
-    "file": "assets/main-B0PK8dD6.js",
+    "file": "assets/main-Bs5G4QUT.js",
     "name": "main",
     "src": "src/graphics/countdown/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-KmOLMKR6.js",
+      "_replicants-BCJoUAIy.js",
       "_theme-B9d4k0Fz.js",
       "_util-BuFe6IaP.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
@@ -292,19 +292,19 @@
     ]
   },
   "src/graphics/game-layout/main.ts": {
-    "file": "assets/main-DoyjvcT1.js",
+    "file": "assets/main-BUV8obxE.js",
     "name": "main",
     "src": "src/graphics/game-layout/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-KmOLMKR6.js",
+      "_replicants-BCJoUAIy.js",
       "_theme-B9d4k0Fz.js",
-      "_CutOffBorderedElem-t1gg6RWI.js",
+      "_CutOffBorderedElem-JMbf4lfb.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "_util-BuFe6IaP.js"
     ],
     "css": [
-      "assets/main-1tpRq8qt.css"
+      "assets/main-DoBihAwN.css"
     ],
     "assets": [
       "assets/metropolis-latin-100-normal-CksYLfmg.woff2",
@@ -341,18 +341,18 @@
     "src": "src/graphics/intermission/RedLogo.svg"
   },
   "src/graphics/intermission/main.ts": {
-    "file": "assets/main-DNvlumR6.js",
+    "file": "assets/main-D9aMHvjT.js",
     "name": "main",
     "src": "src/graphics/intermission/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-KmOLMKR6.js",
+      "_replicants-BCJoUAIy.js",
       "_theme-B9d4k0Fz.js",
-      "_CutOffBorderedElem-t1gg6RWI.js",
+      "_CutOffBorderedElem-JMbf4lfb.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
-      "assets/main-DojHPTUF.css"
+      "assets/main-ppgK8IpO.css"
     ],
     "assets": [
       "assets/RedLogo-Dhm1EziC.svg",
@@ -392,12 +392,12 @@
     "src": "src/graphics/omnibar/RedLogo.png"
   },
   "src/graphics/omnibar/main.ts": {
-    "file": "assets/main-DN3QZKjp.js",
+    "file": "assets/main-YBbyGw_m.js",
     "name": "main",
     "src": "src/graphics/omnibar/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-KmOLMKR6.js",
+      "_replicants-BCJoUAIy.js",
       "_theme-B9d4k0Fz.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "_util-BuFe6IaP.js"
