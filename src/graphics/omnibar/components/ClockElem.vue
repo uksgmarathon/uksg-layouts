@@ -3,12 +3,12 @@ import dayjs from 'dayjs';
 import { ref } from 'vue';
 
 const time = ref('00:00');
-const date = ref('Jan 1 1970');
+const date = ref('1 Jan 1970');
 
 function setTimeAndDate() {
   const current = dayjs().tz('Europe/London');
   time.value = current.format('HH:mm');
-  date.value = current.format('MMM DD YYYY');
+  date.value = current.format('DD MMM YYYY');
 }
 
 setTimeAndDate();
@@ -36,7 +36,7 @@ window.setInterval(setTimeAndDate, 1000);
 .Wrapper {
   position: relative;
   height: 100%;
-  width: 118px;
+  width: 120px;
   white-space: nowrap;
 }
 
