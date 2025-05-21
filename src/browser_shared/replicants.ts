@@ -1,4 +1,5 @@
 import { useReplicant } from 'nodecg-vue-composable';
+import type NodeCG from 'nodecg/types';
 import type { RunDataActiveRun, RunDataActiveRunSurrounding, RunDataArray, Timer } from 'speedcontrol-util/types/schemas';
 import type { Schemas } from '../types';
 
@@ -10,11 +11,13 @@ const sc = 'nodecg-speedcontrol';;
  * "useReplicant" is a helper composable to make accessing/modifying replicants easier.
  * For more information see https://github.com/Dan-Shields/nodecg-vue-composable
  */
+export const assetsRotationImages = useReplicant<NodeCG.AssetFile[]>('assets:rotation-images', thisBundle);
 export const capturePositions = useReplicant<Schemas.CapturePositions>('capturePositions', thisBundle);
 export const countdown = useReplicant<Schemas.Countdown>('countdown', thisBundle);
 export const donationTotal = useReplicant<Schemas.DonationTotal>('donationTotal', thisBundle);
 export const foobar2000Data = useReplicant<Schemas.Foobar2000Data>('foobar2000Data', thisBundle);
 export const gameLayouts = useReplicant<Schemas.GameLayouts>('gameLayouts', thisBundle);
+export const imageRotation = useReplicant<Schemas.ImageRotation>('imageRotation', thisBundle);
 export const participants = useReplicant<Schemas.Participants>('participants', thisBundle);
 export const runDataActiveRun = useReplicant<RunDataActiveRun>('runDataActiveRun', sc);
 export const runDataActiveRunSurrounding = useReplicant<RunDataActiveRunSurrounding>('runDataActiveRunSurrounding', sc);

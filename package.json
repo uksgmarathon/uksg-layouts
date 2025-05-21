@@ -19,7 +19,7 @@
     "build": "vite build && tsc -b tsconfig.extension.json",
     "lint": "eslint",
     "schema-types": "nodecg schema-types",
-    "start": "cd ../.. && node --env-file-if-exists=cfg/.env index.js",
+    "start": "cd ../.. && node --env-file-if-exists=cfg/.env.uksg index.js",
     "watch": "conc -n B,E -c red,blue -k vite \"tsc -b -w --preserveWatchOutput tsconfig.extension.json\""
   },
   "dependencies": {
@@ -128,6 +128,20 @@
         "file": "game-layout/main.html",
         "width": 1920,
         "height": 1080
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "rotation-images",
+        "title": "Rotation Images",
+        "allowedTypes": [
+          "jpg",
+          "jpeg",
+          "png",
+          "svg",
+          "webp",
+          "gif"
+        ]
       }
     ]
   },

@@ -16,10 +16,12 @@ function hasNoDefault<T>(name: string) {
  * This is where you can declare all of your replicants to import easily into other files,
  * and to make sure they have any correct settings on startup.
  */
+export const assetsRotationImages = hasDefault<NodeCG.default.AssetFile[]>('assets:rotation-images');
 export const capturePositions = hasDefault<Schemas.CapturePositions>('capturePositions');
 export const countdown = hasDefault<Schemas.Countdown>('countdown');
 export const donationTotal = hasDefault<Schemas.DonationTotal>('donationTotal');
 export const foobar2000Data = hasDefault<Schemas.Foobar2000Data>('foobar2000Data');
 export const gameLayouts = hasDefault<Schemas.GameLayouts>('gameLayouts');
+export const imageRotation = hasDefault<Schemas.ImageRotation>('imageRotation');
 export const participants = hasDefault<Schemas.Participants>('participants');
 export const upcomingRunId = hasDefault<Schemas.UpcomingRunId>('upcomingRunId');
