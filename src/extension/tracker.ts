@@ -12,10 +12,13 @@ async function updateDonationTotalFromApi() {
     donationTotal.value = round(Math.random() * 10000, 2);
   } else {
     try {
-      const resp = await fetch(`${config.url}/event/${config.eventShort}?json`);
+      const resp = await fetch(`${config.url}/tracker/api/v2/events/?short=${config.eventShort}&totals=`);
       if (resp.ok) {
-        const data = await resp.json() as { agg: { amount: number } };
-        const total = round(data.agg.amount, 2); // may be unneeded, but good for safety
+        const data = await resp.json() as { results: { amount: number }[] };
+        if (!data.results.length) {
+          throw new Error('event with configured short not found on tracker');
+        }
+        const total = round(data.results[0].amount, 2); // may be unneeded, but good for safety
         nodecg.log.debug('[Tracker] API donation total changed:', total);
         donationTotal.value = total;
       }
