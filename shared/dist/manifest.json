@@ -1,35 +1,35 @@
 {
-  "_CutOffBorderedElem-BuIVca4p.css": {
-    "file": "assets/CutOffBorderedElem-BuIVca4p.css",
-    "src": "_CutOffBorderedElem-BuIVca4p.css"
-  },
-  "_CutOffBorderedElem-JMbf4lfb.js": {
-    "file": "assets/CutOffBorderedElem-JMbf4lfb.js",
+  "_CutOffBorderedElem-4ScyAnoa.js": {
+    "file": "assets/CutOffBorderedElem-4ScyAnoa.js",
     "name": "CutOffBorderedElem",
     "imports": [
-      "_replicants-BCJoUAIy.js",
+      "_replicants-CmZg0aYQ.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
       "assets/CutOffBorderedElem-BuIVca4p.css"
     ]
   },
-  "_QBtn-pklGZ9bs.js": {
-    "file": "assets/QBtn-pklGZ9bs.js",
+  "_CutOffBorderedElem-BuIVca4p.css": {
+    "file": "assets/CutOffBorderedElem-BuIVca4p.css",
+    "src": "_CutOffBorderedElem-BuIVca4p.css"
+  },
+  "_QBtn-CfRbZoI5.js": {
+    "file": "assets/QBtn-CfRbZoI5.js",
     "name": "QBtn",
     "imports": [
-      "_replicants-BCJoUAIy.js",
-      "_QIcon--zBvBpb1.js"
+      "_replicants-CmZg0aYQ.js",
+      "_QIcon-C5FTimvV.js"
     ]
   },
-  "_QIcon--zBvBpb1.js": {
-    "file": "assets/QIcon--zBvBpb1.js",
+  "_QIcon-C5FTimvV.js": {
+    "file": "assets/QIcon-C5FTimvV.js",
     "name": "QIcon",
     "imports": [
-      "_replicants-BCJoUAIy.js"
+      "_replicants-CmZg0aYQ.js"
     ],
     "css": [
-      "assets/QIcon-DLS4v_Dm.css"
+      "assets/QIcon-fNsZEZlf.css"
     ],
     "assets": [
       "assets/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ-D-x-0Q06.woff2",
@@ -42,23 +42,23 @@
       "assets/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuZtalmUiAw-4ZhHFPot.woff"
     ]
   },
-  "_QIcon-DLS4v_Dm.css": {
-    "file": "assets/QIcon-DLS4v_Dm.css",
-    "src": "_QIcon-DLS4v_Dm.css"
+  "_QIcon-fNsZEZlf.css": {
+    "file": "assets/QIcon-fNsZEZlf.css",
+    "src": "_QIcon-fNsZEZlf.css"
   },
   "__plugin-vue_export-helper-DlAUqK2U.js": {
     "file": "assets/_plugin-vue_export-helper-DlAUqK2U.js",
     "name": "_plugin-vue_export-helper"
   },
-  "_private.use-form-Ck26AeXm.js": {
-    "file": "assets/private.use-form-Ck26AeXm.js",
+  "_private.use-form-DmOs_eR4.js": {
+    "file": "assets/private.use-form-DmOs_eR4.js",
     "name": "private.use-form",
     "imports": [
-      "_replicants-BCJoUAIy.js"
+      "_replicants-CmZg0aYQ.js"
     ]
   },
-  "_replicants-BCJoUAIy.js": {
-    "file": "assets/replicants-BCJoUAIy.js",
+  "_replicants-CmZg0aYQ.js": {
+    "file": "assets/replicants-CmZg0aYQ.js",
     "name": "replicants"
   },
   "_theme-B9d4k0Fz.js": {
@@ -141,72 +141,72 @@
     "file": "assets/metropolis-latin-900-normal-Cp8JEck3.woff2",
     "src": "node_modules/.pnpm/@fontsource+metropolis@5.2.5/node_modules/@fontsource/metropolis/files/metropolis-latin-900-normal.woff2"
   },
-  "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.woff": {
+  "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.woff": {
     "file": "assets/flUhRq6tzZclQEJ-Vdg-IuiaDsNa-Dr0goTwe.woff",
-    "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.woff"
+    "src": "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.woff"
   },
-  "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2": {
+  "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2": {
     "file": "assets/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ-D-x-0Q06.woff2",
-    "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
+    "src": "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
   },
-  "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjalmUiAw.woff": {
+  "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjalmUiAw.woff": {
     "file": "assets/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjalmUiAw-BepdiOnY.woff",
-    "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjalmUiAw.woff"
+    "src": "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjalmUiAw.woff"
   },
-  "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuZtalmUiAw.woff": {
+  "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuZtalmUiAw.woff": {
     "file": "assets/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuZtalmUiAw-4ZhHFPot.woff",
-    "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuZtalmUiAw.woff"
+    "src": "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuZtalmUiAw.woff"
   },
-  "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuaabVmUiAw.woff": {
+  "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuaabVmUiAw.woff": {
     "file": "assets/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuaabVmUiAw-CNa4tw4G.woff",
-    "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuaabVmUiAw.woff"
+    "src": "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuaabVmUiAw.woff"
   },
-  "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bVmUiAw.woff": {
+  "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bVmUiAw.woff": {
     "file": "assets/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bVmUiAw-CHKg1YId.woff",
-    "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bVmUiAw.woff"
+    "src": "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bVmUiAw.woff"
   },
-  "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbFmUiAw.woff": {
+  "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbFmUiAw.woff": {
     "file": "assets/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbFmUiAw-yBxCyPWP.woff",
-    "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbFmUiAw.woff"
+    "src": "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbFmUiAw.woff"
   },
-  "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiAw.woff": {
+  "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiAw.woff": {
     "file": "assets/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiAw-3fZ6d7DD.woff",
-    "src": "node_modules/.pnpm/@quasar+extras@1.16.17/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiAw.woff"
+    "src": "node_modules/.pnpm/@quasar+extras@1.17.0/node_modules/@quasar/extras/roboto-font/web-font/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiAw.woff"
   },
   "src/dashboard/countdown-control/main.ts": {
-    "file": "assets/main-CGd_06Sh.js",
+    "file": "assets/main-Di15iljS.js",
     "name": "main",
     "src": "src/dashboard/countdown-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon--zBvBpb1.js",
-      "_replicants-BCJoUAIy.js",
-      "_QBtn-pklGZ9bs.js",
-      "_private.use-form-Ck26AeXm.js",
+      "_QIcon-C5FTimvV.js",
+      "_replicants-CmZg0aYQ.js",
+      "_QBtn-CfRbZoI5.js",
+      "_private.use-form-DmOs_eR4.js",
       "_util-BuFe6IaP.js"
     ]
   },
   "src/dashboard/game-layout-control/main.ts": {
-    "file": "assets/main-CsSxJQ7c.js",
+    "file": "assets/main-DAkeNmrx.js",
     "name": "main",
     "src": "src/dashboard/game-layout-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon--zBvBpb1.js",
-      "_replicants-BCJoUAIy.js",
-      "_private.use-form-Ck26AeXm.js"
+      "_QIcon-C5FTimvV.js",
+      "_replicants-CmZg0aYQ.js",
+      "_private.use-form-DmOs_eR4.js"
     ]
   },
   "src/dashboard/participant-control/main.ts": {
-    "file": "assets/main-BMVSBFXN.js",
+    "file": "assets/main-BfwycK-o.js",
     "name": "main",
     "src": "src/dashboard/participant-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon--zBvBpb1.js",
-      "_replicants-BCJoUAIy.js",
-      "_QBtn-pklGZ9bs.js",
-      "_private.use-form-Ck26AeXm.js",
+      "_QIcon-C5FTimvV.js",
+      "_replicants-CmZg0aYQ.js",
+      "_QBtn-CfRbZoI5.js",
+      "_private.use-form-DmOs_eR4.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -214,14 +214,14 @@
     ]
   },
   "src/dashboard/upcoming-run-control/main.ts": {
-    "file": "assets/main-BqAzJdmS.js",
+    "file": "assets/main-zK9EKLHq.js",
     "name": "main",
     "src": "src/dashboard/upcoming-run-control/main.ts",
     "isEntry": true,
     "imports": [
-      "_QIcon--zBvBpb1.js",
-      "_replicants-BCJoUAIy.js",
-      "_QBtn-pklGZ9bs.js"
+      "_QIcon-C5FTimvV.js",
+      "_replicants-CmZg0aYQ.js",
+      "_QBtn-CfRbZoI5.js"
     ]
   },
   "src/graphics/_misc/background.png": {
@@ -253,12 +253,12 @@
     "src": "src/graphics/countdown/RedLogo.svg"
   },
   "src/graphics/countdown/main.ts": {
-    "file": "assets/main-Bs5G4QUT.js",
+    "file": "assets/main-C3WYxwwc.js",
     "name": "main",
     "src": "src/graphics/countdown/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-BCJoUAIy.js",
+      "_replicants-CmZg0aYQ.js",
       "_theme-B9d4k0Fz.js",
       "_util-BuFe6IaP.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
@@ -292,14 +292,14 @@
     ]
   },
   "src/graphics/game-layout/main.ts": {
-    "file": "assets/main-CHk_opqp.js",
+    "file": "assets/main-BPO-YOCt.js",
     "name": "main",
     "src": "src/graphics/game-layout/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-BCJoUAIy.js",
+      "_replicants-CmZg0aYQ.js",
       "_theme-B9d4k0Fz.js",
-      "_CutOffBorderedElem-JMbf4lfb.js",
+      "_CutOffBorderedElem-4ScyAnoa.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "_util-BuFe6IaP.js"
     ],
@@ -341,14 +341,14 @@
     "src": "src/graphics/intermission/RedLogo.svg"
   },
   "src/graphics/intermission/main.ts": {
-    "file": "assets/main-D9aMHvjT.js",
+    "file": "assets/main-D2J3Vm_n.js",
     "name": "main",
     "src": "src/graphics/intermission/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-BCJoUAIy.js",
+      "_replicants-CmZg0aYQ.js",
       "_theme-B9d4k0Fz.js",
-      "_CutOffBorderedElem-JMbf4lfb.js",
+      "_CutOffBorderedElem-4ScyAnoa.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ],
     "css": [
@@ -392,12 +392,12 @@
     "src": "src/graphics/omnibar/RedLogo.png"
   },
   "src/graphics/omnibar/main.ts": {
-    "file": "assets/main-DJu-oPL3.js",
+    "file": "assets/main-BgAU1CvU.js",
     "name": "main",
     "src": "src/graphics/omnibar/main.ts",
     "isEntry": true,
     "imports": [
-      "_replicants-BCJoUAIy.js",
+      "_replicants-CmZg0aYQ.js",
       "_theme-B9d4k0Fz.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "_util-BuFe6IaP.js"
