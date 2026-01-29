@@ -10,7 +10,7 @@
       class="Flex"
       :class="$style.Text"
     >
-      You are watching UKSG Blue 2025!
+      You are watching UKSG RED 2026!
     </div>
     <div :class="$style.Divider" />
     <div
