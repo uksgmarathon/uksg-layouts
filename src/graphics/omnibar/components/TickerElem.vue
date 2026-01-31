@@ -17,7 +17,7 @@
       class="Flex"
       :class="$style.Text"
     >
-      Donate @ donate.uksgmarathon.uk
+      Donate @ donate.uksgmarathon.com
     </div>
   </div>
 </template>
