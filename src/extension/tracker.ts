@@ -219,8 +219,9 @@ async function updateFromApi() {
  * Generates some fake data so everything can be tested without a tracker.
  * Bids are attached to the current and next few runs, and values creep up over time.
  */
-const testNames = ['Earth 616 Daemon', 'dysartes', '(Anonymous)', 'Aitsu', 'Bubbly_Lass13', 'Captain Solasta'];
-const testComments = [null, 'Good luck with the run!', 'Scots English all the way, ye ken?', 'Love this event, keep it up everyone! Here\'s a bit extra towards the bonus run, can\'t wait to see it.'];
+// Made-up names, so test data (and any screenshots of it) never attributes donations to real people.
+const testNames = ['PixelPanda', '(Anonymous)', 'RetroRaccoon', 'Captain Haggis', 'Nessie_Fan', 'GlitchHunter'];
+const testComments = [null, 'Good luck with the run!', 'Mountain Pass all the way!', 'Love this event, keep it up everyone! Here\'s a bit extra towards the bonus run, can\'t wait to see it.'];
 function updateFromTestData() {
   const rand = (max: number) => Math.floor(Math.random() * max);
   const current = sc.getCurrentRun();
@@ -241,10 +242,10 @@ function updateFromTestData() {
   };
   trackerBids.value = [
     {
-      id: 1, type: 'challenge', name: 'All Master Thief Sprints Bonus Run (Including Every Clue Bottle)', game: runs[1]?.game ?? 'Test Game', description: 'Can we see even more?',
+      id: 1, type: 'challenge', name: 'All Bonus Stages Showcase (Including Every Secret Exit)', game: runs[1]?.game ?? 'Test Game', description: 'Can we see even more?',
       trackerRunId: null, runId: runs[1]?.id ?? null, goal: 500, total: bump(1, 278), count: 12, allowUserOptions: false, options: [],
     },
-    choice(2, 'Scots English vs English English subtitles', runs[0]?.game ?? 'Test Game', runs[0]?.id ?? null, ['Scots English', 'English English']),
+    choice(2, 'Choose the Route', runs[0]?.game ?? 'Test Game', runs[0]?.id ?? null, ['Mountain Pass', 'Coastal Road']),
     choice(3, 'Character Bid War', runs[0]?.game ?? 'Test Game 2', runs[0]?.id ?? null, ['Ax Battler', 'Gillius Thunderhead', 'Tyrus Flaire', 'Death Adder (Secret Character)']),
     {
       id: 4, type: 'challenge', name: 'Upgrade to Expert', game: runs[2]?.game ?? 'Test Game 3', description: 'Hard mode, but harder.',

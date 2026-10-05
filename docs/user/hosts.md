@@ -7,6 +7,8 @@ so viewers can see what you're talking about.
 You do this from the **Host Control** panel (the **Host** tab on the dashboard), or with Stream Deck buttons if tech
 has set them up.
 
+![The Host Control panel with a bid war pinned](../images/panel-host-control.png)
+
 ## What's on the omnibar now
 
 The box at the top of Host Control always shows what's currently on the omnibar.
@@ -41,6 +43,10 @@ The tabs underneath list everything else:
 | **Milestones** | The donation milestones (set up by tech in Omnibar Settings), with how much is left to raise or **REACHED**. |
 | **Donations** | Donations that have been checked (screened) by the donation team, newest first, with any comment and what incentive they went towards. Press **Shout-out** to show that donation on the omnibar: the donor's name, the amount, the incentive (with the game) and their comment. Shout-outs only ever appear when you press the button. |
 | **Messages** | The custom messages (like the donation link). Messages switched off for the rotation can still be shown here. |
+
+A donation shout-out on the omnibar:
+
+![A donation shout-out on the omnibar](../images/omnibar-shout-out.png)
 
 > A donation only appears once the donation team has screened it, and comments only appear once they've been approved.
 > See [Incentives & donations](incentives-and-donations.md).

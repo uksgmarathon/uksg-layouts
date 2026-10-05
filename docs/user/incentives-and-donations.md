@@ -27,6 +27,10 @@ There are two kinds of incentive on the tracker:
 - **Bid wars**: donors choose between options, e.g. which character the runner uses. Two options are shown as a
   tug-of-war; three or more as bars sized by each option's share of the total.
 
+![A goal on the omnibar](../images/omnibar-incentive.png)
+![A two-option bid war](../images/omnibar-bid-war.png)
+![A bid war with four options](../images/omnibar-bid-war-multi.png)
+
 Which incentives appear depends on their state on the tracker:
 
 | Tracker state | On the graphics |

@@ -1,6 +1,10 @@
 # Runs & game layouts
 
-The game layout is the main screen while a run is on. It shows:
+The game layout is the main screen while a run is on.
+
+![A game layout: customised runner badge, content warnings in the game badge, an over-estimate chip and a bid war in the image box](../images/scene-game-layout.png)
+
+It shows:
 
 - **Game feed(s) and camera**: windows for OBS to show the game captures and runner camera.
   If tech has connected OBS, the captures are moved and resized automatically to fit whichever layout is chosen.
@@ -25,21 +29,32 @@ The game layout is the main screen while a run is on. It shows:
 
 In the main workspace.
 
+![The Game Layout Control panel](../images/panel-game-layout-control.png)
+
 - **Layout list**: pick the layout for the current run. When the run changes in speedcontrol, the layout switches
   automatically if the schedule says which layout the run uses; otherwise pick it here.
 - **Confetti when the timer finishes**: when switched on, the timer celebrates with confetti and sparkles the moment
   the run finishes. For races, that's when the last runner finishes.
+
+  ![Confetti as the timer finishes](../images/confetti.png)
+
 - **When the run goes over estimate**: what to show once the timer passes the run's estimate:
   - **Off**: nothing.
   - **Time over**: the estimate box turns amber and counts how far over it is, e.g. `EST: 00:45:00 +00:03:21`.
   - **Warning chip**: a red "⚠ Over estimate" chip appears next to the estimate.
+
+  ![Over estimate: time over (top) and the warning chip (bottom)](../images/over-estimate.png)
 
 > **Confetti and the over-estimate warning are off by default and switch back off whenever the run changes.**
 > Turn them on for each run that should have them.
 
 ## Run Customisation
 
-In the main workspace. By default it shows the **current run** ("Following the current run"); pick another run from
+In the main workspace.
+
+![The Run Customisation panel, with Colours & badges closed (left) and open (right)](../images/panel-run-customisation.png)
+
+By default it shows the **current run** ("Following the current run"); pick another run from
 the list to set things up in advance, and press **Current** to go back.
 
 ### Content warnings
@@ -78,6 +93,8 @@ and can take any colour code like `#e52521`. Clear a box (the ⓧ) to go back to
 In the 2 player layouts, when a runner finishes (their timer is stopped in speedcontrol), a badge pops up at the bottom
 of **their game feed** showing their time. The fastest finish is gold; anyone who forfeits shows **Forfeit**.
 Undoing a runner's finish in speedcontrol removes the badge.
+
+![Race finish times over each runner's game feed](../images/race-finish.png)
 
 ## Incentives in the image box
 

@@ -2,7 +2,11 @@
 
 ## Intermission
 
-Shown between runs. It shows:
+Shown between runs.
+
+![The intermission screen, with incentive strips on the upcoming run cards](../images/scene-intermission.png)
+
+It shows:
 
 - **The event logo**
 - **Rotating images** (see [Rotating images](#rotating-images))

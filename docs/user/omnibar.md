@@ -14,13 +14,22 @@ skipping any that have nothing to show:
 
 1. **Coming up**: the next three runs, with the runners, category and roughly how long until each starts.
    Game names are never cut off; if they don't all fit, the row slowly scrolls across to show the rest.
-2. **Incentive**: a donation goal, with a progress bar and how much is left to go.
+   ![Coming up](../images/omnibar-coming-up.png)
+2. **Incentive**: a donation goal, with a progress bar and how much is left to go. If the name is long, the bar moves
+   underneath it so the name is never cut off.
+   ![An incentive](../images/omnibar-incentive.png)
+   ![An incentive with a long name](../images/omnibar-incentive-long.png)
 3. **Message**: one of your custom messages (e.g. the donation link).
+   ![A message](../images/omnibar-message.png)
 4. **Bid war**: a two-option bid war is shown as a tug-of-war bar; three or more options are shown as bars sized by
    each option's share of the total.
+   ![A two-option bid war](../images/omnibar-bid-war.png)
+   ![A bid war with four options](../images/omnibar-bid-war-multi.png)
 5. **Donation list**: the most recent donations as coloured boxes (colour depends on the amount), running off the edge
    of the screen to show there have been more.
+   ![The donation list](../images/omnibar-donations.png)
 6. **Milestone**: progress towards the next donation milestone.
+   ![A milestone](../images/omnibar-milestone.png)
 7. **Message**: the next custom message.
 
 Each type takes turns through its own items, so with several incentives you'll see a different one each time.
@@ -42,9 +51,13 @@ estimate is assumed to still be left, so the times stay where they are.
 When the donation total passes a milestone, or a round number (every £1,000 by default), the donation total briefly
 flips to a celebration ("£2,000 raised!", or the milestone's name).
 
+![A celebration over the donation total](../images/omnibar-celebration.png)
+
 ## Omnibar Settings panel
 
 In the **UKSG** tab. Changes apply straight away unless the tab has a **Save** button.
+
+![The Omnibar Settings panel, Messages tab](../images/panel-omnibar-settings-messages.png)
 
 ### Messages tab
 
@@ -69,6 +82,8 @@ The omnibar rotation shows progress towards the next milestone that hasn't been 
 from Host Control. When the total passes a milestone, the donation total celebrates with the milestone's name.
 
 ### Rotation tab
+
+![The Omnibar Settings panel, Rotation tab](../images/panel-omnibar-settings-rotation.png)
 
 | Setting | Default | What it does |
 | --- | --- | --- |

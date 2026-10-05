@@ -16,6 +16,8 @@ There are four graphics, each a full 1920×1080 browser source in OBS:
 
 The colour theme (red, green or blue) matches the event and is set up in advance by tech.
 
+![A game layout with the omnibar along the bottom](../images/scene-game-layout.png)
+
 ## The dashboard
 
 Everything is controlled from the NodeCG dashboard in a web browser.

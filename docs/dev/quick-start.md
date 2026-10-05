@@ -131,8 +131,8 @@ pnpm build
 
 ## Testing tips
 
-**Test data.** With `tracker.useTestData` on, the extension generates four incentives every 15 seconds: two goals with
-long names, a two-option bid war and a four-option bid war. Totals creep up and new donations arrive (with comments and
+**Test data.** With `tracker.useTestData` on, the extension generates four incentives every 15 seconds: two goals (one
+with a long name), a two-option bid war and a four-option bid war. Donor names are made up. Totals creep up and new donations arrive (with comments and
 incentive links). They're attached to the current and next runs, so the game layout, intermission and Host Control all
 have something to show.
 
