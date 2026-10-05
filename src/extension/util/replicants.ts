@@ -18,10 +18,20 @@ function hasNoDefault<T>(name: string) {
  */
 export const assetsRotationImages = hasDefault<NodeCG.default.AssetFile[]>('assets:rotation-images');
 export const capturePositions = hasDefault<Schemas.CapturePositions>('capturePositions');
+export const contentWarnings = hasDefault<Schemas.ContentWarnings>('contentWarnings');
 export const countdown = hasDefault<Schemas.Countdown>('countdown');
 export const donationTotal = hasDefault<Schemas.DonationTotal>('donationTotal');
 export const foobar2000Data = hasDefault<Schemas.Foobar2000Data>('foobar2000Data');
 export const gameLayouts = hasDefault<Schemas.GameLayouts>('gameLayouts');
 export const imageRotation = hasDefault<Schemas.ImageRotation>('imageRotation');
+export const layoutRotation = hasDefault<Schemas.LayoutRotation>('layoutRotation');
+export const layoutSettings = hasDefault<Schemas.LayoutSettings>('layoutSettings');
+export const milestones = hasDefault<Schemas.Milestones>('milestones');
+export const omnibar = hasDefault<Schemas.Omnibar>('omnibar');
+export const omnibarMessages = hasDefault<Schemas.OmnibarMessages>('omnibarMessages');
+export const omnibarSettings = hasDefault<Schemas.OmnibarSettings>('omnibarSettings');
 export const participants = hasDefault<Schemas.Participants>('participants');
+export const runCustomisation = hasDefault<Schemas.RunCustomisation>('runCustomisation');
+export const trackerBids = hasDefault<Schemas.TrackerBids>('trackerBids');
+export const trackerDonations = hasDefault<Schemas.TrackerDonations>('trackerDonations');
 export const upcomingRunId = hasDefault<Schemas.UpcomingRunId>('upcomingRunId');

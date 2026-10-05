@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Current state of the omnibar rotation; controlled by the extension.",
+  "definitions": {
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "upcomingRuns",
+            "run",
+            "goal",
+            "bidWar",
+            "milestone",
+            "message",
+            "donationList",
+            "donation"
+          ]
+        },
+        "id": {
+          "description": "ID of the specific thing being shown, if applicable.",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "id"
+      ]
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "current": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/item"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "startTimestamp": {
+      "type": "number",
+      "default": 0
+    },
+    "pinned": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "item": {
+              "$ref": "#/definitions/item"
+            },
+            "timestamp": {
+              "type": "number"
+            },
+            "expiresTimestamp": {
+              "oneOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "item",
+            "timestamp",
+            "expiresTimestamp"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "current",
+    "startTimestamp",
+    "pinned"
+  ]
+}

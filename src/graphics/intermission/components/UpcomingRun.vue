@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { RunData } from 'speedcontrol-util/types/schemas';
 import { computed } from 'vue';
+import IncentiveStrip from './IncentiveStrip.vue';
 
 const props = withDefaults(defineProps<{
   runData: RunData | undefined,
@@ -52,6 +53,10 @@ const players = computed(() => props.runData?.teams
           {{ players }} | {{ runData.category }} | {{ runData.system }} | {{ runData.estimate }}
         </div>
       </div>
+      <IncentiveStrip
+        :class="$style.Incentives"
+        :run-id="runData.id"
+      />
     </div>
   </div>
 </template>
@@ -136,5 +141,14 @@ const players = computed(() => props.runData?.teams
   font-weight: 500;
   text-align: center;
   padding: 0 30px;
+}
+
+.Incentives {
+  align-self: stretch;
+  margin: 0 30px 16px;
+}
+
+.Incentives:empty {
+  display: none;
 }
 </style>

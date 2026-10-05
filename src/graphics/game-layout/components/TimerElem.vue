@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import gsap from 'gsap';
 import { computed, ref, watch } from 'vue';
-import { runDataActiveRun, timer } from '../../../browser_shared/replicants';
+import { layoutSettings, runDataActiveRun, timer } from '../../../browser_shared/replicants';
 import { msToTimeStr } from '../../../browser_shared/util';
+import ConfettiBurst from '../../_misc/components/ConfettiBurst.vue';
+import ContentWarnings from '../../_misc/components/ContentWarnings.vue';
 
 withDefaults(defineProps<{
   vertical?: boolean,
@@ -36,6 +39,33 @@ watch(() => timer?.data, (data) => {
   window.clearTimeout(backupTimerTO);
   backupTimerTO = window.setTimeout(() => backupTimer(), 1000);
 }, { immediate: true });
+
+// Celebrate when the timer finishes (but not if it was already finished when the graphic loaded).
+// Off unless turned on for the run on the dashboard (see the "Game Layout Control" panel).
+const confetti = ref<InstanceType<typeof ConfettiBurst>>();
+const timerElem = ref<HTMLElement>();
+const celebrating = ref(false);
+watch(() => timer?.data?.state, (val, oldVal) => {
+  if (val !== 'finished' || !oldVal || oldVal === 'finished' || !layoutSettings?.data?.celebrateFinish) return;
+  celebrating.value = true;
+  confetti.value?.burst();
+  if (timerElem.value) {
+    gsap.fromTo(timerElem.value, { scale: 1 }, { scale: 1.12, duration: 0.2, ease: 'power2.out', yoyo: true, repeat: 1 });
+  }
+  window.setTimeout(() => { celebrating.value = false; }, 4000);
+});
+
+// How far over the estimate the run is, while it's going.
+// Shown either as the time over or a simple chip, or not at all (see the "Game Layout Control" panel).
+const overEstimateMode = computed(() => layoutSettings?.data?.overEstimate ?? 'off');
+const overEstimate = computed(() => {
+  const estimate = (runDataActiveRun?.data?.estimateS ?? 0) * 1000;
+  const { state, milliseconds } = timer?.data ?? {};
+  if (overEstimateMode.value === 'off' || !estimate) return null;
+  if (state !== 'running' && state !== 'paused') return null;
+  const over = (milliseconds ?? 0) - estimate;
+  return over >= 1000 ? msToTimeStr(over) : null;
+});
 </script>
 
 <template>
@@ -44,6 +74,7 @@ watch(() => timer?.data, (data) => {
     :class="{
       [$style.Wrapper]: true,
       [$style.WrapperVertical]: vertical,
+      [$style.Celebrating]: celebrating,
     }"
   >
     <div
@@ -51,11 +82,23 @@ watch(() => timer?.data, (data) => {
       :class="{
         [$style.Estimate]: true,
         [$style.EstimateVertical]: vertical,
+        [$style.EstimateOver]: !!overEstimate && overEstimateMode === 'diff',
       }"
     >
-      <span :class="$style.EstimateHeader">EST:</span>&nbsp;{{ runDataActiveRun?.data?.estimate ?? '??:??:??' }}
+      <span><span :class="$style.EstimateHeader">EST:</span>&nbsp;{{ runDataActiveRun?.data?.estimate ?? '??:??:??' }}</span>
+      <span
+        v-if="overEstimate && overEstimateMode === 'diff'"
+        :class="$style.OverBy"
+      >+{{ overEstimate }}</span>
+      <ContentWarnings
+        v-if="overEstimate && overEstimateMode === 'chip'"
+        :class="$style.OverChip"
+        :warnings="['Over estimate']"
+        font-size="15px"
+      />
     </div>
     <div
+      ref="timerElem"
       class="Flex"
       :class="{
         [$style.Timer]: true,
@@ -72,12 +115,20 @@ watch(() => timer?.data, (data) => {
         {{ char }}
       </span>
     </div>
+    <ConfettiBurst ref="confetti" />
   </div>
 </template>
 
 <style lang="scss" module>
+@use '../../_misc/cut' as *;
+
 .Wrapper {
   justify-content: space-evenly;
+}
+
+/* Keeps the confetti above anything next to the timer while it's flying about. */
+.Celebrating {
+  z-index: 5;
 }
 
 .WrapperVertical {
@@ -91,6 +142,12 @@ watch(() => timer?.data, (data) => {
   background: linear-gradient(270deg, #0d3354 10%, #13436f 99%);
   font-weight: 600;
   clip-path: polygon(0 0, calc(100% - 20px) 0%, 100% 15px, 100% 100%, 15px 100%, 0% calc(100% - 15px));
+  /* If there's not enough room for anything shown next to the estimate, it wraps underneath. */
+  flex-wrap: wrap;
+  column-gap: 14px;
+  row-gap: 4px;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .EstimateHeader {
@@ -103,7 +160,34 @@ watch(() => timer?.data, (data) => {
   background: linear-gradient(44deg, #0f375a 0%, #062743 100%);
 }
 
+/* The run has gone over its estimate. */
+.EstimateOver {
+  background: linear-gradient(270deg, #b7790b 0%, #f0b429 100%);
+  color: #011f39;
+  transition: background 0.5s;
+  .EstimateHeader {
+    color: inherit;
+  }
+}
+
+.OverBy {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.OverChip {
+  @include doubleCut(6px);
+  flex-wrap: nowrap;
+}
+
+/* Red rather than the usual warning colour; the extra class makes sure it wins over ContentWarnings' own styles. */
+.Estimate .OverChip {
+  background: #d00c27;
+  color: white;
+}
+
 .Timer {
+  flex-shrink: 0;
   font-size: v-bind(timerSize);
   font-weight: 700;
   margin-top: 0.1em;

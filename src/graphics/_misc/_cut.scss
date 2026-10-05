@@ -1,0 +1,54 @@
+/*
+  Helpers for the "double-cut" shape used throughout the graphics (top right and bottom left corners cut off).
+  Use with: @use '<path to>/_misc/cut' as *;
+*/
+
+@mixin doubleCut($size) {
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - #{$size}) 0%,
+    100% $size,
+    100% 100%,
+    $size 100%,
+    0% calc(100% - #{$size})
+  );
+}
+
+/*
+  A border that follows the double-cut shape, drawn with a pseudo element on top of the content
+  (a normal border or inset box-shadow would be cut off along the diagonals).
+  The element itself should also use doubleCut with the same size.
+*/
+@mixin doubleCutBorder($size, $width, $colour) {
+  position: relative;
+
+  &::after {
+    // Where the inner edge of the diagonals meet the inner edge of the border, so it's the same thickness.
+    $inner: $size + ($width * 0.414);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $colour;
+    pointer-events: none;
+    clip-path: polygon(
+      evenodd,
+      0% 0%,
+      calc(100% - #{$size}) 0%,
+      100% $size,
+      100% 100%,
+      $size 100%,
+      0% calc(100% - #{$size}),
+      0% 0%,
+      $width $width,
+      $width calc(100% - #{$inner}),
+      $inner calc(100% - #{$width}),
+      calc(100% - #{$width}) calc(100% - #{$width}),
+      calc(100% - #{$width}) $inner,
+      calc(100% - #{$inner}) $width,
+      $width $width
+    );
+  }
+}

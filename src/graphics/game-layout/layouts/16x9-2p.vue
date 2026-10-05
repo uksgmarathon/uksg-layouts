@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import ImageRotation from '../../_misc/components/ImageRotation.vue';
+import FinishTime from '../components/FinishTime.vue';
 import ParticipantInfo from '../components/ParticipantInfo.vue';
 import RunInfo from '../components/RunInfo.vue';
 import TimerElem from '../components/TimerElem.vue';
+import { useFeedStyle } from '../feed-style';
+
+const feedStyle = useFeedStyle();
 </script>
 
 <template>
@@ -20,13 +24,26 @@ import TimerElem from '../components/TimerElem.vue';
     <!-- Game Feeds -->
     <div
       id="Game1"
+      :style="feedStyle(0)"
       class="Fixed Capture BorderTop BorderRight BorderBottom"
       :class="$style.GameFeed1"
     />
     <div
       id="Game2"
+      :style="feedStyle(1)"
       class="Fixed Capture BorderTop BorderLeft BorderBottom"
       :class="$style.GameFeed2"
+    />
+    <!-- Race finish times, shown over each game feed -->
+    <FinishTime
+      class="Fixed"
+      :class="$style.Finish1"
+      :index="0"
+    />
+    <FinishTime
+      class="Fixed"
+      :class="$style.Finish2"
+      :index="1"
     />
     <!-- Camera Feed -->
     <div
@@ -77,6 +94,7 @@ import TimerElem from '../components/TimerElem.vue';
     <ImageRotation
       class="Fixed"
       :class="$style.ImageRotation"
+      incentives
     />
   </div>
 </template>
@@ -105,6 +123,20 @@ import TimerElem from '../components/TimerElem.vue';
 }
 
 .GameFeed2 {
+  left: 957px;
+  top: 141px;
+  width: 963px;
+  height: 544px;
+}
+
+.Finish1 {
+  left: 0px;
+  top: 141px;
+  width: 960px;
+  height: 544px;
+}
+
+.Finish2 {
   left: 957px;
   top: 141px;
   width: 963px;

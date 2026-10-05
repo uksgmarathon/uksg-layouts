@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Most recent donations from the tracker that have been screened, newest first.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "name": {
+        "type": "string"
+      },
+      "amount": {
+        "type": "number"
+      },
+      "comment": {
+        "description": "Only included if the comment has been approved.",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "timestamp": {
+        "type": "number"
+      },
+      "bids": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "game": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "option": {
+              "description": "Option name if this was towards a bid war.",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "amount": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "id",
+            "game",
+            "name",
+            "option",
+            "amount"
+          ]
+        }
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "amount",
+      "comment",
+      "timestamp",
+      "bids"
+    ]
+  },
+  "default": []
+}
