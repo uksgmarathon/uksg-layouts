@@ -34,15 +34,15 @@ const feedStyle = useFeedStyle();
       class="Fixed Capture BorderTop BorderLeft BorderBottom"
       :class="$style.GameFeed2"
     />
-    <!-- Race finish times, shown over each game feed -->
+    <!-- Race finish times, shown over each game feed (so they share its position) -->
     <FinishTime
       class="Fixed"
-      :class="$style.Finish1"
+      :class="$style.GameFeed1"
       :index="0"
     />
     <FinishTime
       class="Fixed"
-      :class="$style.Finish2"
+      :class="$style.GameFeed2"
       :index="1"
     />
     <!-- Camera Feed -->
@@ -123,20 +123,6 @@ const feedStyle = useFeedStyle();
 }
 
 .GameFeed2 {
-  left: 957px;
-  top: 141px;
-  width: 963px;
-  height: 544px;
-}
-
-.Finish1 {
-  left: 0px;
-  top: 141px;
-  width: 960px;
-  height: 544px;
-}
-
-.Finish2 {
   left: 957px;
   top: 141px;
   width: 963px;

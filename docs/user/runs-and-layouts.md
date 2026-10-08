@@ -80,7 +80,8 @@ preview of the current runner badges so you can see at a glance if anything's be
 | **Game feed border colour** (per runner) | The colour of the border around that runner's game feed. Handy in races so each side matches its runner. |
 
 Each colour box has quick swatches (the UKSG colours plus common character colours), a colour picker (the pipette icon)
-and can take any colour code like `#e52521`. Clear a box (the ⓧ) to go back to the default.
+and takes a hex colour code like `#e52521` (colour names such as "yellow" aren't used; the box shows an error).
+Clear a box (the ⓧ) to go back to the default.
 
 **Reset this run to defaults** clears everything set here for the run, including warnings.
 

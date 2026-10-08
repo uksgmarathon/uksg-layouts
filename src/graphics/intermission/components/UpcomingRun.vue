@@ -1,18 +1,14 @@
 <script setup lang="ts">
 import type { RunData } from 'speedcontrol-util/types/schemas';
-import { computed } from 'vue';
+import { formatPlayers } from '../../../browser_shared/upcoming';
 import IncentiveStrip from './IncentiveStrip.vue';
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   runData: RunData | undefined,
   next?: boolean,
 }>(), {
   next: false,
 });
-
-const players = computed(() => props.runData?.teams
-  .map((t) => t.name ?? t.players
-    .map((p) => p.name).join(', ')).join(' vs. ') ?? 'N/A');
 </script>
 
 <template>
@@ -50,7 +46,7 @@ const players = computed(() => props.runData?.teams
           {{ runData.game }}
         </div>
         <div :class="$style.Subtitle">
-          {{ players }} | {{ runData.category }} | {{ runData.system }} | {{ runData.estimate }}
+          {{ formatPlayers(runData) }} | {{ runData.category }} | {{ runData.system }} | {{ runData.estimate }}
         </div>
       </div>
       <IncentiveStrip

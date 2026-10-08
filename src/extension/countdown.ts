@@ -24,9 +24,10 @@ nodecg.listenFor('countdownStart', (time: string) => {
     Number(time.split(':')[0]),
     Number(time.split(':')[1]),
   );
-  if (countdownTimeout) clearTimeout(countdownTimeout);
   const diff = then.getTime() - now.getTime();
+  // Times that have already passed are ignored, and any running countdown carries on.
   if (diff <= 0) return;
+  if (countdownTimeout) clearTimeout(countdownTimeout);
   countdown.value = {
     originalDuration: diff,
     remaining: diff,

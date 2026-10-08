@@ -55,7 +55,9 @@ flips to a celebration ("£2,000 raised!", or the milestone's name).
 
 ## Omnibar Settings panel
 
-In the **UKSG** tab. Changes apply straight away unless the tab has a **Save** button.
+In the **UKSG** tab. Changes apply straight away unless the tab has a **Save** button. On tabs with **Save**, if
+someone else saves while you have the panel open, your copy updates to match, unless you have unsaved changes of your
+own (saving then replaces theirs).
 
 ![The Omnibar Settings panel, Messages tab](../images/panel-omnibar-settings-messages.png)
 
@@ -87,12 +89,14 @@ from Host Control. When the total passes a milestone, the donation total celebra
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| Seconds per item | 15 | How long each rotating item stays on screen. |
+| Seconds per item | 15 | How long each rotating item stays on screen (at least 1). |
 | Auto-release (seconds) | 30 | How long something a host shows stays pinned before the rotation carries on. 0 = stay until released. |
-| Upcoming runs shown | 3 | How many runs the "Coming up" item shows. |
-| Donations in list | 15 | How many recent donations the donation list includes. |
+| Upcoming runs shown | 3 | How many runs the "Coming up" item shows (at least 1). |
+| Donations in list | 15 | How many recent donations the donation list includes (at least 1). |
 | Celebrate every (amount) | 1000 | Celebrate when the total passes a multiple of this. 0 = only celebrate milestones. |
 | Included in rotation | all on | Switch whole item types (e.g. bid wars) out of the rotation. |
+
+Numbers save a moment after you stop typing. An empty box isn't saved, so you can clear a box and type a new number.
 
 ### Donation Colours tab
 

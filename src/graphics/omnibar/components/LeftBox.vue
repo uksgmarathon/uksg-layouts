@@ -6,7 +6,6 @@ import { formatCurrencyAmount } from '../../../browser_shared/util';
 
 const total = ref<number | null>(null);
 const totalStr = computed(() => formatCurrencyAmount(total.value ?? 0, true));
-const tl = gsap.timeline();
 const logoBgWidth = (() => {
   switch(nodecg.bundleConfig.theme) {
     case 'red':
@@ -21,7 +20,8 @@ const logoBgWidth = (() => {
 watch(() => donationTotal?.data, (val) => {
   if (typeof val === 'undefined') return;
   if (total.value === null) total.value = val;
-  else tl.to(total, { value: val, duration: 5, delay: 1 });
+  // A standalone tween (rather than one long timeline) so finished ones don't pile up over the event.
+  else gsap.to(total, { value: val, duration: 5, delay: 1, overwrite: true });
 }, { immediate: true });
 
 // Celebration that covers the total when it crosses a milestone/round number (sent from the extension).
@@ -160,9 +160,10 @@ nodecg.listenFor('omnibar_celebrate', async (data: { amount: number, name: strin
 }
 
 .CelebrationHeader {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* Long milestone names wrap onto a second line rather than being cut off. */
+  white-space: normal;
+  text-align: center;
+  line-height: 1.1;
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;

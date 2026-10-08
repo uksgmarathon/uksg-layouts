@@ -12,12 +12,13 @@ Full docs are in `docs/`: user guide in `docs/user/`, developer guide in `docs/d
 pnpm install                                     # or: npx --yes pnpm@10 install
 pnpm build                                       # graphics/dashboard (Vite) + extension (tsc)
 pnpm lint
+pnpm test                                        # node:test, no build needed (test/*.test.ts)
 npx vue-tsc --noEmit -p tsconfig.browser.json    # type-check graphics/dashboard
 npx tsc -p tsconfig.extension.json --noEmit      # type-check extension
 pnpm schema-types                                # after editing schemas/*.json or configschema.json
 ```
 
-Run lint, both type-checks and a build before calling something done.
+Run lint, the tests, both type-checks and a build before calling something done.
 
 ## Layout
 

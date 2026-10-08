@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { presetColours } from '../../browser_shared/customisation';
+import { isValidColour, presetColours } from '../../browser_shared/customisation';
 
 /**
  * Colour picker with some quick preset swatches; an empty value means "use the default".
@@ -25,6 +25,8 @@ const model = defineModel<string | undefined>();
       outlined
       clearable
       debounce="500"
+      :error="!!model && !isValidColour(model)"
+      error-message="Use a hex colour, e.g. #f5c400"
       @update:model-value="(val) => { model = (val as string | null)?.trim() || undefined; }"
     >
       <template #prepend>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { isMet } from '../../../../browser_shared/bids';
 import { useTweenedNumber } from '../../../../browser_shared/tween';
 import { formatCurrencyAmount } from '../../../../browser_shared/util';
 import type { Schemas } from '../../../../types';
@@ -21,10 +22,12 @@ const observer = new ResizeObserver(([entry]) => { height.value = entry.contentR
 onMounted(() => { if (elem.value) observer.observe(elem.value); });
 onBeforeUnmount(() => observer.disconnect());
 const compact = computed(() => height.value < 170);
-const maxOptions = computed(() => Math.max(2, Math.floor((height.value - 90) / 38)));
+const showDescription = computed(() => !compact.value && !!props.bid.description && height.value > 260);
+// The description takes up to 3 lines (plus a gap), so leave room for it.
+const maxOptions = computed(() => Math.max(2, Math.floor((height.value - 90 - (showDescription.value ? 72 : 0)) / 38)));
 
 const total = useTweenedNumber(() => props.bid.total);
-const met = computed(() => !!props.bid.goal && props.bid.total >= props.bid.goal);
+const met = computed(() => isMet(props.bid));
 </script>
 
 <template>
@@ -38,7 +41,7 @@ const met = computed(() => !!props.bid.goal && props.bid.total >= props.bid.goal
       <span :class="$style.Name">{{ bid.name }}</span>
     </div>
     <div
-      v-if="!compact && bid.description && height > 260"
+      v-if="showDescription"
       :class="$style.Description"
     >
       {{ bid.description }}
@@ -60,7 +63,7 @@ const met = computed(() => !!props.bid.goal && props.bid.total >= props.bid.goal
             v-if="bid.goal"
             :class="{ [$style.ToGo]: true, [$style.Met]: met }"
           >
-            {{ met ? 'Met!' : `${formatCurrencyAmount(bid.goal - bid.total, true)} to go` }}
+            {{ met ? 'Met!' : `${formatCurrencyAmount(Math.ceil(bid.goal - bid.total), true)} to go` }}
           </span>
         </div>
       </template>
@@ -90,9 +93,17 @@ const met = computed(() => !!props.bid.goal && props.bid.total >= props.bid.goal
   height: 100%;
   box-sizing: border-box;
   align-items: stretch;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
   overflow: hidden;
+  /* Centred with auto margins rather than "justify-content: center", so if the content
+     is ever too tall, only the bottom is cut off and the title stays visible. */
+  > :first-child {
+    margin-top: auto;
+  }
+  > :last-child {
+    margin-bottom: auto;
+  }
 }
 
 .Header {

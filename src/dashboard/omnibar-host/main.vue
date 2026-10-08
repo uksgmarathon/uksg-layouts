@@ -324,7 +324,7 @@ function show(type: OmnibarItem['type'], id: OmnibarItem['id'] = null) {
               <QItemLabel caption>
                 {{ milestone.description }}
                 <template v-if="total < milestone.amount">
-                  ({{ formatCurrencyAmount(milestone.amount - total, true) }} to go)
+                  ({{ formatCurrencyAmount(Math.ceil(milestone.amount - total), true) }} to go)
                 </template>
               </QItemLabel>
             </QItemSection>

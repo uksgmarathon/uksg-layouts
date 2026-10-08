@@ -124,6 +124,7 @@ Before committing, run all of these:
 
 ```bash
 pnpm lint
+pnpm test
 npx vue-tsc --noEmit -p tsconfig.browser.json
 npx tsc -p tsconfig.extension.json --noEmit
 pnpm build

@@ -28,10 +28,11 @@ export const presetColours = [
 ];
 
 /**
- * Checks if a string is a valid CSS colour.
+ * Checks if a string is a hex colour (e.g. "#e52521" or "#fc0").
+ * Only hex is accepted because the text colour on top of it is worked out from it (see getTextColour).
  */
 export function isValidColour(colour?: string | null): colour is string {
-  return !!colour && CSS.supports('color', colour);
+  return !!colour && /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(colour);
 }
 
 /**

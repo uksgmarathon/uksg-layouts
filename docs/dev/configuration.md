@@ -72,7 +72,7 @@ speedcontrol's run editor (or fill them from a Horaro import), declare them in `
 | `layout` | `16x9-2p` | Game layout chosen automatically when the run becomes active. One of `4x3-1p`, `4x3-2p`, `16x9-1p`, `16x9-2p`, `3DS-1p` (case-insensitive). |
 | `trackerRunId` | `276` | The run's ID on the tracker. Links incentives to this run when the game names differ between tracker and speedcontrol. Normally not needed; matching is by game name, then category. |
 | `contentWarnings` | `Flashing Lights, Strong Language` | Default content warnings, matched by name against the warning list. Ignored once warnings have been ticked for the run on the dashboard. |
-| `badgeColour` | `#e52521, #43b047` | Runner badge colour(s): a single value for every player, or a comma separated list in player order. Hex colours (or any CSS colour). |
+| `badgeColour` | `#e52521, #43b047` | Runner badge colour(s): a single value for every player, or a comma separated list in player order. Hex colours only (e.g. `#e52521`); anything else is ignored. |
 | `badgeLabel` | `Mario, Luigi` | Runner badge text(s), instead of "RUNNER". Same single value / list rule. |
 | `feedColour` | `#e52521, #43b047` | Game feed border colour(s). Same rule. |
 | `accentColour` | `#7b3fb5` | Colour of the game badge (run info box). |

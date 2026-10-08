@@ -79,7 +79,8 @@ restart.
 - **`await nodecg.sendMessage(...)` hangs** in scripts and tests: the promise only resolves if the listener calls its
   acknowledgement. Fire and forget with `void`.
 - **Top-level `await` in the extension:** NodeCG loads the extension entry with `require()`, so the entry
-  (`src/extension/index.ts`) must not use top-level await. Modules it imports dynamically (like `util/obs.ts`) can.
+  (`src/extension/index.ts`) must not use top-level await. Modules it imports dynamically can, but each one delays
+  every module after it, so don't wait on outside services (OBS, the tracker) at load time.
 - **`vue/multi-word-component-names` lint error:** component names must be multi-word (e.g. `ConfettiBurst`, not `Confetti`).
 - **Child component styles vs parent overrides:** when overriding a child component's module class from a parent, use a
   more specific selector (e.g. `.Estimate .OverChip`). The order the two stylesheets load in isn't guaranteed.

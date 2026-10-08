@@ -1,4 +1,5 @@
 import { orderBy } from 'lodash-es';
+import { isValidColour } from './customisation';
 import { omnibarSettings } from './replicants';
 import { formatCurrencyAmount } from './util';
 
@@ -6,7 +7,11 @@ import { formatCurrencyAmount } from './util';
  * Gets the colour to use for a donation, based on the highest tier it meets.
  */
 export function getDonationColour(amount: number) {
-  const tiers = orderBy(omnibarSettings?.data?.donationTiers ?? [], (t) => t.amount, 'desc');
+  const tiers = orderBy(
+    (omnibarSettings?.data?.donationTiers ?? []).filter((t) => isValidColour(t.colour)),
+    (t) => t.amount,
+    'desc',
+  );
   return tiers.find((t) => amount >= t.amount)?.colour ?? tiers[tiers.length - 1]?.colour ?? '#2f6f9d';
 }
 

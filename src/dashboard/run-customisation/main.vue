@@ -22,8 +22,12 @@ const runOptions = computed(() => (runDataArray?.data ?? []).map((r) => ({
   label: [r.game ?? '???', r.category].filter(Boolean).join(' - '),
   value: r.id,
 })));
-const players = computed(() => run.value?.teams.flatMap((team, teamIndex) => team.players
-  .map((player, playerIndex) => ({ player, teamIndex, playerIndex }))) ?? []);
+// Each entry keeps the ID of its run, so an edit still being typed when the run changes is saved to the right run.
+const players = computed(() => {
+  const r = run.value;
+  return r?.teams.flatMap((team, teamIndex) => team.players
+    .map((player, playerIndex) => ({ runId: r.id, player, teamIndex, playerIndex }))) ?? [];
+});
 
 function getOverride(playerId: string, key: PlayerKey) {
   return runId.value ? runCustomisation?.data?.[runId.value]?.players[playerId]?.[key] : undefined;
@@ -37,40 +41,41 @@ function getDefault(teamIndex: number, playerIndex: number, key: PlayerKey) {
 }
 
 /**
- * Sets (or removes, if empty) an override; empty entries are cleaned up so the replicant stays tidy.
+ * Sets (or removes, if empty) an override for a run; empty entries are cleaned up so the replicant stays tidy.
+ * Takes the run ID rather than using the selected one, as inputs save after a short delay and the run may have changed.
  */
-function update(change: (entry: NonNullable<NonNullable<typeof runCustomisation>['data']>[string]) => void) {
+function update(id: string, change: (entry: NonNullable<NonNullable<typeof runCustomisation>['data']>[string]) => void) {
   const data = runCustomisation?.data;
-  if (!runCustomisation || !data || !runId.value) return;
-  data[runId.value] ??= { players: {} };
-  const entry = data[runId.value];
+  if (!runCustomisation || !data) return;
+  data[id] ??= { players: {} };
+  const entry = data[id];
   change(entry);
-  for (const [id, player] of Object.entries(entry.players)) {
-    if (!Object.keys(player).length) delete entry.players[id];
+  for (const [playerId, player] of Object.entries(entry.players)) {
+    if (!Object.keys(player).length) delete entry.players[playerId];
   }
-  if (!entry.accentColour && !Object.keys(entry.players).length) delete data[runId.value];
+  if (!entry.accentColour && !Object.keys(entry.players).length) delete data[id];
   runCustomisation.save();
 }
-function setPlayer(playerId: string, key: PlayerKey, val?: string | null) {
-  update((entry) => {
+function setPlayer(id: string, playerId: string, key: PlayerKey, val?: string | null) {
+  update(id, (entry) => {
     entry.players[playerId] ??= {};
     if (val?.trim()) entry.players[playerId][key] = val.trim();
     else delete entry.players[playerId][key];
   });
 }
-function setAccent(val?: string) {
-  update((entry) => {
+function setAccent(id: string, val?: string) {
+  update(id, (entry) => {
     if (val) entry.accentColour = val;
     else delete entry.accentColour;
   });
 }
-function resetRun() {
-  update((entry) => {
+function resetRun(id: string) {
+  update(id, (entry) => {
     entry.players = {};
     delete entry.accentColour;
   });
-  if (contentWarnings?.data && runId.value && contentWarnings.data.runs[runId.value]) {
-    delete contentWarnings.data.runs[runId.value];
+  if (contentWarnings?.data?.runs[id]) {
+    delete contentWarnings.data.runs[id];
     contentWarnings.save();
   }
 }
@@ -88,15 +93,13 @@ function toggleWarning(id: string, val: boolean) {
   contentWarnings.save();
 }
 const editingWarnings = ref(false);
-const warningTypes = useDraft(() => contentWarnings?.data?.available);
-function saveWarningTypes() {
+const warningTypes = useDraft(() => contentWarnings?.data?.available, (draft) => {
   if (!contentWarnings?.data) return;
-  contentWarnings.data.available = warningTypes.draft.value
+  contentWarnings.data.available = draft
     .filter((w) => w.text.trim())
     .map((w) => ({ ...w, text: w.text.trim() }));
   contentWarnings.save();
-  warningTypes.revert();
-}
+});
 
 // What the badge will actually look like on the layout.
 function badgePreview(teamIndex: number, playerIndex: number) {
@@ -210,7 +213,7 @@ function badgePreview(teamIndex: number, playerIndex: number) {
               :disable="!warningTypes.dirty.value"
               unelevated
               square
-              @click="saveWarningTypes"
+              @click="warningTypes.save"
             />
           </div>
         </div>
@@ -248,15 +251,18 @@ function badgePreview(teamIndex: number, playerIndex: number) {
           <div class="q-mt-md text-weight-bold">
             Run info accent
           </div>
+          <!-- A one-item loop so the input is remade for each run, and an edit still being typed saves to its own run. -->
           <ColourInput
-            :model-value="runId ? runCustomisation?.data?.[runId]?.accentColour : undefined"
+            v-for="r in [run]"
+            :key="r.id"
+            :model-value="runCustomisation?.data?.[r.id]?.accentColour"
             label="Accent colour (game/category box)"
-            :placeholder="getAccentColour(run, undefined)"
-            @update:model-value="setAccent"
+            :placeholder="getAccentColour(r, undefined)"
+            @update:model-value="(val) => setAccent(r.id, val)"
           />
 
           <QCard
-            v-for="{ player, teamIndex, playerIndex } in players"
+            v-for="{ runId: playerRunId, player, teamIndex, playerIndex } in players"
             :key="player.id"
             class="q-mt-md"
             flat
@@ -287,21 +293,21 @@ function badgePreview(teamIndex: number, playerIndex: number) {
                 square
                 outlined
                 clearable
-                @update:model-value="(val) => setPlayer(player.id, 'badgeLabel', val as string | null)"
+                @update:model-value="(val) => setPlayer(playerRunId, player.id, 'badgeLabel', val as string | null)"
               />
               <ColourInput
                 class="q-mt-sm"
                 :model-value="getOverride(player.id, 'badgeColour')"
                 label="Badge colour"
                 :placeholder="getDefault(teamIndex, playerIndex, 'badgeColour')"
-                @update:model-value="(val) => setPlayer(player.id, 'badgeColour', val)"
+                @update:model-value="(val) => setPlayer(playerRunId, player.id, 'badgeColour', val)"
               />
               <ColourInput
                 class="q-mt-sm"
                 :model-value="getOverride(player.id, 'feedColour')"
                 label="Game feed border colour"
                 :placeholder="getDefault(teamIndex, playerIndex, 'feedColour')"
-                @update:model-value="(val) => setPlayer(player.id, 'feedColour', val)"
+                @update:model-value="(val) => setPlayer(playerRunId, player.id, 'feedColour', val)"
               />
             </QCardSection>
           </QCard>
@@ -318,10 +324,10 @@ function badgePreview(teamIndex: number, playerIndex: number) {
         class="full-width q-mt-md"
         color="negative"
         label="Reset this run to defaults"
-        :disable="!runId || (!runCustomisation?.data?.[runId] && !contentWarnings?.data?.runs[runId])"
+        :disable="!runCustomisation?.data?.[run.id] && !contentWarnings?.data?.runs[run.id]"
         unelevated
         square
-        @click="resetRun"
+        @click="resetRun(run.id)"
       />
     </template>
     <div

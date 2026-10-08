@@ -61,6 +61,6 @@ const bid = computed(() => (props.incentives
   width: 100%;
   height: 100%;
   object-fit: contain;
-  overflow: auto; /* makes sure the 100% height actually contains the image */
+  overflow: hidden; /* makes sure the 100% height actually contains the image (and never shows a scrollbar) */
 }
 </style>

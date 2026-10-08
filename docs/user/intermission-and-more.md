@@ -26,7 +26,8 @@ of a run. If it's ever wrong, use this panel to force it to the previous, curren
 The countdown graphic shows a large countdown to a set time, e.g. before the event starts.
 
 **Countdown Control** (in the **UKSG** tab): pick the time to count down to on the clock and press **Apply**. The time
-has to be later today. The panel shows how long is left.
+has to be later today: a time that has already passed is ignored, and any countdown already running carries on.
+The panel shows how long is left.
 
 ## Participant Control
 

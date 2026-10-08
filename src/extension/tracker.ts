@@ -2,6 +2,7 @@ import { orderBy, round } from 'lodash-es';
 import type { Schemas } from '../types/index.js';
 import { nodecg } from './util/nodecg.js';
 import { donationTotal, trackerBids, trackerDonations } from './util/replicants.js';
+import { approvedComment, isScreened } from './util/screening.js';
 import { sc } from './util/speedcontrol.js';
 
 type RunData = ReturnType<typeof sc.getRunDataArray>[number];
@@ -10,8 +11,8 @@ const config = nodecg.bundleConfig.tracker;
 const api = `${config.url}/tracker/api/v2`;
 const pollLength = 15 * 1000;
 const runsPollLength = 5 * 60 * 1000;
-// Donations in these "read" states have not been screened yet, so must never be shown.
-const unscreenedStates = ['PENDING', 'FLAGGED'];
+// Without this, a hung tracker would stall polling for minutes (fetch has no timeout of its own).
+const requestTimeout = 10 * 1000;
 
 // The parts of the tracker API responses that we use.
 interface ApiList<T> {
@@ -68,7 +69,7 @@ async function getAll<T>(path: string) {
   const results: T[] = [];
   let url: string | null = `${api}${path}`;
   while (url) {
-    const resp = await fetch(url);
+    const resp = await fetch(url, { signal: AbortSignal.timeout(requestTimeout) });
     if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText} (${url})`);
     const data = await resp.json() as ApiList<T>;
     results.push(...data.results);
@@ -154,13 +155,11 @@ function parseBids(bids: ApiBid[]): Schemas.TrackerBids {
  */
 function parseDonations(donations: ApiDonation[], bids: ApiBid[]): Schemas.TrackerDonations {
   const bidMap = new Map(bids.map((b) => [b.id, b]));
-  const screened = donations.filter((d) => d.transactionstate === 'COMPLETED'
-    && !unscreenedStates.includes(d.readstate));
-  return orderBy(screened, (d) => Date.parse(d.timereceived), 'desc').slice(0, 50).map((d) => ({
+  return orderBy(donations.filter(isScreened), (d) => Date.parse(d.timereceived), 'desc').slice(0, 50).map((d) => ({
     id: d.id,
     name: d.donor_name,
     amount: round(d.amount, 2),
-    comment: (d.commentstate === 'APPROVED' && d.comment?.trim()) || null,
+    comment: approvedComment(d),
     timestamp: Date.parse(d.timereceived),
     bids: d.bids.map((db) => {
       const bid = bidMap.get(db.bid);
@@ -202,7 +201,7 @@ async function updateFromApi() {
     const [bids, donations] = await Promise.all([
       getAll<ApiBid>(`/events/${eventId}/bids/?tree`),
       // Only the first page, which contains the most recent donations.
-      fetch(`${api}/events/${eventId}/donations/`)
+      fetch(`${api}/events/${eventId}/donations/`, { signal: AbortSignal.timeout(requestTimeout) })
         .then(async (resp) => {
           if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText} (donations)`);
           return (await resp.json() as ApiList<ApiDonation>).results;

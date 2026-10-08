@@ -6,7 +6,7 @@ import { omnibarSettings, trackerDonations } from '../../../../browser_shared/re
 import ItemTag from './ItemTag.vue';
 
 const donations = computed(() => (trackerDonations?.data ?? [])
-  .slice(0, omnibarSettings?.data?.donationListCount ?? 6)
+  .slice(0, omnibarSettings?.data?.donationListCount ?? 15)
   .map((d) => ({ ...d, colour: getDonationColour(d.amount) })));
 </script>
 

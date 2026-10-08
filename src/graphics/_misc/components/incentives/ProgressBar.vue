@@ -6,10 +6,8 @@ const props = withDefaults(defineProps<{
   value: number,
   max: number,
   height?: string,
-  colour?: string,
 }>(), {
   height: '24px',
-  colour: undefined,
 });
 
 const pct = useTweenedNumber(() => (props.max > 0 ? Math.min(1, props.value / props.max) : 0) * 100);
@@ -20,7 +18,7 @@ const met = computed(() => props.max > 0 && props.value >= props.max);
   <div :class="$style.Track">
     <div
       :class="{ [$style.Fill]: true, [$style.Met]: met }"
-      :style="{ width: `${pct}%`, background: !met ? colour : undefined }"
+      :style="{ width: `${pct}%` }"
     />
   </div>
 </template>

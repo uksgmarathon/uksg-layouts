@@ -20,6 +20,7 @@
     "lint": "eslint",
     "schema-types": "nodecg schema-types",
     "start": "cd ../.. && node --env-file-if-exists=cfg/.env.uksg index.js",
+    "test": "node --test test/*.test.ts",
     "watch": "conc -n B,E -c red,blue -k vite \"tsc -b -w --preserveWatchOutput tsconfig.extension.json\""
   },
   "dependencies": {

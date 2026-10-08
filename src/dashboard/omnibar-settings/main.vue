@@ -6,6 +6,7 @@ import { itemTypeNames } from '../../browser_shared/omnibar';
 import { milestones, omnibarMessages, omnibarSettings } from '../../browser_shared/replicants';
 import type { Schemas } from '../../types';
 import ColourInput from '../_misc/ColourInput.vue';
+import DraftButtons from '../_misc/DraftButtons.vue';
 import { newId, useDraft } from '../_misc/draft';
 
 useHead({ title: 'Omnibar Settings' });
@@ -13,48 +14,45 @@ const tab = ref('messages');
 const currencySymbol = nodecg.bundleConfig.tracker.currencySymbol;
 
 // Messages
-const messages = useDraft(() => omnibarMessages?.data);
-function saveMessages() {
+const messages = useDraft(() => omnibarMessages?.data, (draft) => {
   if (!omnibarMessages) return;
-  omnibarMessages.data = messages.draft.value.filter((m) => m.text.trim());
+  omnibarMessages.data = draft.filter((m) => m.text.trim());
   omnibarMessages.save();
-  messages.revert();
-}
+});
 
 // Milestones
-const milestoneDraft = useDraft(() => milestones?.data);
-function saveMilestones() {
+const milestoneDraft = useDraft(() => milestones?.data, (draft) => {
   if (!milestones) return;
-  milestones.data = orderBy(
-    milestoneDraft.draft.value.filter((m) => m.name.trim() && m.amount > 0),
-    (m) => m.amount,
-  );
+  milestones.data = orderBy(draft.filter((m) => m.name.trim() && m.amount > 0), (m) => m.amount);
   milestones.save();
-  milestoneDraft.revert();
-}
+});
 
 // Donation colour tiers
-const tiers = useDraft(() => omnibarSettings?.data?.donationTiers);
-function saveTiers() {
+const tiers = useDraft(() => omnibarSettings?.data?.donationTiers, (draft) => {
   if (!omnibarSettings?.data) return;
-  omnibarSettings.data.donationTiers = orderBy(tiers.draft.value.filter((t) => t.colour), (t) => t.amount);
+  omnibarSettings.data.donationTiers = orderBy(
+    // A cleared amount box holds '' rather than a number, which the schema would reject.
+    draft.filter((t) => t.colour).map((t) => ({ ...t, amount: Number(t.amount) || 0 })),
+    (t) => t.amount,
+  );
   omnibarSettings.save();
-  tiers.revert();
-}
+});
 
 // Rotation settings are saved straight away.
 type NumberSetting = 'itemDuration' | 'pinTimeout' | 'upcomingRunsCount' | 'donationListCount' | 'celebrationStep';
-const numberSettings: { key: NumberSetting, label: string, hint: string }[] = [
-  { key: 'itemDuration', label: 'Seconds per item', hint: 'How long each item in the rotation is shown for' },
-  { key: 'pinTimeout', label: 'Auto-release (seconds)', hint: 'Forced items go back to rotating after this long; 0 = never' },
-  { key: 'upcomingRunsCount', label: 'Upcoming runs shown', hint: 'Number of runs in the "Coming Up" item' },
-  { key: 'donationListCount', label: 'Donations in list', hint: 'Maximum number of boxes in the donation list' },
-  { key: 'celebrationStep', label: 'Celebrate every (amount)', hint: 'Celebrate when the total passes a multiple of this; 0 = off (milestones always celebrate)' },
+const numberSettings: { key: NumberSetting, label: string, hint: string, min: number }[] = [
+  { key: 'itemDuration', label: 'Seconds per item', hint: 'How long each item in the rotation is shown for', min: 1 },
+  { key: 'pinTimeout', label: 'Auto-release (seconds)', hint: 'Forced items go back to rotating after this long; 0 = never', min: 0 },
+  { key: 'upcomingRunsCount', label: 'Upcoming runs shown', hint: 'Number of runs in the "Coming Up" item', min: 1 },
+  { key: 'donationListCount', label: 'Donations in list', hint: 'Maximum number of boxes in the donation list', min: 1 },
+  { key: 'celebrationStep', label: 'Celebrate every (amount)', hint: 'Celebrate when the total passes a multiple of this; 0 = off (milestones always celebrate)', min: 0 },
 ];
-function setNumber(key: NumberSetting, val: string | number | null) {
+function setNumber(setting: typeof numberSettings[number], val: string | number | null) {
+  // An empty box (e.g. while retyping a value) would otherwise be saved as 0.
+  if (val === '' || val === null) return;
   const num = Number(val);
-  if (!omnibarSettings?.data || Number.isNaN(num) || num < 0) return;
-  omnibarSettings.data[key] = num;
+  if (!omnibarSettings?.data || Number.isNaN(num) || num < setting.min) return;
+  omnibarSettings.data[setting.key] = num;
   omnibarSettings.save();
 }
 const rotationTypes: (keyof Schemas.OmnibarSettings['types'])[] = [
@@ -138,30 +136,7 @@ function setType(type: keyof Schemas.OmnibarSettings['types'], val: boolean) {
           square
           @click="messages.draft.value.push({ id: newId(), text: '', enabled: true })"
         />
-        <div class="row q-col-gutter-sm q-mt-xs">
-          <div class="col">
-            <QBtn
-              class="full-width"
-              label="Save"
-              color="primary"
-              :disable="!messages.dirty.value"
-              unelevated
-              square
-              @click="saveMessages"
-            />
-          </div>
-          <div class="col-4">
-            <QBtn
-              class="full-width"
-              label="Revert"
-              color="secondary"
-              :disable="!messages.dirty.value"
-              unelevated
-              square
-              @click="messages.revert"
-            />
-          </div>
-        </div>
+        <DraftButtons :draft="messages" />
       </QTabPanel>
 
       <!-- Milestones -->
@@ -219,30 +194,7 @@ function setType(type: keyof Schemas.OmnibarSettings['types'], val: boolean) {
           square
           @click="milestoneDraft.draft.value.push({ id: newId(), amount: 0, name: '', description: '' })"
         />
-        <div class="row q-col-gutter-sm q-mt-xs">
-          <div class="col">
-            <QBtn
-              class="full-width"
-              label="Save"
-              color="primary"
-              :disable="!milestoneDraft.dirty.value"
-              unelevated
-              square
-              @click="saveMilestones"
-            />
-          </div>
-          <div class="col-4">
-            <QBtn
-              class="full-width"
-              label="Revert"
-              color="secondary"
-              :disable="!milestoneDraft.dirty.value"
-              unelevated
-              square
-              @click="milestoneDraft.revert"
-            />
-          </div>
-        </div>
+        <DraftButtons :draft="milestoneDraft" />
       </QTabPanel>
 
       <!-- Rotation -->
@@ -263,7 +215,8 @@ function setType(type: keyof Schemas.OmnibarSettings['types'], val: boolean) {
             dense
             square
             outlined
-            @update:model-value="(val) => setNumber(setting.key, val)"
+            :min="setting.min"
+            @update:model-value="(val) => setNumber(setting, val)"
           />
           <div class="q-mt-md text-weight-bold">
             Included in rotation
@@ -326,30 +279,7 @@ function setType(type: keyof Schemas.OmnibarSettings['types'], val: boolean) {
           square
           @click="tiers.draft.value.push({ amount: 0, colour: '#2f6f9d' })"
         />
-        <div class="row q-col-gutter-sm q-mt-xs">
-          <div class="col">
-            <QBtn
-              class="full-width"
-              label="Save"
-              color="primary"
-              :disable="!tiers.dirty.value"
-              unelevated
-              square
-              @click="saveTiers"
-            />
-          </div>
-          <div class="col-4">
-            <QBtn
-              class="full-width"
-              label="Revert"
-              color="secondary"
-              :disable="!tiers.dirty.value"
-              unelevated
-              square
-              @click="tiers.revert"
-            />
-          </div>
-        </div>
+        <DraftButtons :draft="tiers" />
       </QTabPanel>
     </QTabPanels>
   </div>

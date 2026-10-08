@@ -19,9 +19,11 @@ src/
     timer.ts               /timer/toggle HTTP route for hardware buttons
   browser_shared/          Shared by graphics and dashboard: replicants (useReplicant), formatting and composables
   graphics/                One folder per graphic (main.ts + main.vue); _misc/ holds shared components and CSS
-  dashboard/               One folder per panel (main.ts + main.vue); _misc/ holds shared panel components
+  dashboard/               One folder per panel (main.ts + main.vue); _misc/ holds the shared start-up (mount.ts),
+                           Save/Revert drafts (draft.ts, DraftButtons.vue) and other shared panel components
   types/                   Generated schema types (types/schemas/*.d.ts, via `pnpm schema-types`) and re-exports
 obs-assets/                Custom obs-websocket build used for audio automation
+test/                      Tests (node:test, run with `pnpm test`, also run by CI before building)
 docs/                      This documentation
 ```
 
@@ -109,7 +111,9 @@ Uses the public v2 API: `/events/?short=…&totals=`, `/events/{id}/runs/` (ever
 - **Run matching:** speedcontrol run with `customData.trackerRunId` equal to the tracker run ID; otherwise normalised
   game name (tracker `name`/`display_name` vs speedcontrol `game`), using category to pick between duplicates.
 - **Donations:** only `COMPLETED` donations whose `readstate` isn't `PENDING`/`FLAGGED`. The public API exposes donor
-  names and amounts *before* screening, so this filter is essential.
+  names and amounts *before* screening, so this filter is essential. The rules live in `util/screening.ts` (no imports)
+  and are covered by `test/screening.test.ts`.
+- **Timeouts:** each request gives up after 10 seconds, so a hung tracker doesn't stall polling.
 
 ## Conventions
 
