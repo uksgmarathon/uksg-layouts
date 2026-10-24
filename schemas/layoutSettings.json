@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Optional extras on the game layout that can be turned on for a run on the dashboard; these go back to off whenever the run changes.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "celebrateFinish": {
+      "description": "Confetti etc. when the timer finishes.",
+      "type": "boolean",
+      "default": false
+    },
+    "overEstimate": {
+      "description": "What to show when the timer goes over the run's estimate: nothing, how far over it is, or a simple warning chip.",
+      "type": "string",
+      "enum": [
+        "off",
+        "diff",
+        "chip"
+      ],
+      "default": "off"
+    }
+  },
+  "required": [
+    "celebrateFinish",
+    "overEstimate"
+  ]
+}

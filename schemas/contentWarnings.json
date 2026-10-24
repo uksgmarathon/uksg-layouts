@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Content warnings (e.g. flashing lights) that can be ticked for each run and are shown on the overlays.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "available": {
+      "description": "The warnings that can be picked from, editable on the dashboard.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text"
+        ]
+      },
+      "default": [
+        {
+          "id": "flashing-lights",
+          "text": "Flashing Lights"
+        },
+        {
+          "id": "strong-language",
+          "text": "Strong Language"
+        },
+        {
+          "id": "violence",
+          "text": "Violence/Gore"
+        },
+        {
+          "id": "loud-noises",
+          "text": "Loud Noises"
+        }
+      ]
+    },
+    "runs": {
+      "description": "IDs of the warnings ticked for each run, keyed by nodecg-speedcontrol run ID.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "default": {}
+    }
+  },
+  "required": [
+    "available",
+    "runs"
+  ]
+}

@@ -1,17 +1,37 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { assetsRotationImages, imageRotation } from '../../../browser_shared/replicants';
+import { assetsRotationImages, imageRotation, layoutRotation, trackerBids } from '../../../browser_shared/replicants';
+import IncentiveCard from './incentives/IncentiveCard.vue';
+
+/**
+ * If "incentives" is set, the current run's incentives will be shown in between images
+ * (controlled by the extension, see src/extension/image-rotation.ts).
+ */
+const props = withDefaults(defineProps<{
+  incentives?: boolean,
+}>(), {
+  incentives: false,
+});
 
 const imgSrc = computed(() => {
   return assetsRotationImages?.data?.find((a) => a.sum === imageRotation?.data?.sum)?.url;
 });
+const bid = computed(() => (props.incentives
+  ? trackerBids?.data?.find((b) => b.id === layoutRotation?.data?.bidId)
+  : undefined));
 </script>
 
 <template>
   <div :class="$style.Wrapper">
     <Transition name="fade">
+      <IncentiveCard
+        v-if="bid"
+        :key="`bid_${bid.id}`"
+        :class="$style.Image"
+        :bid="bid"
+      />
       <img
-        v-if="imgSrc"
+        v-else-if="imgSrc"
         :key="imgSrc"
         :class="$style.Image"
         :src="imgSrc"
@@ -41,6 +61,6 @@ const imgSrc = computed(() => {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  overflow: auto; /* makes sure the 100% height actually contains the image */
+  overflow: hidden; /* makes sure the 100% height actually contains the image (and never shows a scrollbar) */
 }
 </style>

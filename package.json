@@ -20,6 +20,7 @@
     "lint": "eslint",
     "schema-types": "nodecg schema-types",
     "start": "cd ../.. && node --env-file-if-exists=cfg/.env.uksg index.js",
+    "test": "node --test test/*.test.ts",
     "watch": "conc -n B,E -c red,blue -k vite \"tsc -b -w --preserveWatchOutput tsconfig.extension.json\""
   },
   "dependencies": {
@@ -94,6 +95,12 @@
         "width": 2
       },
       {
+        "name": "run-customisation",
+        "title": "Run Customisation",
+        "file": "run-customisation/main.html",
+        "width": 3
+      },
+      {
         "name": "upcoming-run-control",
         "title": "Upcoming Run Control",
         "file": "upcoming-run-control/main.html",
@@ -105,6 +112,20 @@
         "title": "Countdown Control",
         "file": "countdown-control/main.html",
         "width": 3,
+        "workspace": "UKSG"
+      },
+      {
+        "name": "omnibar-host",
+        "title": "Host Control",
+        "file": "omnibar-host/main.html",
+        "width": 5,
+        "workspace": "Host"
+      },
+      {
+        "name": "omnibar-settings",
+        "title": "Omnibar Settings",
+        "file": "omnibar-settings/main.html",
+        "width": 4,
         "workspace": "UKSG"
       }
     ],

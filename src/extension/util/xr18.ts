@@ -52,9 +52,6 @@ function fade(address: string, direction: 'up' | 'down') {
   const stepLength = 50; // how often a step should happen, milliseconds
   const start = direction === 'up' ? faderValues[address] ?? 0 : faderValues[address] ?? 0.75;
   const end = direction === 'up' ? 0.75 : 0;
-  if (start === end) {
-    nodecg.log.debug('[Util/XR18] Will not fade on %s, start and end the same', address);
-  }
   const stepCount = length / stepLength; // how many steps we need to do
   const stepSize = (end - start) / stepCount; // how big these steps should be
   let value = start;
