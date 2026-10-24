@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Custom messages that rotate in the omnibar, set up on the dashboard.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "text": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "id",
+      "text",
+      "enabled"
+    ]
+  },
+  "default": [
+    {
+      "id": "default-watching",
+      "text": "You are watching UKSG!",
+      "enabled": true
+    },
+    {
+      "id": "default-donate",
+      "text": "Donate @ donate.uksgmarathon.com",
+      "enabled": true
+    }
+  ]
+}

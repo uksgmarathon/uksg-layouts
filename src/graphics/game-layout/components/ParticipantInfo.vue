@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { participants, runDataActiveRun } from '../../../browser_shared/replicants';
+import { getPlayerCustomisation, getTextColour } from '../../../browser_shared/customisation';
+import { participants, runCustomisation, runDataActiveRun } from '../../../browser_shared/replicants';
 import CutOffBorderedElem from '../../_misc/components/CutOffBorderedElem.vue';
 
 const props = withDefaults(defineProps<{
@@ -25,18 +26,24 @@ const user = computed(() => {
   if (props.type === 'comm2') return participants?.data?.commentators[1];
   return null;
 });
+// Runner badges can be customised per run (see the "Run Customisation" panel).
+const custom = computed(() => (props.type === 'player'
+  ? getPlayerCustomisation(runDataActiveRun?.data, runCustomisation?.data, props.index)
+  : {}));
 const headerText = computed(() => {
-  if (props.type === 'player') return 'Runner';
+  if (props.type === 'player') return custom.value.badgeLabel ?? 'Runner';
   if (props.type === 'host') return 'Host';
   if (props.type === 'comm1' || props.type === 'comm2') return 'Comm';
   return undefined;
 });
 const headerTextColour = computed(() => {
+  if (custom.value.badgeColour) return getTextColour(custom.value.badgeColour);
   if (props.type === 'host') return '#71b7f1';
   if (props.type === 'comm1' || props.type === 'comm2') return '#2dbf9e';
   return undefined;
 });
 const headerColour = computed(() => {
+  if (custom.value.badgeColour) return custom.value.badgeColour;
   if (props.type === 'host') return '#0c3f6b';
   if (props.type === 'comm1' || props.type === 'comm2') return '#003134';
   return 'linear-gradient(33deg, #1b6ebb 0%, #348bd2 100%)';

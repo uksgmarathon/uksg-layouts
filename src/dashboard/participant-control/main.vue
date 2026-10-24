@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
 import { QInput } from 'quasar';
-import { ref, watch } from 'vue';
+import { ref, watch, type Ref } from 'vue';
 import { participants } from '../../browser_shared/replicants';
 
 useHead({ title: 'Participant Control' });
@@ -12,14 +12,19 @@ const comm2Pronouns = ref('');
 const readerName = ref('');
 const readerPronouns = ref('');
 
-watch(() => participants?.data, (data) => {
+// Copies the saved values into the boxes, except for boxes that have been changed here and not saved yet,
+// so someone else saving doesn't wipe out what's being typed.
+watch(() => participants?.data, (data, old) => {
   if (!data) return;
-  comm1Name.value = data.commentators[0]?.name ?? '';
-  comm1Pronouns.value = data.commentators[0]?.pronouns ?? '';
-  comm2Name.value = data.commentators[1]?.name ?? '';
-  comm2Pronouns.value = data.commentators[1]?.pronouns ?? '';
-  readerName.value = data.readers[0]?.name ?? '';
-  readerPronouns.value = data.readers[0]?.pronouns ?? '';
+  const sync = (box: Ref<string>, val?: string, oldVal?: string) => {
+    if (!old || box.value === (oldVal ?? '')) box.value = val ?? '';
+  };
+  sync(comm1Name, data.commentators[0]?.name, old?.commentators[0]?.name);
+  sync(comm1Pronouns, data.commentators[0]?.pronouns, old?.commentators[0]?.pronouns);
+  sync(comm2Name, data.commentators[1]?.name, old?.commentators[1]?.name);
+  sync(comm2Pronouns, data.commentators[1]?.pronouns, old?.commentators[1]?.pronouns);
+  sync(readerName, data.readers[0]?.name, old?.readers[0]?.name);
+  sync(readerPronouns, data.readers[0]?.pronouns, old?.readers[0]?.pronouns);
 }, { immediate: true });
 
 function save() {

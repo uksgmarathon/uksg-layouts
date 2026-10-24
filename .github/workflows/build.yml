@@ -81,6 +81,11 @@ jobs:
       run: |
         pnpm i --frozen-lockfile
 
+    # Run the tests, so a failure stops the build branch being updated
+    - name: Test
+      run: |
+        pnpm test
+
     # Actually build everything
     - name: Build
       run: |

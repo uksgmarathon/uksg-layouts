@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Open bids (incentives), plus challenges that have met their goal (even once closed), sorted by the order of their runs.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "challenge",
+          "choice"
+        ]
+      },
+      "name": {
+        "type": "string"
+      },
+      "game": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "trackerRunId": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "runId": {
+        "description": "ID of the matching nodecg-speedcontrol run, if one could be found.",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "goal": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "total": {
+        "type": "number"
+      },
+      "count": {
+        "type": "number"
+      },
+      "allowUserOptions": {
+        "type": "boolean"
+      },
+      "options": {
+        "description": "Options for \"choice\" bids (bid wars), sorted by total descending.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "total"
+          ]
+        }
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "name",
+      "game",
+      "description",
+      "trackerRunId",
+      "runId",
+      "goal",
+      "total",
+      "count",
+      "allowUserOptions",
+      "options"
+    ]
+  },
+  "default": []
+}

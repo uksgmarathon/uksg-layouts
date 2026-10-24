@@ -3,6 +3,9 @@ import ImageRotation from '../../_misc/components/ImageRotation.vue';
 import ParticipantInfo from '../components/ParticipantInfo.vue';
 import RunInfo from '../components/RunInfo.vue';
 import TimerElem from '../components/TimerElem.vue';
+import { useFeedStyle } from '../feed-style';
+
+const feedStyle = useFeedStyle();
 </script>
 
 <template>
@@ -49,15 +52,18 @@ import TimerElem from '../components/TimerElem.vue';
     <ImageRotation
       class="Fixed"
       :class="$style.ImageRotation"
+      incentives
     />
     <!-- Game Feeds -->
     <div
       id="Game1"
+      :style="feedStyle(0)"
       class="Fixed Capture BorderLeft BorderBottom"
       :class="$style.GameFeed1"
     />
     <div
       id="Game2"
+      :style="feedStyle(0)"
       class="Fixed Capture BorderRight BorderBottom"
       :class="$style.GameFeed2"
     />

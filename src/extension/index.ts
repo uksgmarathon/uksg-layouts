@@ -16,4 +16,5 @@ export default async (nodecg: NodeCGServerAPI) => {
   await import('./game-layout.js');
   await import('./countdown.js');
   await import('./image-rotation.js');
+  await import('./omnibar.js');
 };

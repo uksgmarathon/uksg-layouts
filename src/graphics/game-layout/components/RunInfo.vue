@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { runDataActiveRun } from '../../../browser_shared/replicants';
+import { computed } from 'vue';
+import { getAccentColour, getRunWarnings, hexToRgba } from '../../../browser_shared/customisation';
+import { contentWarnings, runCustomisation, runDataActiveRun } from '../../../browser_shared/replicants';
+import ContentWarnings from '../../_misc/components/ContentWarnings.vue';
 
 withDefaults(defineProps<{
   nameFontSize?: string,
@@ -12,10 +15,26 @@ withDefaults(defineProps<{
   flipped: false,
   horizontal: false,
 });
+
+// Content warnings for the run are shown next to the category (see the "Run Customisation" panel).
+const warnings = computed(() => getRunWarnings(runDataActiveRun?.data, contentWarnings?.data));
+// The theme colours can be overridden per run (see the "Run Customisation" panel).
+const accentStyle = computed(() => {
+  const accent = getAccentColour(runDataActiveRun?.data, runCustomisation?.data);
+  if (!accent) return undefined;
+  const rgba = (alpha: number) => hexToRgba(accent, alpha);
+  return {
+    '--theme-border-colour': accent,
+    '--theme-gradient': `linear-gradient(155deg, ${rgba(1)} 0%, ${rgba(1)} 10%, ${rgba(0.7)} 40%, ${rgba(0.3)} 80%)`,
+  };
+});
 </script>
 
 <template>
-  <div class="Fixed">
+  <div
+    class="Fixed"
+    :style="accentStyle"
+  >
     <div :class="{ [$style.Border]: true, [$style.BorderFlipped]: flipped }" />
     <div
       class="FlexColumn"
@@ -34,16 +53,26 @@ withDefaults(defineProps<{
           [$style.SubtitleHorizontal]: horizontal
         }"
       >
-        {{ runDataActiveRun?.data?.category ?? '???' }}
-        | {{ runDataActiveRun?.data?.system ?? '???' }}<template v-if="runDataActiveRun?.data?.release">
-          {{ `, ${runDataActiveRun?.data?.release}` }}
-        </template>
+        <span>
+          {{ runDataActiveRun?.data?.category ?? '???' }}
+          | {{ runDataActiveRun?.data?.system ?? '???' }}<template v-if="runDataActiveRun?.data?.release">
+            {{ `, ${runDataActiveRun?.data?.release}` }}
+          </template>
+        </span>
+        <ContentWarnings
+          v-if="warnings.length"
+          :class="$style.Warnings"
+          :warnings="warnings"
+          font-size="15px"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" module>
+@use '../../_misc/cut' as *;
+
 @mixin clipPathBorder($size) {
   clip-path: polygon(
     0% 0%,                              /* outside top left */
@@ -130,5 +159,19 @@ withDefaults(defineProps<{
 
 .SubtitleHorizontal {
   padding-top: unset;
+}
+
+/* Sits after the category/system, or wraps underneath if there isn't room. */
+.Subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 15px;
+  row-gap: 6px;
+}
+
+.Warnings {
+  flex-wrap: nowrap;
+  @include doubleCut(8px);
 }
 </style>

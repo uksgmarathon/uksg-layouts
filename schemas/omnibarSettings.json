@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "itemDuration": {
+      "description": "How long (in seconds) each rotating item is shown for.",
+      "type": "number",
+      "default": 15
+    },
+    "pinTimeout": {
+      "description": "How long (in seconds) a forced item stays pinned before being released automatically; 0 to never release.",
+      "type": "number",
+      "default": 30
+    },
+    "upcomingRunsCount": {
+      "type": "number",
+      "default": 3
+    },
+    "donationListCount": {
+      "type": "number",
+      "default": 15
+    },
+    "celebrationStep": {
+      "description": "Celebrate in the omnibar when the total crosses a multiple of this amount; 0 to disable (milestones are always celebrated).",
+      "type": "number",
+      "default": 1000
+    },
+    "types": {
+      "description": "Which item types are included in the rotation.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "upcomingRuns": {
+          "type": "boolean",
+          "default": true
+        },
+        "goal": {
+          "type": "boolean",
+          "default": true
+        },
+        "bidWar": {
+          "type": "boolean",
+          "default": true
+        },
+        "milestone": {
+          "type": "boolean",
+          "default": true
+        },
+        "message": {
+          "type": "boolean",
+          "default": true
+        },
+        "donationList": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "required": [
+        "upcomingRuns",
+        "goal",
+        "bidWar",
+        "milestone",
+        "message",
+        "donationList"
+      ],
+      "default": {
+        "upcomingRuns": true,
+        "goal": true,
+        "bidWar": true,
+        "milestone": true,
+        "message": true,
+        "donationList": true
+      }
+    },
+    "donationTiers": {
+      "description": "Colours used for donations in the donation list, based on the minimum amount.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "colour": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "colour"
+        ]
+      },
+      "default": [
+        {
+          "amount": 5,
+          "colour": "#2f6f9d"
+        },
+        {
+          "amount": 20,
+          "colour": "#1b8ad8"
+        },
+        {
+          "amount": 50,
+          "colour": "#b7790b"
+        },
+        {
+          "amount": 100,
+          "colour": "#c4105a"
+        }
+      ]
+    }
+  },
+  "required": [
+    "itemDuration",
+    "pinTimeout",
+    "upcomingRunsCount",
+    "donationListCount",
+    "celebrationStep",
+    "types",
+    "donationTiers"
+  ]
+}
