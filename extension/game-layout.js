@@ -1,6 +1,6 @@
 import { nodecg } from './util/nodecg.js';
 import obs from './util/obs.js';
-import { capturePositions, gameLayouts } from './util/replicants.js';
+import { capturePositions, gameLayouts, layoutSettings } from './util/replicants.js';
 import { sc } from './util/speedcontrol.js';
 // The key used in the "capturePositions" replicant for "Game Layout".
 const gameLayoutKey = 'GameLayout';
@@ -68,6 +68,12 @@ capturePositions.on('change', async (val) => {
     // Camera Capture
     await positionAndCrop('camera', obsNames.captures.camera, 'Camera');
 });
+/**
+ * Optional extras (confetti, over estimate warning) are turned on per run, so go back to off on a run change.
+ */
+function resetLayoutSettings() {
+    layoutSettings.value = { celebrateFinish: false, overEstimate: 'off' };
+}
 // Change the game layout based on information supplied via the run data.
 let layoutInit = false;
 sc.runDataActiveRun.on('change', (newVal, oldVal) => {
@@ -78,11 +84,13 @@ sc.runDataActiveRun.on('change', (newVal, oldVal) => {
             const code = newVal.customData.layout?.toLowerCase();
             const layout = gameLayouts.value.available.find((l) => l.code.toLowerCase() === code);
             gameLayouts.value.selected = layout?.code ?? null;
+            resetLayoutSettings();
         }
     }
     else if (layoutInit && !newVal) {
         // If there's no active run, return to NULL (graphic will reselect the default).
         gameLayouts.value.selected = null;
+        resetLayoutSettings();
     }
     layoutInit = true;
 });

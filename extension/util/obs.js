@@ -102,11 +102,10 @@ async function configureSceneItem(scene, item, area, crop, visible) {
         throw new Error('not all responses we expected were received');
     }
 }
+// Not waited on, so the rest of the extension still starts if OBS isn't running;
+// anything that uses OBS checks "conn.identified" first.
 if (config.enabled) {
-    await new Promise((res) => {
-        obs.on('Identified', res);
-        connect().catch(() => { });
-    });
+    connect().catch(() => { });
     nodecg.log.debug('[Util/OBS] Setup complete');
 }
 export default {

@@ -17,11 +17,12 @@ nodecg.listenFor('countdownStart', (time) => {
         return;
     const now = new Date();
     const then = new Date(now.getFullYear(), now.getMonth(), now.getDate(), Number(time.split(':')[0]), Number(time.split(':')[1]));
-    if (countdownTimeout)
-        clearTimeout(countdownTimeout);
     const diff = then.getTime() - now.getTime();
+    // Times that have already passed are ignored, and any running countdown carries on.
     if (diff <= 0)
         return;
+    if (countdownTimeout)
+        clearTimeout(countdownTimeout);
     countdown.value = {
         originalDuration: diff,
         remaining: diff,

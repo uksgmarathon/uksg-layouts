@@ -1,0 +1,1 @@
+import{m as n,N as s,w as u,q as i}from"./replicants-9gGn8_ug.js";function d(a,e){const t=n(!1);async function c(){t.value=!1,await i(),await document.fonts.ready,t.value=!!a.value&&a.value.scrollWidth>a.value.clientWidth+1}return s(()=>{c().catch(()=>{})}),e&&u(e,()=>{c().catch(()=>{})},{deep:!0}),t}export{d as u};
